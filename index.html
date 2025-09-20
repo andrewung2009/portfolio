@@ -643,41 +643,6 @@
             border: 1px solid var(--border-color);
         }
 
-        .project-links {
-            display: flex;
-            gap: 12px;
-        }
-
-        .project-link {
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .project-link.primary {
-            background: var(--accent-color);
-            color: white;
-        }
-
-        .project-link.primary:hover {
-            background: #2563eb;
-            transform: translateY(-2px);
-        }
-
-        .project-link.secondary {
-            background: transparent;
-            color: var(--accent-color);
-            border: 2px solid var(--accent-color);
-        }
-
-        .project-link.secondary:hover {
-            background: var(--accent-color);
-            color: white;
-        }
-
         /* Contact Section */
         .contact-section {
             background: linear-gradient(135deg, var(--text-dark) 0%, #0f172a 100%);
@@ -1130,7 +1095,7 @@
                 <!-- Kayam Registration App -->
                 <div class="project-card" data-category="app">
                     <div class="project-header">
-                        <img src="Kayam App.png" alt="Kayam Registration App" class="project-image">
+                        <img src="kayamregistrationapp.jpg" alt="Kayam Registration App" class="project-image">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Kayam Registration App</h3>
@@ -1147,9 +1112,6 @@
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Google Sheets API</span>
                             <span class="tech-tag">Data Management</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Chumbaka-Asia/or-reader" class="project-link primary">View Code</a>
                         </div>
                     </div>
                 </div>
@@ -1176,9 +1138,6 @@
                             <span class="tech-tag">AppSheet</span>
                             <span class="tech-tag">Report Generation</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">View Project</a>
-                        </div>
                     </div>
                 </div>
 
@@ -1204,9 +1163,6 @@
                             <span class="tech-tag">Ultrasonic Sensors</span>
                             <span class="tech-tag">Assistive Technology</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">Learn More</a>
-                        </div>
                     </div>
                 </div>
 
@@ -1230,9 +1186,6 @@
                             <span class="tech-tag">MIT App Inventor</span>
                             <span class="tech-tag">Design Thinking</span>
                             <span class="tech-tag">User Experience</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">View App</a>
                         </div>
                     </div>
                 </div>
@@ -1259,9 +1212,6 @@
                             <span class="tech-tag">LED Alerts</span>
                             <span class="tech-tag">Healthcare Technology</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">View Details</a>
-                        </div>
                     </div>
                 </div>
 
@@ -1287,9 +1237,6 @@
                             <span class="tech-tag">LED Control</span>
                             <span class="tech-tag">Creative Technology</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">See Project</a>
-                        </div>
                     </div>
                 </div>
 
@@ -1314,9 +1261,6 @@
                             <span class="tech-tag">Interactive Design</span>
                             <span class="tech-tag">Educational Technology</span>
                             <span class="tech-tag">Chemistry</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">Visit Platform</a>
                         </div>
                     </div>
                 </div>
@@ -1829,7 +1773,7 @@
         }
 
         // Add ripple effect to all buttons
-        document.querySelectorAll('.btn, .project-link, .filter-btn').forEach(button => {
+        document.querySelectorAll('.btn, .filter-btn').forEach(button => {
             button.addEventListener('click', createRipple);
         });
 
