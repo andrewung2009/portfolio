@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Logistics Agent | Sarawak Schools Tablet Rollout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --text-dark: #0f172a;
+            --text-light: #94a3b8;
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.5);
+            --bg-glass: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(148, 163, 184, 0.1);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #e2e8f0;
+            background: var(--bg-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Cursor Trail Effect */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .cursor-trail {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.3;
+            transition: all 0.15s ease;
+            mix-blend-mode: difference;
+        }
+
+        /* Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .gradient-sphere {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .sphere-1 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            top: -200px;
+            right: -200px;
+            animation-delay: 0s;
+        }
+
+        .sphere-2 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            bottom: -200px;
+            left: -200px;
+            animation-delay: 5s;
+        }
+
+        .sphere-3 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav.scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            box-shadow: var(--shadow-lg);
+            padding: 12px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #e2e8f0;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #e2e8f0;
+            margin: 3px 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff, #94a3b8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 400;
+            margin-bottom: 32px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+            color: #94a3b8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .profile-container {
+            margin: 48px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.5);
+        }
+
+        .profile-img i {
+            font-size: 4rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 64px;
+            color: #ffffff;
+            position: relative;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .about-text {
+            font-size: 18px;
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .achievements-list {
+            list-style: none;
+        }
+
+        .achievement-item {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .achievement-item:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .achievement-icon {
+            font-size: 24px;
+            margin-right: 16px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
+        }
+
+        .skill-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            padding: 32px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .skill-description {
+            color: #94a3b8;
+            font-size: 15px;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background: rgba(30, 41, 59, 0.3);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border: 1px solid var(--border-color);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            transform: translateY(-16px);
+            box-shadow: var(--shadow-xl);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .project-header {
+            position: relative;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="25" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+
+        .project-icon {
+            font-size: 4rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .project-content {
+            padding: 32px;
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .project-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .project-year {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .project-description {
+            color: #94a3b8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .project-features li {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .project-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .tech-tag {
+            background: rgba(99, 102, 241, 0.2);
+            color: #e2e8f0;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .timeline-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 16px;
+            color: #ffffff;
+            position: relative;
+            letter-spacing: -0.02em;
+        }
+
+        .timeline-title::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .timeline-subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-top: 24px;
+        }
+
+        .timeline-wrapper {
+            position: relative;
+            overflow-x: auto;
+            padding: 40px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) transparent;
+        }
+
+        .timeline-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .timeline-wrapper::-webkit-scrollbar-track {
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 10px;
+        }
+
+        .timeline-wrapper::-webkit-scrollbar-thumb {
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 10px;
+        }
+
+        .timeline {
+            position: relative;
+            display: flex;
+            min-width: 100%;
+            padding: 20px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .timeline-item {
+            position: relative;
+            flex: 0 0 auto;
+            width: 300px;
+            padding: 0 20px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            background: var(--bg-dark);
+            border: 4px solid var(--accent-color);
+            border-radius: 50%;
+            position: relative;
+            z-index: 3;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 8px rgba(236, 72, 153, 0.1);
+        }
+
+        .timeline-year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+        }
+
+        .timeline-content {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-md);
+            width: 100%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-content::before {
+            transform: scaleX(1);
+        }
+
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .timeline-project-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .timeline-project-description {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .timeline-project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .timeline-tech-tag {
+            background: rgba(99, 102, 241, 0.2);
+            color: #e2e8f0;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .timeline-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 16px;
+        }
+
+        .timeline-nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--border-color);
+            color: #e2e8f0;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-nav-btn:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-color: transparent;
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: rgba(30, 41, 59, 0.3);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .contact-text {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .contact-details {
+            display: grid;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+        }
+
+        .contact-item-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 48px;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            color: #94a3b8;
+            text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            z-index: 10000;
+            transition: width 0.1s ease;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-dark);
+                flex-direction: column;
+                justify-content: center;
+                transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: var(--shadow-xl);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                font-size: 24px;
+                margin: 16px 0;
+            }
+
+            .mobile-menu {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 200px;
+                text-align: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                width: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .back-to-top {
+                width: 48px;
+                height: 48px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .timeline-item {
+                width: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Cursor Trail -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="gradient-sphere sphere-1"></div>
+        <div class="gradient-sphere sphere-2"></div>
+        <div class="gradient-sphere sphere-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="logo">AI Logistics Agent</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#problem" class="active">Problem</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#improvements">Improvements</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>AI Logistics Agent</h1>
+                <p class="hero-subtitle">
+                    An intelligent Google Sheets assistant that helps manage a 204-school tablet rollout across Sarawak by answering questions about deadlines, overdue tasks, and contacts instantly.
+                </p>
+                <div class="profile-container">
+                    <div class="profile-img">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#problem" class="btn btn-primary">
+                        <i class="fas fa-arrow-down"></i> Explore the Project
+                    </a>
+                    <a href="#impact" class="btn btn-secondary">
+                        <i class="fas fa-play"></i> See the Impact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section" id="problem">
+        <div class="container">
+            <h2 class="section-title">The Problem</h2>
+            <div class="about-grid">
+                <div class="fade-in-left">
+                    <p class="about-text">
+                        All over Sarawak, many schools don't have opportunities for students to catch up in their studies. Some of them can't even read or write. There are many people involved in this project, such as teachers, delivery drivers, and volunteers.
+                    </p>
+                    <p class="about-text">
+                        The problems arise not just during the process of delivering the tablets but before delivering the tablets. These tablets are loaded with educational materials from the Kayam App to help these students, but managing a 204-school logistics rollout is complex.
+                    </p>
+                    <p class="about-text">
+                        How can we make it easy for those who are involved in the project to know what is overdue and what the upcoming deadlines are?
+                    </p>
+                </div>
+                <div class="fade-in-right">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">204</div>
+                            <div class="stat-label">Schools in Rollout</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1,000+</div>
+                            <div class="stat-label">Rows of Data</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Kayam</div>
+                            <div class="stat-label">Educational App</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fade-in" style="margin-top: 48px;">
+                <ul class="achievements-list">
+                    <li class="achievement-item">
+                        <span class="achievement-icon">📚</span>
+                        <strong>Students left behind</strong> — Many schools in Sarawak lack opportunities for students to catch up; some can't even read or write.
+                    </li>
+                    <li class="achievement-item">
+                        <span class="achievement-icon">🚚</span>
+                        <strong>Logistics complexity</strong> — Teachers, delivery drivers, and volunteers all need to coordinate across 204 schools.
+                    </li>
+                    <li class="achievement-item">
+                        <span class="achievement-icon">⚠️</span>
+                        <strong>Deadline visibility</strong> — No easy way to know what tasks are overdue or what deadlines are approaching.
+                    </li>
+                    <li class="achievement-item">
+                        <span class="achievement-icon">📋</span>
+                        <strong>Data overload</strong> — Over 1,000 rows of tracking data make manual lookups slow and error-prone.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section" id="process">
+        <div class="container">
+            <h2 class="section-title">The Process</h2>
+            <p style="text-align: center; color: #94a3b8; font-size: 18px; max-width: 700px; margin: 0 auto 64px;">
+                Mr Chong, my teacher in Chumbaka, gave an idea to develop an AI agent inside Google Sheets to answer questions based on what the users ask. The AI agent is basically like a human assistant, except it has everything stored in the database.
+            </p>
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-table"></i></div>
+                    <h3 class="skill-title">The Tool: Google Sheets</h3>
+                    <p class="skill-description">
+                        Used Google Sheets because of prior experience working with it, leveraging Google Apps Script and Python to build the solution.
+                    </p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <h3 class="skill-title">Initial Challenge</h3>
+                    <p class="skill-description">
+                        At the start, wasn't even sure it would work. Eventually managed to connect ChatGPT to Google Sheets using Google Apps Script by coding it to respond to simple questions before reading sheet data.
+                    </p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3 class="skill-title">Scaling Issue: 1,000+ Rows</h3>
+                    <p class="skill-description">
+                        Getting the AI to read all data with over a thousand rows was like giving someone a 1,000-page book and asking a question. It was too slow and too costly every single time.
+                    </p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <h3 class="skill-title">Vector Database Solution</h3>
+                    <p class="skill-description">
+                        Instead of reading the whole book, the AI uses a smart index to flip to the exact paragraph it needs instantly. A vector database searches using numerical codes rather than exact words. Data syncs to the cloud manually or every 1–2 hours.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section (Timeline) -->
+    <section class="timeline-section" id="solution">
+        <div class="timeline-container">
+            <div class="timeline-header">
+                <h2 class="timeline-title">Project Journey</h2>
+                <p class="timeline-subtitle">From problem identification to a working AI assistant</p>
+            </div>
+            <div class="timeline-wrapper" id="timelineWrapper">
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">Step 1</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-project-title">Problem Identified</h3>
+                            <p class="timeline-project-description">
+                                Schools in Sarawak lack catch-up opportunities. Managing a 204-school tablet rollout with many stakeholders is complex and deadlines are hard to track.
+                            </p>
+                            <div class="timeline-project-tech">
+                                <span class="timeline-tech-tag">Sarawak</span>
+                                <span class="timeline-tech-tag">204 Schools</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">Step 2</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-project-title">The Idea</h3>
+                            <p class="timeline-project-description">
+                                Mr Chong from Chumbaka suggested developing an AI agent inside Google Sheets — a human-like assistant with everything stored in the database.
+                            </p>
+                            <div class="timeline-project-tech">
+                                <span class="timeline-tech-tag">Chumbaka</span>
+                                <span class="timeline-tech-tag">AI Agent</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">Step 3</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-project-title">Connecting ChatGPT</h3>
+                            <p class="timeline-project-description">
+                                Connected ChatGPT to Google Sheets using Google Apps Script. Coded the agent to respond to simple questions before reading sheet information.
+                            </p>
+                            <div class="timeline-project-tech">
+                                <span class="timeline-tech-tag">ChatGPT</span>
+                                <span class="timeline-tech-tag">Apps Script</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">Step 4</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-project-title">Scaling Challenge</h3>
+                            <p class="timeline-project-description">
+                                Tried getting the AI to read all 1,000+ rows. Like giving someone a 1,000-page book — too slow and too much energy to re-read every time.
+                            </p>
+                            <div class="timeline-project-tech">
+                                <span class="timeline-tech-tag">1,000+ Rows</span>
+                                <span class="timeline-tech-tag">Performance</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">Step 5</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-project-title">Vector Database</h3>
+                            <p class="timeline-project-description">
+                                Implemented a vector database to search similar info using numerical codes. The AI flips to the exact paragraph needed — data syncs manually or every 1–2 hours.
+                            </p>
+                            <div class="timeline-project-tech">
+                                <span class="timeline-tech-tag">Vector DB</span>
+                                <span class="timeline-tech-tag">Cloud Sync</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">Step 6</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-project-title">Final Product</h3>
+                            <p class="timeline-project-description">
+                                The AI agent works. Users can ask any question related to the data and get instant answers — no more manually scanning thousands of rows.
+                            </p>
+                            <div class="timeline-project-tech">
+                                <span class="timeline-tech-tag">AI Assistant</span>
+                                <span class="timeline-tech-tag">Google Sheets</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-nav">
+                <button class="timeline-nav-btn" id="timelinePrev" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="timeline-nav-btn" id="timelineNext" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="section projects-section" id="impact">
+        <div class="container">
+            <h2 class="section-title">The Impact</h2>
+            <p style="text-align: center; color: #94a3b8; font-size: 18px; max-width: 700px; margin: 0 auto 64px;">
+                The final product allows people who use this sheet to get their questions answered quickly without having to slowly find information across many rows of content.
+            </p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-calendar-check project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-year">Feature</span>
+                        <h3 class="project-title">Deadline Tracking</h3>
+                        <p class="project-description">
+                            Ask the AI about upcoming deadlines and get instant answers without scanning the entire sheet.
+                        </p>
+                        <ul class="project-features">
+                            <li>"What is the next deadline that I should watch out for?"</li>
+                            <li>"What are some of the unfinished tasks even though the deadline has passed?"</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag">AI Query</span>
+                            <span class="tech-tag">Deadlines</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-address-book project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-year">Feature</span>
+                        <h3 class="project-title">Contact Lookup</h3>
+                        <p class="project-description">
+                            Instantly find who to contact for specific regions or tasks without searching through rows.
+                        </p>
+                        <ul class="project-features">
+                            <li>"Who should I contact in PPD Kuching?"</li>
+                            <li>Quick access to stakeholder information</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag">Contacts</span>
+                            <span class="tech-tag">Regions</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-tasks project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-year">Feature</span>
+                        <h3 class="project-title">Deliverable Status</h3>
+                        <p class="project-description">
+                            Check whether all tasks have been met for every deliverable with a single question.
+                        </p>
+                        <ul class="project-features">
+                            <li>"Have all the tasks been met for every deliverable?"</li>
+                            <li>Identify overdue tasks instantly</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag">Status</span>
+                            <span class="tech-tag">Deliverables</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Improvements Section -->
+    <section class="section" id="improvements">
+        <div class="container">
+            <h2 class="section-title">Future Improvements</h2>
+            <p style="text-align: center; color: #94a3b8; font-size: 18px; max-width: 700px; margin: 0 auto 64px;">
+                Planned enhancements to make the AI agent even more powerful and accessible for everyone involved in the project.
+            </p>
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-bell"></i></div>
+                    <h3 class="skill-title">Automated Notifications</h3>
+                    <p class="skill-description">
+                        Have a bar which can track dates and notify what tasks are overdue without requiring input. Possibly connect through email, WhatsApp, or Telegram.
+                    </p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3 class="skill-title">Suggested Questions</h3>
+                    <p class="skill-description">
+                        In the AI sidebar, include suggested questions to ask — helping users discover what the agent can do.
+                    </p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3 class="skill-title">Sync Progress Bar</h3>
+                    <p class="skill-description">
+                        Have a progress bar to show how far the syncing is for the data to reach the database in the cloud.
+                    </p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3 class="skill-title">Enhanced UI</h3>
+                    <p class="skill-description">
+                        Make the UI of the AI look nicer, so that the user feels more excited to use it.
+                    </p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="skill-title">Mobile Availability</h3>
+                    <p class="skill-description">
+                        Make this AI feature available on phones. Mobile phones are more portable and easier to bring around and update immediately rather than a computer.
+                    </p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h3 class="skill-title">Seamless Cloud Sync</h3>
+                    <p class="skill-description">
+                        Improve the cloud sync experience so data is always up-to-date and available across all devices in real time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Project Summary</h2>
+            <div class="contact-grid">
+                <div class="contact-info fade-in-left">
+                    <h3>Empowering Sarawak's Students</h3>
+                    <p class="contact-text">
+                        This AI agent transforms how a 204-school tablet rollout is managed. By embedding an intelligent assistant directly inside Google Sheets, stakeholders — teachers, delivery drivers, and volunteers — can get instant answers about deadlines, overdue tasks, and contacts without manually searching through over a thousand rows of data.
+                    </p>
+                    <p class="contact-text">
+                        Inspired by Mr Chong from Chumbaka, built with Google Apps Script, ChatGPT, and a vector database, this project proves that powerful AI tools can live right where the work happens.
+                    </p>
+                </div>
+                <div class="contact-details fade-in-right">
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <strong style="color: #fff;">Region</strong><br>
+                            <span style="color: #94a3b8;">Sarawak, Malaysia</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-school"></i></div>
+                        <div>
+                            <strong style="color: #fff;">Scale</strong><br>
+                            <span style="color: #94a3b8;">204 Schools</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-user-tie"></i></div>
+                        <div>
+                            <strong style="color: #fff;">Inspiration</strong><br>
+                            <span style="color: #94a3b8;">Mr Chong, Chumbaka</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-code"></i></div>
+                        <div>
+                            <strong style="color: #fff;">Tech Stack</strong><br>
+                            <span style="color: #94a3b8;">Google Sheets, Apps Script, ChatGPT, Vector DB</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-tablet-alt"></i></div>
+                        <div>
+                            <strong style="color: #fff;">Educational App</strong><br>
+                            <span style="color: #94a3b8;">Kayam App</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#hero" class="social-link" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+                <a href="#problem" class="social-link" aria-label="Problem"><i class="fas fa-exclamation-circle"></i></a>
+                <a href="#impact" class="social-link" aria-label="Impact"><i class="fas fa-chart-line"></i></a>
+                <a href="#improvements" class="social-link" aria-label="Improvements"><i class="fas fa-rocket"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 AI Logistics Agent — Built for Sarawak Schools Tablet Rollout</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Cursor Trail Effect
+        const cursorDot = document.getElementById('cursorDot');
+        const cursorTrail = document.getElementById('cursorTrail');
+        let mouseX = 0, mouseY = 0;
+        let trailX = 0, trailY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+
+        function animateTrail() {
+            trailX += (mouseX - trailX) * 0.1;
+            trailY += (mouseY - trailY) * 0.1;
+            cursorTrail.style.left = (trailX - 20) + 'px';
+            cursorTrail.style.top = (trailY - 20) + 'px';
+            requestAnimationFrame(animateTrail);
+        }
+        animateTrail();
+
+        // Hide cursor on mobile
+        if ('ontouchstart' in window) {
+            cursorDot.style.display = 'none';
+            cursorTrail.style.display = 'none';
+        }
+
+        // Scroll Progress Bar
+        const scrollProgress = document.getElementById('scrollProgress');
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+
+            // Navbar scroll effect
+            if (scrollTop > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Back to top button
+            if (scrollTop > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+
+            // Active nav link based on scroll position
+            const sections = document.querySelectorAll('section[id]');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollTop >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Back to Top
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .project-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Timeline Navigation
+        const timelineWrapper = document.getElementById('timelineWrapper');
+        const timelinePrev = document.getElementById('timelinePrev');
+        const timelineNext = document.getElementById('timelineNext');
+
+        timelinePrev.addEventListener('click', () => {
+            timelineWrapper.scrollBy({ left: -320, behavior: 'smooth' });
+        });
+
+        timelineNext.addEventListener('click', () => {
+            timelineWrapper.scrollBy({ left: 320, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
