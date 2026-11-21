@@ -857,6 +857,14 @@
                 {
                     "label": "Visit website",
                     "url": "https://pco-duplicates.onrender.com/"
+                },
+                {
+                    "label": "Visit repository",
+                    "url": "https://github.com/andrewung2009/planning-center-duplicates-checker"
+                },
+                {
+                    "label": "Visit Presentation",
+                    "url": "https://docs.google.com/presentation/d/e/2PACX-1vRGGi9dJKkD9EAFjqE6gfvC_5CCK2Wv-dNiZHXH5_D2asK5u3zyQdeC0hbbVhU9nZFbMNN2JRyjBCLL/pub?start=false&loop=false&delayms=3000&slide=id.h2309ae940f0465b5_3_75"
                 }
             ],
             "metrics": [],
