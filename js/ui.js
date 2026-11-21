@@ -115,16 +115,27 @@
     var style = ' style="--cat: var(--' + (CATEGORY[project.category] ? project.category : "app") + ')"';
     var imageUrl = cover.url ? String(cover.url).trim() : "";
     var hasImage = Boolean(imageUrl);
+    var fit = cover.fit === "cover" ? "cover" : "contain";
     var img = "";
     if (hasImage) {
-      img =
-        '<img class="cover-img" src="' +
+      var mainImage =
+        '<img class="cover-img cover-img--main" src="' +
         esc(imageUrl) +
         '" alt="' +
         esc(cover.alt || project.title + " cover") +
         '" loading="lazy" decoding="async">';
+      if (fit === "contain") {
+        img =
+          '<img class="cover-img cover-img--blur" src="' +
+          esc(imageUrl) +
+          '" alt="" aria-hidden="true" loading="lazy" decoding="async">' +
+          mainImage;
+      } else {
+        img = mainImage;
+      }
     }
-    return '<div class="cover-art' + (hasImage ? " has-image" : "") + '"' + style + ">" + badge + fallback + img + "</div>";
+    var classes = "cover-art" + (hasImage ? " has-image fit-" + fit : "");
+    return '<div class="' + classes + '"' + style + ">" + badge + fallback + img + "</div>";
   }
 
   function initials(name) {

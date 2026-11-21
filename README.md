@@ -34,6 +34,10 @@ Use the **Upload file** button next to any image field. When signed in with a to
 
 Images must be under 8 MB. PNG, JPG, WebP, GIF and SVG all work. Uploading a file is more reliable than pasting an external image URL, because some sites block their images from being shown on other domains.
 
+Use **Image fit** to control how a cover fills its card:
+- **Contain** shows the whole image on a soft blurred backdrop — best for logos, diagrams and screenshots.
+- **Cover** fills the card edge to edge — best for photos.
+
 ### Admin security
 
 The password in `js/admin-config.js` is a convenience lock, not real security — anyone can read it in the source. The real protection is the fine-grained GitHub token (Contents: Read and write for this repository only). The token is stored only in your browser and can be revoked on GitHub at any time.

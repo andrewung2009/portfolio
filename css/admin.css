@@ -1554,6 +1554,34 @@ select.input {
   z-index: 2;
 }
 
+.admin-cover-preview .cover-art.fit-contain {
+  background:
+    radial-gradient(circle at 50% 36%, color-mix(in srgb, var(--cat, var(--app)) 10%, transparent), transparent 64%),
+    var(--surface-2);
+}
+
+.admin-cover-preview .cover-art.fit-contain .cover-img--blur {
+  inset: -8%;
+  width: 116%;
+  height: 116%;
+  filter: blur(22px) saturate(1.15);
+  opacity: 0.42;
+  z-index: 1;
+}
+
+.admin-cover-preview .cover-art.fit-contain .cover-img--main {
+  inset: 0;
+  width: auto;
+  height: auto;
+  max-width: 82%;
+  max-height: 82%;
+  margin: auto;
+  object-fit: contain;
+  z-index: 2;
+  border-radius: 10px;
+  filter: drop-shadow(0 8px 20px rgba(15, 23, 42, 0.22));
+}
+
 /* ---------- health ---------- */
 
 .health-summary {

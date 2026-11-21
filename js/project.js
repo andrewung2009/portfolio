@@ -386,11 +386,17 @@
   }
 
   function setupImageFallbacks() {
-    document.querySelectorAll(".cover-img").forEach(function (img) {
+    document.querySelectorAll(".cover-img--main").forEach(function (img) {
       function fail() {
-        img.classList.add("is-broken");
         var art = img.closest(".cover-art");
-        if (art) art.classList.remove("has-image");
+        if (art) {
+          art.classList.remove("has-image");
+          art.querySelectorAll(".cover-img").forEach(function (image) {
+            image.classList.add("is-broken");
+          });
+        } else {
+          img.classList.add("is-broken");
+        }
       }
       img.addEventListener("error", fail);
       if (img.complete && img.naturalWidth === 0) fail();

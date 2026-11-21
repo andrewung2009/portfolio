@@ -70,7 +70,7 @@
     context: "",
     timelineNote: "",
     tags: [],
-    cover: { type: "icon", icon: "sparkles", url: "", alt: "" },
+    cover: { type: "icon", icon: "sparkles", url: "", alt: "", fit: "contain" },
     links: [],
     metrics: [],
     problem: { paragraphs: [], bullets: [] },
@@ -1119,12 +1119,16 @@
 
     var media =
       '<div class="panel">' +
-      '<div class="panel-head"><div><h2>Cover</h2><p>Use a designed icon, or add an image. Adding an image switches the cover type automatically.</p></div></div>' +
+      '<div class="panel-head"><div><h2>Cover</h2><p>Use a designed icon, or add an image. Adding an image switches the type to Image; Image fit controls how it fills the card.</p></div></div>' +
       '<div class="grid-2">' +
       selectField("Cover type", base + ".cover.type", [
         { value: "icon", label: "Designed icon" },
         { value: "image", label: "Image" }
       ]) +
+      selectField("Image fit", base + ".cover.fit", [
+        { value: "contain", label: "Contain — show the whole image" },
+        { value: "cover", label: "Cover — fill the frame" }
+      ], { help: "Contain is best for logos and diagrams. Cover is best for photos." }) +
       selectField("Icon", base + ".cover.icon", iconOptions()) +
       textField("Image alt text", base + ".cover.alt", { wide: true, help: "Describe the image for screen readers." }) +
       "</div>" +
@@ -1353,12 +1357,30 @@
     return match ? match[1] + ".type" : null;
   }
 
+  function coverFitPathFor(path) {
+    var match = /^(projects\.\d+\.cover)\.(url|type|icon|alt|fit)$/.exec(path);
+    return match ? match[1] + ".fit" : null;
+  }
+
   function setCoverType(path, type) {
     var typePath = coverTypePathFor(path);
     if (!typePath) return;
     setPath(data, typePath, type);
     var select = document.querySelector('[data-path="' + typePath + '"]');
     if (select) select.value = type;
+  }
+
+  function setCoverFit(path, fit) {
+    var fitPath = coverFitPathFor(path);
+    if (!fitPath) return;
+    setPath(data, fitPath, fit);
+    var select = document.querySelector('[data-path="' + fitPath + '"]');
+    if (select) select.value = fit;
+  }
+
+  function ensureCoverFit(path) {
+    var fitPath = coverFitPathFor(path);
+    if (fitPath && !getPath(data, fitPath)) setCoverFit(path, "contain");
   }
 
   var coverPreviewTimer = null;
@@ -1392,11 +1414,12 @@
 
     if (/\.cover\.url$/.test(path)) {
       setCoverType(path, String(value).trim() ? "image" : "icon");
+      ensureCoverFit(path);
       scheduleCoverPreview();
     }
 
     if (/\.(title|year|category|featured|id)$/.test(path)) updateProjectListLabels();
-    if (/\.(category|featured|cover\.type|cover\.icon)$/.test(path)) renderViewPreserve();
+    if (/\.(category|featured|cover\.type|cover\.icon|cover\.fit)$/.test(path)) renderViewPreserve();
   }
 
   function filterProjectList(term) {
@@ -1641,6 +1664,7 @@
       reader.onload = function () {
         setPath(data, path, String(reader.result));
         setCoverType(path, "image");
+        ensureCoverFit(path);
         markDirty();
         renderViewPreserve();
         toast("Image added to the local draft", "success");
@@ -1677,6 +1701,7 @@
       .then(function () {
         setPath(data, path, repoPath);
         setCoverType(path, "image");
+        ensureCoverFit(path);
         markDirty();
         renderViewPreserve();
         toast("Image uploaded — press Publish to update the site.", "success");
@@ -2072,10 +2097,16 @@
     editorBody.addEventListener("click", handleEditorClick);
     editorBody.addEventListener("error", function (event) {
       var img = event.target;
-      if (img && img.matches && img.matches(".cover-img")) {
-        img.classList.add("is-broken");
+      if (img && img.matches && img.matches(".cover-img--main")) {
         var art = img.closest(".cover-art");
-        if (art) art.classList.remove("has-image");
+        if (art) {
+          art.classList.remove("has-image");
+          art.querySelectorAll(".cover-img").forEach(function (image) {
+            image.classList.add("is-broken");
+          });
+        } else {
+          img.classList.add("is-broken");
+        }
       }
     }, true);
     importFile.addEventListener("change", handleImportFile);
