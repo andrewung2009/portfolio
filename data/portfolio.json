@@ -162,6 +162,95 @@
     },
     "projects": [
         {
+            "id": "kayam-tracking-app",
+            "title": "Kayam Tracking App",
+            "year": 2023,
+            "category": "app",
+            "featured": false,
+            "summary": "A Python registration tool that tracks hundreds of government tablets on their way to schools in Sarawak — in real time.",
+            "role": "Design & development",
+            "context": "Sarawak schools tablet rollout",
+            "timelineNote": "A real-time tracking tool for government tablets sent to Sarawak schools.",
+            "tags": [
+                "Python",
+                "Google Sheets API",
+                "Data management"
+            ],
+            "cover": {
+                "type": "icon",
+                "icon": "tablet",
+                "url": "",
+                "alt": ""
+            },
+            "links": [],
+            "metrics": [],
+            "problem": {
+                "paragraphs": [
+                    "In many schools in Sarawak, there are students who are already ten years old but still can't speak or read. To help them, the government decided to send hundreds of tablets to Sarawak.",
+                    "These tablets have the Kayam App, which helps students who are trailing to catch up to the level they're supposed to be at. However, it was very difficult to track the delivery of the tablets since people used to do it manually."
+                ],
+                "bullets": []
+            },
+            "process": {
+                "paragraphs": [
+                    "I developed a Python-based registration tool integrated with the Google Sheets API so that I could get real-time data. The system automatically logs, verifies and monitors the tablets that are distributed."
+                ],
+                "cards": []
+            },
+            "impact": {
+                "paragraphs": [
+                    "This made sure that every part of the process was automated, with no mistakes or missing data, making it much easier and faster to track all the tablets sent to schools."
+                ],
+                "features": []
+            },
+            "journey": [],
+            "improvements": [],
+            "gallery": []
+        },
+        {
+            "id": "map-mileage-calculator",
+            "title": "Map Mileage Calculator",
+            "year": 2025,
+            "category": "web",
+            "featured": false,
+            "summary": "A web tool that calculates delivery distances and driver earnings automatically — with proof of the kilometres actually driven.",
+            "timelineNote": "A web tool that calculates delivery distances and driver earnings.",
+            "tags": [
+                "Web development",
+                "Mapping API",
+                "Data analysis"
+            ],
+            "cover": {
+                "type": "icon",
+                "icon": "map",
+                "url": "",
+                "alt": ""
+            },
+            "links": [],
+            "metrics": [],
+            "problem": {
+                "paragraphs": [
+                    "In addition to the Kayam Tracking App, the drivers who delivered the tablets didn't know how much they would earn for each trip. There was also a risk that some drivers might cheat about the number of kilometres they had driven to get more money."
+                ],
+                "bullets": []
+            },
+            "process": {
+                "paragraphs": [
+                    "I built a web-based tool that uses mapping data to automatically calculate the distance and total mileage between locations. It then calculates the driver's earnings based on the number of kilometres covered."
+                ],
+                "cards": []
+            },
+            "impact": {
+                "paragraphs": [
+                    "This helps provide proof of the actual distance driven and ensures that each driver gets paid the correct amount based on accurate data."
+                ],
+                "features": []
+            },
+            "journey": [],
+            "improvements": [],
+            "gallery": []
+        },
+        {
             "id": "ai-logistics-agent",
             "title": "AI Logistics Agent",
             "year": 2025,
@@ -364,95 +453,6 @@
             "gallery": []
         },
         {
-            "id": "kayam-tracking-app",
-            "title": "Kayam Tracking App",
-            "year": 2023,
-            "category": "app",
-            "featured": false,
-            "summary": "A Python registration tool that tracks hundreds of government tablets on their way to schools in Sarawak — in real time.",
-            "role": "Design & development",
-            "context": "Sarawak schools tablet rollout",
-            "timelineNote": "A real-time tracking tool for government tablets sent to Sarawak schools.",
-            "tags": [
-                "Python",
-                "Google Sheets API",
-                "Data management"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "tablet",
-                "url": "",
-                "alt": ""
-            },
-            "links": [],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "In many schools in Sarawak, there are students who are already ten years old but still can't speak or read. To help them, the government decided to send hundreds of tablets to Sarawak.",
-                    "These tablets have the Kayam App, which helps students who are trailing to catch up to the level they're supposed to be at. However, it was very difficult to track the delivery of the tablets since people used to do it manually."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [
-                    "I developed a Python-based registration tool integrated with the Google Sheets API so that I could get real-time data. The system automatically logs, verifies and monitors the tablets that are distributed."
-                ],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [
-                    "This made sure that every part of the process was automated, with no mistakes or missing data, making it much easier and faster to track all the tablets sent to schools."
-                ],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": []
-        },
-        {
-            "id": "map-mileage-calculator",
-            "title": "Map Mileage Calculator",
-            "year": 2025,
-            "category": "web",
-            "featured": false,
-            "summary": "A web tool that calculates delivery distances and driver earnings automatically — with proof of the kilometres actually driven.",
-            "timelineNote": "A web tool that calculates delivery distances and driver earnings.",
-            "tags": [
-                "Web development",
-                "Mapping API",
-                "Data analysis"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "map",
-                "url": "",
-                "alt": ""
-            },
-            "links": [],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "In addition to the Kayam Tracking App, the drivers who delivered the tablets didn't know how much they would earn for each trip. There was also a risk that some drivers might cheat about the number of kilometres they had driven to get more money."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [
-                    "I built a web-based tool that uses mapping data to automatically calculate the distance and total mileage between locations. It then calculates the driver's earnings based on the number of kilometres covered."
-                ],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [
-                    "This helps provide proof of the actual distance driven and ensures that each driver gets paid the correct amount based on accurate data."
-                ],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": []
-        },
-        {
             "id": "chumbaka-student-report-tool",
             "title": "Chumbaka Student Report Tool",
             "year": 2023,
@@ -490,95 +490,6 @@
             "impact": {
                 "paragraphs": [
                     "At the end of each term, a PDF report is automatically generated to show each student's progress and achievements, making it easier for teachers to highlight outstanding projects."
-                ],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": []
-        },
-        {
-            "id": "interactive-chemistry-platform",
-            "title": "Interactive Chemistry Platform",
-            "year": 2025,
-            "category": "web",
-            "featured": false,
-            "summary": "A free, visual chemistry learning website that turns abstract textbook concepts into interactive lessons and simulations.",
-            "timelineNote": "A free, interactive website that makes chemistry visible.",
-            "tags": [
-                "Web development",
-                "Interactive design",
-                "EdTech",
-                "Chemistry"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "flask",
-                "url": "",
-                "alt": ""
-            },
-            "links": [],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "Students found chemistry abstract and difficult to understand through traditional textbook learning."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [
-                    "Built a free, interactive website offering visual lessons and engaging simulations that make chemistry concepts accessible to all learners."
-                ],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [
-                    "Empowered students to enjoy learning chemistry, increasing engagement and comprehension through interactive and visual resources."
-                ],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": []
-        },
-        {
-            "id": "alpha-course-analysis",
-            "title": "Alpha Course Analysis Tool",
-            "year": 2025,
-            "category": "web",
-            "featured": false,
-            "summary": "A one-click Google Sheets analysis tool that gave the HTBB team clear insight into 11 years of Alpha Course participants.",
-            "role": "Design & development",
-            "context": "HTBB · Alpha Course",
-            "timelineNote": "A one-click analysis tool for 11 years of Alpha Course data.",
-            "tags": [
-                "Google Sheets",
-                "Data analysis",
-                "Automation"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "chart",
-                "url": "",
-                "alt": ""
-            },
-            "links": [],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "After 11 years of running the Alpha Course, the organisers still didn't have clear information about the participants, such as their age, church attendance or reasons for joining. All the data was there, but it wasn't analysed in a useful way."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [
-                    "I developed an automated analysis tool in Google Sheets that processes all the participant data with just one click. It organises information such as age, church attendance and reasons for attending, making it easy to understand the overall trends."
-                ],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [
-                    "This helped the HTBB team quickly gain clear insights into their participants, allowing them to improve outreach strategies and plan future Alpha sessions more effectively."
                 ],
                 "features": []
             },
@@ -632,22 +543,23 @@
             "gallery": []
         },
         {
-            "id": "vaccine-temperature-monitor",
-            "title": "Vaccine Temperature Monitor",
-            "year": 2021,
-            "category": "hardware",
+            "id": "alpha-course-analysis",
+            "title": "Alpha Course Analysis Tool",
+            "year": 2025,
+            "category": "web",
             "featured": false,
-            "summary": "An Arduino monitoring system that protects COVID-19 vaccines from spoilage with real-time temperature alerts.",
-            "timelineNote": "An Arduino system to prevent COVID-19 vaccine spoilage.",
+            "summary": "A one-click Google Sheets analysis tool that gave the HTBB team clear insight into 11 years of Alpha Course participants.",
+            "role": "Design & development",
+            "context": "HTBB · Alpha Course",
+            "timelineNote": "A one-click analysis tool for 11 years of Alpha Course data.",
             "tags": [
-                "Arduino",
-                "Temperature sensors",
-                "LED alerts",
-                "Healthcare"
+                "Google Sheets",
+                "Data analysis",
+                "Automation"
             ],
             "cover": {
                 "type": "icon",
-                "icon": "thermometer",
+                "icon": "chart",
                 "url": "",
                 "alt": ""
             },
@@ -655,19 +567,19 @@
             "metrics": [],
             "problem": {
                 "paragraphs": [
-                    "Vaccines were at risk of spoilage due to undetected temperature fluctuations during storage."
+                    "After 11 years of running the Alpha Course, the organisers still didn't have clear information about the participants, such as their age, church attendance or reasons for joining. All the data was there, but it wasn't analysed in a useful way."
                 ],
                 "bullets": []
             },
             "process": {
                 "paragraphs": [
-                    "Created an Arduino-based temperature monitoring system with real-time LED and sound alerts to detect deviations from the safe temperature range."
+                    "I developed an automated analysis tool in Google Sheets that processes all the participant data with just one click. It organises information such as age, church attendance and reasons for attending, making it easy to understand the overall trends."
                 ],
                 "cards": []
             },
             "impact": {
                 "paragraphs": [
-                    "Prevented potential vaccine spoilage and ensured safe distribution during the pandemic, contributing to reliable healthcare logistics."
+                    "This helped the HTBB team quickly gain clear insights into their participants, allowing them to improve outreach strategies and plan future Alpha sessions more effectively."
                 ],
                 "features": []
             },
@@ -711,6 +623,50 @@
             "impact": {
                 "paragraphs": [
                     "Encouraged families to reconnect, improving communication and emotional bonds through structured, intentional activities."
+                ],
+                "features": []
+            },
+            "journey": [],
+            "improvements": [],
+            "gallery": []
+        },
+        {
+            "id": "vaccine-temperature-monitor",
+            "title": "Vaccine Temperature Monitor",
+            "year": 2021,
+            "category": "hardware",
+            "featured": false,
+            "summary": "An Arduino monitoring system that protects COVID-19 vaccines from spoilage with real-time temperature alerts.",
+            "timelineNote": "An Arduino system to prevent COVID-19 vaccine spoilage.",
+            "tags": [
+                "Arduino",
+                "Temperature sensors",
+                "LED alerts",
+                "Healthcare"
+            ],
+            "cover": {
+                "type": "icon",
+                "icon": "thermometer",
+                "url": "",
+                "alt": ""
+            },
+            "links": [],
+            "metrics": [],
+            "problem": {
+                "paragraphs": [
+                    "Vaccines were at risk of spoilage due to undetected temperature fluctuations during storage."
+                ],
+                "bullets": []
+            },
+            "process": {
+                "paragraphs": [
+                    "Created an Arduino-based temperature monitoring system with real-time LED and sound alerts to detect deviations from the safe temperature range."
+                ],
+                "cards": []
+            },
+            "impact": {
+                "paragraphs": [
+                    "Prevented potential vaccine spoilage and ensured safe distribution during the pandemic, contributing to reliable healthcare logistics."
                 ],
                 "features": []
             },
@@ -815,20 +771,20 @@
     "contact": {
         "kicker": "04 — Contact",
         "heading": "Let's build something useful.",
-        "text": "I'm always excited to work on projects that make a positive impact. Whether it's educational technology, hardware or a stubborn spreadsheet, tell me what you're trying to solve.",
-        "email": "hello@andrewung.dev",
+        "text": "I'm always excited to work on projects that make a positive impact. If there is anything that you would like me to build, feel free to contact me!",
+        "email": "andrewungweien@gmail.com",
         "details": [
             {
                 "label": "Location",
-                "value": "Sarawak, Malaysia"
+                "value": "Kuala Lumpur, Malaysia"
             },
             {
                 "label": "Focus",
-                "value": "EdTech, logistics, IoT"
+                "value": "Automation, AI"
             },
             {
                 "label": "Currently",
-                "value": "Building AI-assisted tools"
+                "value": "Studying A-Levels"
             }
         ],
         "socials": [
@@ -836,6 +792,16 @@
                 "label": "GitHub",
                 "icon": "github",
                 "url": "https://github.com/andrewung2009"
+            },
+            {
+                "label": "Instagram",
+                "icon": "instagram",
+                "url": "https://www.instagram.com/andrewung2009"
+            },
+            {
+                "label": "YouTube",
+                "icon": "youtube",
+                "url": "https://www.youtube.com/@andrewung997"
             }
         ]
     },
