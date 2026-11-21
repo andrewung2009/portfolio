@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light dark">
+  <title>Portfolio Admin — Andrew Ung Wei En</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%232563eb'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-family='Inter,Arial,sans-serif' font-weight='800' font-size='25' fill='%23ffffff' text-anchor='middle'%3EAU%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css?v=4">
+  <script>
+    (function () {
+      document.documentElement.classList.add('js');
+      try {
+        var theme = localStorage.getItem('theme');
+        document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+      } catch (err) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body class="admin-body">
+  <!-- ============ LOGIN ============ -->
+  <div class="login-screen" id="loginScreen">
+    <section class="login-brand">
+      <div class="login-brand-top">
+        <span class="login-mark">AU</span>
+        <span class="mono-label">Portfolio / Admin</span>
+      </div>
+      <div class="login-brand-copy">
+        <p class="kicker">Content studio</p>
+        <h1>Your work,<br><em>editable.</em></h1>
+        <p class="login-lede">Update copy, reorder projects, replace images and publish straight to GitHub. No code, no rebuild.</p>
+        <ul class="login-points">
+          <li><span>01</span> Edit every section in plain language</li>
+          <li><span>02</span> See changes in a live preview</li>
+          <li><span>03</span> Every publish is a GitHub restore point</li>
+        </ul>
+      </div>
+      <a class="login-site-link" id="loginSiteLink" href="https://andrewung2009.github.io/portfolio/" target="_blank" rel="noopener">
+        View the live site <span aria-hidden="true">↗</span>
+      </a>
+    </section>
+
+    <section class="login-panel">
+      <div class="login-card">
+        <div class="login-card-top">
+          <span class="mono-label">ADMIN ACCESS</span>
+          <span class="login-card-top-right">
+            <span class="mono-label" id="loginState">LOCKED</span>
+            <button class="theme-toggle theme-toggle--small" type="button" data-admin-theme-toggle aria-label="Switch to dark mode"></button>
+          </span>
+        </div>
+
+        <div id="stepPassword">
+          <h2>Unlock the editor</h2>
+          <p class="login-sub">Enter your admin password to continue.</p>
+          <label class="field">
+            <span>Admin password</span>
+            <input class="input" type="password" id="passwordInput" placeholder="Password" autocomplete="current-password">
+          </label>
+          <div class="form-error" id="passwordError" hidden></div>
+          <button class="btn btn--primary btn--wide" id="passwordBtn" type="button">Unlock editor</button>
+          <p class="login-note">The password is a convenience lock. Publishing is protected by your GitHub token.</p>
+        </div>
+
+        <div id="stepToken" hidden>
+          <h2>Connect to GitHub</h2>
+          <p class="login-sub">Paste a fine-grained personal access token for <strong>andrewung2009/portfolio</strong>.</p>
+          <label class="field">
+            <span>GitHub token</span>
+            <input class="input" type="password" id="tokenInput" placeholder="github_pat_…" autocomplete="off" spellcheck="false">
+          </label>
+          <div class="form-error" id="tokenError" hidden></div>
+          <button class="btn btn--primary btn--wide" id="tokenBtn" type="button">Connect &amp; open editor</button>
+          <button class="btn btn--ghost btn--wide" id="localModeBtn" type="button">Edit locally without publishing</button>
+          <button class="link-btn" id="backToPasswordBtn" type="button">Back to password</button>
+
+          <details class="help-box">
+            <summary>How do I create a token? (one-time setup)</summary>
+            <ol>
+              <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a>.</li>
+              <li>Name it <em>Portfolio Admin</em> and choose an expiry.</li>
+              <li>Repository access: <em>Only select repositories</em> → <em>portfolio</em>.</li>
+              <li>Permissions → Repository permissions → <em>Contents: Read and write</em>.</li>
+              <li>Generate the token, copy it, and paste it above.</li>
+            </ol>
+            <p>The token is stored in this browser only. Revoke it any time on GitHub.</p>
+          </details>
+        </div>
+
+        <div class="login-card-foot">
+          <span class="status-dot"></span>
+          <span>Local-first. Nothing is published until you press Publish.</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ EDITOR ============ -->
+  <div class="editor-shell" id="editorScreen" hidden>
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="sidebar-mark">AU</span>
+        <span class="sidebar-brand-text">
+          <strong>Portfolio Admin</strong>
+          <span>content studio</span>
+        </span>
+      </div>
+
+      <div class="sidebar-source">
+        <span class="source-badge" id="sourceBadge">connecting</span>
+        <span class="source-user" id="sourceUser"></span>
+      </div>
+
+      <nav class="side-nav" aria-label="Editor sections">
+        <button class="side-link is-active" type="button" data-view="site"><span>01</span> Site &amp; hero</button>
+        <button class="side-link" type="button" data-view="about"><span>02</span> About</button>
+        <button class="side-link" type="button" data-view="projects"><span>03</span> Projects</button>
+        <button class="side-link" type="button" data-view="contact"><span>04</span> Contact</button>
+        <button class="side-link" type="button" data-view="health"><span>05</span> Content checks <em id="healthCount">0</em></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="draft-status"><span class="status-dot"></span><span id="draftStatus">No local draft</span></div>
+        <a class="side-action" id="viewSiteLink" href="#" target="_blank" rel="noopener">View site <span aria-hidden="true">↗</span></a>
+        <button class="side-action" id="changeTokenBtn" type="button">Change token</button>
+        <button class="side-action side-action--danger" id="signOutBtn" type="button">Sign out</button>
+      </div>
+    </aside>
+
+    <div class="admin-main">
+      <header class="topbar">
+        <div class="topbar-title">
+          <p class="mono-label" id="viewEyebrow">SECTION 01</p>
+          <h1 id="viewTitle">Site &amp; hero</h1>
+        </div>
+        <div class="topbar-actions">
+          <span class="dirty-badge" id="dirtyBadge" hidden>Unsaved changes</span>
+          <button class="theme-toggle theme-toggle--small" type="button" data-admin-theme-toggle aria-label="Switch to dark mode"></button>
+          <button class="btn btn--ghost btn--small" id="previewBtn" type="button" aria-pressed="false" aria-label="Preview">
+            <span class="btn-icon" data-icon="eye"></span><span class="btn-label">Preview</span>
+          </button>
+          <button class="btn btn--ghost btn--small" id="backupBtn" type="button" aria-label="Download backup">
+            <span class="btn-icon" data-icon="download"></span><span class="btn-label">Backup</span>
+          </button>
+          <button class="btn btn--primary btn--small" id="publishBtn" type="button" aria-label="Publish to GitHub">
+            <span class="btn-icon" data-icon="cloud"></span><span class="btn-label">Publish</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="save-status" id="saveStatus" hidden></div>
+      <div class="alert-box" id="validationBox" hidden></div>
+
+      <div class="editor-area" id="editorArea">
+        <div class="editor-body" id="editorBody"></div>
+        <aside class="preview-pane" id="previewPane" hidden>
+          <div class="preview-head">
+            <span class="mono-label">LIVE PREVIEW</span>
+            <div class="preview-actions">
+              <button class="icon-btn" id="previewRefresh" type="button" aria-label="Refresh preview" title="Refresh preview"><span data-icon="refresh"></span></button>
+              <button class="icon-btn" id="previewClose" type="button" aria-label="Close preview" title="Close preview"><span data-icon="close"></span></button>
+            </div>
+          </div>
+          <iframe id="previewFrame" title="Live preview of the portfolio"></iframe>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-box" id="toastBox" role="status" aria-live="polite"></div>
+  <div id="modalRoot"></div>
+  <input type="file" id="importFile" accept="application/json" hidden>
+
+  <script src="js/ui.js?v=4"></script>
+  <script src="js/admin-config.js?v=4"></script>
+  <script src="js/admin.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Local planning and presentation files (not part of the website)
+*.pptx
+Draft for Planning Center.md
+generate_deck.py
+generate_example.py
