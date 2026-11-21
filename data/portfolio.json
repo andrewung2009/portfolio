@@ -116,7 +116,7 @@
     ]
   },
   "work": {
-    "kicker": "02 — Selected work",
+    "kicker": "03 — Selected work",
     "heading": "Tools built for real people.",
     "intro": "Twelve projects across apps, web, hardware and AI. Each one started with a specific problem — and was built to make someone’s day a little lighter.",
     "categories": [
@@ -882,7 +882,7 @@
     }
   ],
   "timeline": {
-    "kicker": "03 — Build log",
+    "kicker": "02 — Build log",
     "heading": "The journey so far.",
     "intro": "A chronological look at the projects, from a sensor-powered bed alarm in 2018 to AI tools and web apps in 2026."
   },

@@ -30,8 +30,8 @@
 
   var NAV_ITEMS = [
     { id: "about", label: "About" },
-    { id: "work", label: "Work" },
     { id: "journey", label: "Journey" },
+    { id: "work", label: "Work" },
     { id: "contact", label: "Contact" }
   ];
 
@@ -102,8 +102,8 @@
       heroMarkup() +
       marqueeMarkup() +
       aboutMarkup() +
-      workMarkup() +
       buildlogMarkup() +
+      workMarkup() +
       contactMarkup();
     footerHost.innerHTML = footerMarkup();
 
