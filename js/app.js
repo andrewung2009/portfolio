@@ -323,18 +323,30 @@
 
   function aboutMarkup() {
     var about = siteData.about || {};
+    var meta = siteData.meta || {};
+    var hero = siteData.hero || {};
+    var contact = siteData.contact || {};
     var paragraphs = (about.paragraphs || []).map(function (p) {
       return "<p>" + esc(p) + "</p>";
     }).join("");
 
-    var stats = (about.stats || []).map(function (stat) {
-      return (
-        '<div class="stat">' +
-        '<span class="stat-value">' + esc(stat.value) + "</span>" +
-        '<span class="stat-label">' + esc(stat.label) + "</span>" +
-        "</div>"
-      );
-    }).join("");
+    var focusDetail = (contact.details || []).filter(function (detail) {
+      return /focus/i.test(detail.label || "");
+    })[0];
+    var focus = focusDetail ? focusDetail.value : "EdTech, logistics, IoT";
+    var noteText = hero.statusNote || "Building practical tools for education, logistics and community.";
+
+    var noteMeta = "";
+    if (meta.location) noteMeta += "<span>" + icon("pin") + esc(meta.location) + "</span>";
+    if (focus) noteMeta += "<span>" + icon("layers") + esc(focus) + "</span>";
+
+    var aboutNote =
+      '<aside class="about-note reveal" style="--delay:120ms">' +
+      '<p class="about-note-kicker"><span class="status-dot"></span>The short version</p>' +
+      '<p class="about-note-text">' + esc(noteText) + "</p>" +
+      (noteMeta ? '<div class="about-note-meta">' + noteMeta + "</div>" : "") +
+      '<a class="about-note-link" href="#contact">Let&rsquo;s work together ' + icon("arrowRight") + "</a>" +
+      "</aside>";
 
     var achievements = (about.achievements || []).map(function (item, i) {
       return (
@@ -372,7 +384,7 @@
       "</header>" +
       '<div class="about-grid">' +
       '<div class="about-copy reveal">' + paragraphs + "</div>" +
-      '<div class="stats-grid reveal" style="--delay:120ms">' + stats + "</div>" +
+      aboutNote +
       "</div>" +
       '<div class="achievements reveal">' + achievements + "</div>" +
       '<div class="skills-grid">' + skills + "</div>" +

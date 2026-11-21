@@ -82,7 +82,6 @@
   };
 
   var TEMPLATES = {
-    stat: { value: "", label: "" },
     achievement: { title: "", text: "" },
     skill: { title: "", icon: "code", description: "", tags: [] },
     metric: { value: "", label: "" },
@@ -932,19 +931,6 @@
       "</div></div>" +
 
       '<div class="panel">' +
-      '<div class="panel-head"><div><h2>Stats</h2><p>Four short numbers work best.</p></div></div>' +
-      objectList("about.stats", {
-        template: "stat",
-        label: "Stat",
-        addLabel: "Add stat",
-        fields: [
-          { key: "value", label: "Value", placeholder: "22" },
-          { key: "label", label: "Label", placeholder: "Countries visited" }
-        ]
-      }) +
-      "</div>" +
-
-      '<div class="panel">' +
       '<div class="panel-head"><div><h2>Achievements</h2><p>Short, concrete highlights.</p></div></div>' +
       objectList("about.achievements", {
         template: "achievement",
@@ -1035,7 +1021,7 @@
       '<div class="grid-2">' +
       textField("Title", base + ".title") +
       slugField("URL slug", base + ".id", base + ".title") +
-      textField("Year", base + ".year", { type: "number" }) +
+      textField("Year", base + ".year", { placeholder: "2026 or 2025-2026" }) +
       selectField("Category", base + ".category", categoryOptions()) +
       textField("Role", base + ".role", { placeholder: "Design & development" }) +
       textField("Context", base + ".context", { placeholder: "Chumbaka · Sarawak rollout" }) +
