@@ -1270,6 +1270,8 @@ body.menu-open {
 .project-cover {
   position: relative;
   aspect-ratio: 16 / 10;
+  width: 100%;
+  min-width: 0;
   overflow: hidden;
   background: var(--surface-2);
   border-bottom: 1px solid var(--line);

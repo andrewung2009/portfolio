@@ -1,930 +1,930 @@
 {
-    "meta": {
-        "name": "Andrew Ung Wei En",
-        "shortName": "Andrew",
-        "role": "Student",
-        "location": "Kuala Lumpur, Malaysia",
-        "email": "andrewungweien@gmail.com",
-        "availability": "Open to collaborations",
-        "resumeUrl": "",
-        "siteUrl": "https://andrewung2009.github.io/portfolio/",
-        "github": "https://github.com/andrewung2009"
+  "meta": {
+    "name": "Andrew Ung Wei En",
+    "shortName": "Andrew",
+    "role": "Student",
+    "location": "Kuala Lumpur, Malaysia",
+    "email": "andrewungweien@gmail.com",
+    "availability": "Open to collaborations",
+    "resumeUrl": "",
+    "siteUrl": "https://andrewung2009.github.io/portfolio/",
+    "github": "https://github.com/andrewung2009"
+  },
+  "hero": {
+    "eyebrow": "Portfolio — 2018 to 2026",
+    "titleTop": "Andrew",
+    "titleBottom": "Ung",
+    "titleAccent": "Wei En",
+    "intro": "I build practical tools and solve problems for education, businesses and community by turning messy, manual processes into automated systems to make people's life easier.",
+    "primaryCta": {
+      "label": "View selected work",
+      "href": "#work"
     },
-    "hero": {
-        "eyebrow": "Portfolio — 2018 to 2026",
-        "titleTop": "Andrew",
-        "titleBottom": "Ung",
-        "titleAccent": "Wei En",
-        "intro": "I build practical tools and solve problems for education, businesses and community by turning messy, manual processes into automated systems to make people's life easier.",
-        "primaryCta": {
-            "label": "View selected work",
-            "href": "#work"
-        },
-        "secondaryCta": {
-            "label": "More about me",
-            "href": "#about"
-        },
-        "portrait": "https://github.com/andrewung2009/portfolio/blob/main/009A9632.jpg?raw=true",
-        "statusNote": "",
-        "scrollNote": "Scroll to explore"
+    "secondaryCta": {
+      "label": "More about me",
+      "href": "#about"
     },
-    "marquee": [
+    "portrait": "https://github.com/andrewung2009/portfolio/blob/main/009A9632.jpg?raw=true",
+    "statusNote": "",
+    "scrollNote": "Scroll to explore"
+  },
+  "marquee": [
+    "Python",
+    "JavaScript",
+    "HTML / CSS",
+    "Arduino",
+    "Google Sheets API",
+    "AppSheet",
+    "MIT App Inventor",
+    "mBlock",
+    "Data Analysis",
+    "IoT"
+  ],
+  "about": {
+    "kicker": "01 — About",
+    "heading": "A builder with an eye for impact.",
+    "intro": "I turn manual, messy processes into clear tools — usually with a spreadsheet, a sensor, or a little code.",
+    "paragraphs": [
+      "I'm a student developer with a strong foundation in coding, mathematics and technology integration. I specialise in creating impactful educational tools, and I have experience developing solutions that improve learning for both teachers and students.",
+      "Most of my work starts with a real person and a frustrating, manual process — a teacher compiling reports by hand, a driver unsure how far they travelled, or a logistics team tracking hundreds of schools in a spreadsheet. I like taking that mess and turning it into something clear, reliable and genuinely useful."
+    ],
+    "achievements": [
+      {
+        "title": "Top GeoGuessr player",
+        "text": "Ranked #1 in Malaysia."
+      },
+      {
+        "title": "Rubik's Cube expert",
+        "text": "Solved in under 15 seconds."
+      },
+      {
+        "title": "Academic excellence",
+        "text": "Won Math and Science competitions at SJKC Lai Meng."
+      },
+      {
+        "title": "Educational impact",
+        "text": "Developed registration tools for Sarawak schools."
+      },
+      {
+        "title": "Free resources",
+        "text": "Built an interactive chemistry learning platform."
+      }
+    ],
+    "skills": [
+      {
+        "title": "Programming",
+        "icon": "code",
+        "description": "Python, JavaScript, HTML/CSS, MIT App Inventor",
+        "tags": [
+          "Python",
+          "JavaScript",
+          "HTML/CSS",
+          "MIT App Inventor"
+        ]
+      },
+      {
+        "title": "Problem solving",
+        "icon": "sparkles",
+        "description": "Mathematics, logic and algorithm design",
+        "tags": [
+          "Mathematics",
+          "Logic",
+          "Algorithms"
+        ]
+      },
+      {
+        "title": "Hardware",
+        "icon": "cpu",
+        "description": "Arduino, sensors, IoT and mBlock",
+        "tags": [
+          "Arduino",
+          "Sensors",
+          "IoT",
+          "mBlock"
+        ]
+      },
+      {
+        "title": "Integration",
+        "icon": "layers",
+        "description": "Google Sheets API, AppSheet and data management",
+        "tags": [
+          "Google Sheets API",
+          "AppSheet",
+          "Data management"
+        ]
+      }
+    ]
+  },
+  "work": {
+    "kicker": "02 — Selected work",
+    "heading": "Tools built for real people.",
+    "intro": "Twelve projects across apps, web, hardware and AI. Each one started with a specific problem — and was built to make someone’s day a little lighter.",
+    "categories": [
+      {
+        "id": "all",
+        "label": "All work"
+      },
+      {
+        "id": "app",
+        "label": "Apps"
+      },
+      {
+        "id": "web",
+        "label": "Web"
+      },
+      {
+        "id": "hardware",
+        "label": "Hardware"
+      },
+      {
+        "id": "ai",
+        "label": "AI"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "id": "kayam-tracking-app",
+      "title": "Kayam Tracking App",
+      "year": 2023,
+      "category": "app",
+      "featured": true,
+      "summary": "This made sure that every part of the process was automated, with no mistakes or missing data, making it much easier and faster to track all the tablets sent to schools.",
+      "role": "Design & development",
+      "context": "Sarawak tablet rollout",
+      "timelineNote": "A QR-based registration tool for tracking tablets across Sarawak.",
+      "tags": [
         "Python",
-        "JavaScript",
-        "HTML / CSS",
-        "Arduino",
         "Google Sheets API",
-        "AppSheet",
-        "MIT App Inventor",
-        "mBlock",
-        "Data Analysis",
-        "IoT"
-    ],
-    "about": {
-        "kicker": "01 — About",
-        "heading": "A builder with an eye for impact.",
-        "intro": "I turn manual, messy processes into clear tools — usually with a spreadsheet, a sensor, or a little code.",
-        "paragraphs": [
-            "I'm a student developer with a strong foundation in coding, mathematics and technology integration. I specialise in creating impactful educational tools, and I have experience developing solutions that improve learning for both teachers and students.",
-            "Most of my work starts with a real person and a frustrating, manual process — a teacher compiling reports by hand, a driver unsure how far they travelled, or a logistics team tracking hundreds of schools in a spreadsheet. I like taking that mess and turning it into something clear, reliable and genuinely useful."
-        ],
-        "achievements": [
-            {
-                "title": "Top GeoGuessr player",
-                "text": "Ranked #1 in Malaysia."
-            },
-            {
-                "title": "Rubik's Cube expert",
-                "text": "Solved in under 15 seconds."
-            },
-            {
-                "title": "Academic excellence",
-                "text": "Won Math and Science competitions at SJKC Lai Meng."
-            },
-            {
-                "title": "Educational impact",
-                "text": "Developed registration tools for Sarawak schools."
-            },
-            {
-                "title": "Free resources",
-                "text": "Built an interactive chemistry learning platform."
-            }
-        ],
-        "skills": [
-            {
-                "title": "Programming",
-                "icon": "code",
-                "description": "Python, JavaScript, HTML/CSS, MIT App Inventor",
-                "tags": [
-                    "Python",
-                    "JavaScript",
-                    "HTML/CSS",
-                    "MIT App Inventor"
-                ]
-            },
-            {
-                "title": "Problem solving",
-                "icon": "sparkles",
-                "description": "Mathematics, logic and algorithm design",
-                "tags": [
-                    "Mathematics",
-                    "Logic",
-                    "Algorithms"
-                ]
-            },
-            {
-                "title": "Hardware",
-                "icon": "cpu",
-                "description": "Arduino, sensors, IoT and mBlock",
-                "tags": [
-                    "Arduino",
-                    "Sensors",
-                    "IoT",
-                    "mBlock"
-                ]
-            },
-            {
-                "title": "Integration",
-                "icon": "layers",
-                "description": "Google Sheets API, AppSheet and data management",
-                "tags": [
-                    "Google Sheets API",
-                    "AppSheet",
-                    "Data management"
-                ]
-            }
-        ]
-    },
-    "work": {
-        "kicker": "02 — Selected work",
-        "heading": "Tools built for real people.",
-        "intro": "Twelve projects across apps, web, hardware and AI. Each one started with a specific problem — and was built to make someone’s day a little lighter.",
-        "categories": [
-            {
-                "id": "all",
-                "label": "All work"
-            },
-            {
-                "id": "app",
-                "label": "Apps"
-            },
-            {
-                "id": "web",
-                "label": "Web"
-            },
-            {
-                "id": "hardware",
-                "label": "Hardware"
-            },
-            {
-                "id": "ai",
-                "label": "AI"
-            }
-        ]
-    },
-    "projects": [
+        "Data management"
+      ],
+      "cover": {
+        "type": "image",
+        "icon": "tablet",
+        "url": "assets/images/kayam-cover.jpg",
+        "alt": "Program Anak Kita logo"
+      },
+      "links": [
         {
-            "id": "kayam-tracking-app",
-            "title": "Kayam Tracking App",
-            "year": 2023,
-            "category": "app",
-            "featured": true,
-            "summary": "This made sure that every part of the process was automated, with no mistakes or missing data, making it much easier and faster to track all the tablets sent to schools.",
-            "role": "Design & development",
-            "context": "Sarawak tablet rollout",
-            "timelineNote": "A QR-based registration tool for tracking tablets across Sarawak.",
-            "tags": [
-                "Python",
-                "Google Sheets API",
-                "Data management"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "tablet",
-                "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQextJPKzYvtrk4DqftXctiODDUt6iS_Qi-kzzBW4ZebL8YL0ufTAukYc&s=10",
-                "alt": ""
-            },
-            "links": [
-                {
-                    "label": "View repository",
-                    "url": "https://github.com/Chumbaka-Asia/kayam-qr-reader"
-                }
-            ],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "Many students who are already ten years older can’t speak or read.",
-                    "Government is sending hundreds of tablets across Sarawak. The tablet contains the Kayam app, which helps trailing students.",
-                    "Hard to track and verify that the tablets have been delivered."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [
-                    "I developed a Python-based registration tool integrated with Google Sheets API so that I could get real-time data for when the tablets are received. The system automatically logs, verifies, and monitors the tablets that are distributed."
-                ],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [
-                    "This made sure that every part of the process was automated, with no mistakes or missing data, making it much easier and faster to track all the tablets sent to schools."
-                ],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": []
-        },
-        {
-            "id": "map-mileage-calculator",
-            "title": "Map Mileage Calculator",
-            "year": 2025,
-            "category": "web",
-            "featured": false,
-            "summary": "This helps provide proof of the actual distance driven and ensures that each driver gets paid the correct amount based on accurate data.",
-            "timelineNote": "A map-based tool for calculating driver mileage and earnings.",
-            "tags": [
-                "Web development",
-                "Mapping API",
-                "Data analysis"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "map",
-                "url": "",
-                "alt": ""
-            },
-            "links": [
-                {
-                    "label": "View repository",
-                    "url": "https://github.com/andrewung2009/mapmileagecalculator"
-                }
-            ],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "The drivers who delivered the tablets didn’t know how much they would earn for each trip."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [
-                    "I built a web-based tool that uses mapping data to automatically calculate the distance and total mileage between locations. It then calculates the driver’s earnings based on the number of kilometers covered."
-                ],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [
-                    "This helps provide proof of the actual distance driven and ensures that each driver gets paid the correct amount based on accurate data."
-                ],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": [],
-            "context": "Sarawak tablet rollout"
-        },
-        {
-            "id": "chumbaka-student-report-tool",
-            "title": "Chumbaka Student Project Report Tool",
-            "year": 2023,
-            "category": "app",
-            "featured": false,
-            "summary": "At the end of each term, a PDF report is automatically generated to show each student’s progress and achievements, making it easier for teachers to highlight outstanding projects.",
-            "role": "Design & development",
-            "context": "Chumbaka",
-            "timelineNote": "An AppSheet report system for Chumbaka student projects.",
-            "tags": [
-                "AppSheet",
-                "Google Sheets",
-                "Report generation"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "clipboard",
-                "url": "",
-                "alt": ""
-            },
-            "links": [
-                {
-                    "label": "Open AppSheet app",
-                    "url": "https://www.appsheet.com/start/3b6c2cf6-c803-4e2b-9f69-48ede096ac52"
-                }
-            ],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "Chumbaka don’t have a proper system to analyze and showcase the good projects that students have completed. Everything had to be done manually, which took a lot of time and effort."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [
-                    "I created an AppSheet-based system integrated with Google Sheets. Teachers can submit student projects through a digital form that includes photos and descriptions. The tool then automatically compiles and generates personalized reports for each student."
-                ],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [
-                    "At the end of each term, a PDF report is automatically generated to show each student’s progress and achievements, making it easier for teachers to highlight outstanding projects."
-                ],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": []
-        },
-        {
-            "id": "wake-up-ah-kong",
-            "title": "Wake Up Ah Kong Project",
-            "year": 2018,
-            "category": "hardware",
-            "featured": false,
-            "summary": "Improved safety and independence for the elderly, providing peace of mind to family members through proactive alert systems.",
-            "timelineNote": "An Arduino assistive device for safer bed exits.",
-            "tags": [
-                "Arduino",
-                "mBlock",
-                "Ultrasonic sensors",
-                "Assistive tech"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "bed",
-                "url": "",
-                "alt": ""
-            },
-            "links": [
-                {
-                    "label": "View slides",
-                    "url": "https://docs.google.com/presentation/d/1GummWrIZdlK9ZmudbdjIwwd7XC5RjHuM/edit?slide=id.p1#slide=id.p1"
-                }
-            ],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "My grandfather faced difficulty waking up safely due to mobility and balance issues."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [
-                    "Designed an Arduino-based assistive device using ultrasonic sensors, sound effects, and visual indicators to detect when he approaches the bed edge."
-                ],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [
-                    "Improved safety and independence for the elderly, providing peace of mind to family members through proactive alert systems."
-                ],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": [],
-            "context": "Personal project"
-        },
-        {
-            "id": "being-present-together",
-            "title": "Being Present Together as a Family",
-            "year": 2021,
-            "category": "app",
-            "featured": false,
-            "summary": "Encouraged families to reconnect, improving communication and emotional bonds through structured, intentional activities.",
-            "timelineNote": "An MIT App Inventor app that helps families reconnect.",
-            "tags": [
-                "MIT App Inventor",
-                "Design thinking",
-                "User experience"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "users",
-                "url": "",
-                "alt": ""
-            },
-            "links": [
-                {
-                    "label": "View slides",
-                    "url": "https://docs.google.com/presentation/d/1wAksWRJR6gKQAPXR0SF2hoEQiaTeHoBj/edit?slide=id.p1#slide=id.p1"
-                }
-            ],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "Families struggled to have meaningful conversations and spend quality time together in the digital age."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [
-                    "Developed an app using MIT App Inventor and design thinking principles, featuring conversation prompts, activity scheduling, and interactive engagement features."
-                ],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [
-                    "Encouraged families to reconnect, improving communication and emotional bonds through structured, intentional activities."
-                ],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": [],
-            "context": "Personal project"
-        },
-        {
-            "id": "vaccine-temperature-monitor",
-            "title": "COVID-19 Vaccine Temperature Monitor",
-            "year": 2021,
-            "category": "hardware",
-            "featured": false,
-            "summary": "Prevented potential vaccine spoilage and ensured safe distribution during the pandemic, contributing to reliable healthcare logistics.",
-            "timelineNote": "An Arduino monitor that protects vaccines from temperature changes.",
-            "tags": [
-                "Arduino",
-                "Temperature sensors",
-                "LED alerts",
-                "Healthcare"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "thermometer",
-                "url": "",
-                "alt": ""
-            },
-            "links": [
-                {
-                    "label": "View slides",
-                    "url": "https://docs.google.com/presentation/d/1b2iVsuCIlhoDyN6e8OKYUnk99XxaaTqo/edit?slide=id.p5#slide=id.p1"
-                }
-            ],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "Vaccines were at risk of spoilage due to undetected temperature fluctuations during storage."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [
-                    "Created an Arduino-based temperature monitoring system with real-time LED and sound alerts to detect deviations from the safe temperature range."
-                ],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [
-                    "Prevented potential vaccine spoilage and ensured safe distribution during the pandemic, contributing to reliable healthcare logistics."
-                ],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": [],
-            "context": "Healthcare logistics"
-        },
-        {
-            "id": "spinning-star-alarm-clock",
-            "title": "Spinning Star Alarm Clock",
-            "year": 2018,
-            "category": "hardware",
-            "featured": false,
-            "summary": "Transformed waking up into a fun and engaging experience, combining creativity, music, and technology in everyday life.",
-            "timelineNote": "A playful alarm clock with music, lights and a spinning star.",
-            "tags": [
-                "Hardware design",
-                "Music programming",
-                "LED control",
-                "Creative tech"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "star",
-                "url": "",
-                "alt": ""
-            },
-            "links": [
-                {
-                    "label": "View slides",
-                    "url": "https://docs.google.com/presentation/d/1L23DWKUhsW-UevZYCOpntHAYI1ROBTRCApCiRMeoZTM/edit?slide=id.p5#slide=id.p5"
-                }
-            ],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "Conventional alarm clocks fail to make waking up enjoyable or motivating, especially for children."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [
-                    "Designed a creative alarm clock that plays “Mary Had a Little Lamb,” lights up with blinking LEDs, and spins a star when the alarm triggers."
-                ],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [
-                    "Transformed waking up into a fun and engaging experience, combining creativity, music, and technology in everyday life."
-                ],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": [],
-            "context": "Personal project"
-        },
-        {
-            "id": "alpha-course-analysis",
-            "title": "Alpha Course Data Analysis Tool (HTBB)",
-            "year": 2025,
-            "category": "web",
-            "featured": false,
-            "summary": "This helped the HTBB team quickly gain clear insights into their participants, allowing them to improve outreach strategies and plan future Alpha sessions more effectively.",
-            "role": "Design & development",
-            "context": "HTBB · Alpha Course",
-            "timelineNote": "A one-click analysis tool for 11 years of Alpha Course data.",
-            "tags": [
-                "Google Sheets",
-                "Data analysis",
-                "Automation"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "chart",
-                "url": "",
-                "alt": ""
-            },
-            "links": [],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "After 11 years of running the Alpha Course, the organizers still didn’t have clear information about the participants, such as their age, church attendance, or reasons for joining. All the data was there, but it wasn’t analyzed in a useful way."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [
-                    "I developed an automated analysis tool in Google Sheets that processes all the participant data with just one click. It organizes information such as age, church attendance, and reasons for attending, making it easy to understand the overall trends."
-                ],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [
-                    "This helped the HTBB team quickly gain clear insights into their participants, allowing them to improve outreach strategies and plan future Alpha sessions more effectively."
-                ],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": []
-        },
-        {
-            "id": "young-innovators-judging",
-            "title": "Young Innovators Challenge Judging System",
-            "year": 2025,
-            "category": "app",
-            "featured": false,
-            "summary": "This digital judging system will be used for the national finals of the Young Innovators Challenge in 2025, making the entire judging process faster, more accurate, and more efficient.",
-            "role": "Design & development",
-            "context": "Young Innovators Challenge",
-            "timelineNote": "A real-time judging system for the Young Innovators Challenge.",
-            "tags": [
-                "AppSheet",
-                "Form design",
-                "Real-time data"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "trophy",
-                "url": "",
-                "alt": ""
-            },
-            "links": [
-                {
-                    "label": "Open AppSheet app",
-                    "url": "https://www.appsheet.com/start/150862dc-6863-4f82-b898-025564948636"
-                }
-            ],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "Judges in the Young Innovators Challenge had to evaluate projects using paper form, which made it difficult to update or change scores based on students’ performance. The process was slow and not very flexible."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [
-                    "I developed an AppSheet-based form that allows judges to submit, edit, and manage scores easily in real time. The interface is simple, seamless, and helps judges focus more on the evaluation rather than paperwork."
-                ],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [
-                    "This digital judging system will be used for the national finals of the Young Innovators Challenge in 2025, making the entire judging process faster, more accurate, and more efficient."
-                ],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": []
-        },
-        {
-            "id": "alpha-film-series",
-            "title": "Alpha Film Series Website",
-            "year": "2025-2026",
-            "category": "web",
-            "featured": false,
-            "summary": "No centralised place for useful Alpha Course Resources.",
-            "role": "Design & development",
-            "context": "HTBB · Alpha Course",
-            "timelineNote": "A central home for Alpha Course resources.",
-            "tags": [
-                "Web development",
-                "Alpha Course",
-                "Resources"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "play",
-                "url": "",
-                "alt": ""
-            },
-            "links": [
-                {
-                    "label": "Visit website",
-                    "url": "https://andrewung2009.github.io/alphafilmseries/"
-                }
-            ],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [
-                    "No centralised place for useful Alpha Course Resources."
-                ],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": []
-        },
-        {
-            "id": "ai-panel-google-sheets",
-            "title": "AI Panel in Google Sheets",
-            "year": 2026,
-            "category": "ai",
-            "featured": false,
-            "summary": "An AI assistant inside Google Sheets that answers questions about a 204-school tablet rollout — deadlines, overdue tasks and contacts — without scanning thousands of rows.",
-            "role": "Design & development",
-            "context": "Chumbaka · 204-school rollout",
-            "timelineNote": "An AI assistant embedded in Google Sheets for a 204-school tablet rollout.",
-            "tags": [
-                "Google Sheets",
-                "Apps Script",
-                "ChatGPT",
-                "Vector DB",
-                "AI"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "robot",
-                "url": "",
-                "alt": ""
-            },
-            "links": [],
-            "metrics": [
-                {
-                    "value": "204",
-                    "label": "Schools in rollout"
-                },
-                {
-                    "value": "1,000+",
-                    "label": "Rows of data"
-                },
-                {
-                    "value": "Instant",
-                    "label": "Answers, not searches"
-                }
-            ],
-            "problem": {
-                "paragraphs": [
-                    "All over Sarawak, many schools don't have opportunities for students to catch up in their studies. Some students can't even read or write. There are many people involved in helping them: teachers, delivery drivers and volunteers.",
-                    "The problems start before the tablets are even delivered. The devices are loaded with educational material from the Kayam App, but managing a 204-school logistics rollout is complex — and the people involved have no easy way to see what is overdue or what is coming next.",
-                    "How can we make it easy for everyone involved to know what is overdue and what the upcoming deadlines are?"
-                ],
-                "bullets": [
-                    {
-                        "title": "Students left behind",
-                        "text": "Many schools in Sarawak lack opportunities for students to catch up; some can't even read or write."
-                    },
-                    {
-                        "title": "Logistics complexity",
-                        "text": "Teachers, delivery drivers and volunteers all need to coordinate across 204 schools."
-                    },
-                    {
-                        "title": "Deadline visibility",
-                        "text": "There was no easy way to know which tasks were overdue or which deadlines were approaching."
-                    },
-                    {
-                        "title": "Data overload",
-                        "text": "Over 1,000 rows of tracking data made manual lookups slow and error-prone."
-                    }
-                ]
-            },
-            "process": {
-                "paragraphs": [
-                    "Mr Chong, my teacher at Chumbaka, suggested developing an AI agent inside Google Sheets that could answer questions based on what users ask. The agent works like a human assistant — except it has everything stored in the database.",
-                    "I connected ChatGPT to Google Sheets with Google Apps Script, then solved the scaling problem by adding a vector database. Instead of re-reading a thousand-page book every time, the agent flips straight to the paragraph it needs."
-                ],
-                "cards": [
-                    {
-                        "title": "The tool: Google Sheets",
-                        "text": "Used Google Sheets because of prior experience, leveraging Google Apps Script and Python to build the solution."
-                    },
-                    {
-                        "title": "The initial challenge",
-                        "text": "At the start, I wasn't even sure it would work. Eventually I connected ChatGPT to Google Sheets and coded it to respond to simple questions before reading sheet data."
-                    },
-                    {
-                        "title": "Scaling to 1,000+ rows",
-                        "text": "Getting the AI to read all the data was like giving someone a 1,000-page book and asking one question. It was too slow and too costly to repeat every time."
-                    },
-                    {
-                        "title": "The vector database",
-                        "text": "The AI now uses a smart index to find the exact passage instantly. Data syncs to the cloud manually or every one to two hours."
-                    }
-                ]
-            },
-            "impact": {
-                "paragraphs": [
-                    "The final product lets anyone using the sheet get their question answered immediately, without slowly searching across rows of content. It turns a data-heavy spreadsheet into a conversation."
-                ],
-                "features": [
-                    {
-                        "title": "Deadline tracking",
-                        "text": "Ask about upcoming deadlines and get an instant answer without scanning the entire sheet.",
-                        "bullets": [
-                            "\"What is the next deadline I should watch out for?\"",
-                            "\"What are some unfinished tasks even though the deadline has passed?\""
-                        ]
-                    },
-                    {
-                        "title": "Contact lookup",
-                        "text": "Find who to contact for a specific region or task without searching through rows.",
-                        "bullets": [
-                            "\"Who should I contact in PPD Kuching?\"",
-                            "Quick access to stakeholder information"
-                        ]
-                    },
-                    {
-                        "title": "Deliverable status",
-                        "text": "Check whether all tasks have been met for every deliverable with a single question.",
-                        "bullets": [
-                            "\"Have all the tasks been met for every deliverable?\"",
-                            "Identify overdue tasks instantly"
-                        ]
-                    }
-                ]
-            },
-            "journey": [
-                {
-                    "label": "Step 1",
-                    "title": "Problem identified",
-                    "description": "Schools in Sarawak lack catch-up opportunities. Managing a 204-school tablet rollout with many stakeholders is complex and deadlines are hard to track.",
-                    "tags": [
-                        "Sarawak",
-                        "204 schools"
-                    ]
-                },
-                {
-                    "label": "Step 2",
-                    "title": "The idea",
-                    "description": "Mr Chong from Chumbaka suggested an AI agent inside Google Sheets — a human-like assistant with everything stored in the database.",
-                    "tags": [
-                        "Chumbaka",
-                        "AI agent"
-                    ]
-                },
-                {
-                    "label": "Step 3",
-                    "title": "Connecting ChatGPT",
-                    "description": "Connected ChatGPT to Google Sheets using Apps Script, then taught the agent to answer simple questions before reading sheet information.",
-                    "tags": [
-                        "ChatGPT",
-                        "Apps Script"
-                    ]
-                },
-                {
-                    "label": "Step 4",
-                    "title": "The scaling challenge",
-                    "description": "Tried getting the AI to read all 1,000+ rows. Like giving someone a 1,000-page book — too slow and too much energy to re-read every time.",
-                    "tags": [
-                        "1,000+ rows",
-                        "Performance"
-                    ]
-                },
-                {
-                    "label": "Step 5",
-                    "title": "The vector database",
-                    "description": "Implemented a vector database that searches by meaning rather than exact words. The agent flips to the exact paragraph it needs.",
-                    "tags": [
-                        "Vector DB",
-                        "Cloud sync"
-                    ]
-                },
-                {
-                    "label": "Step 6",
-                    "title": "The final product",
-                    "description": "Users can now ask any question related to the data and get an instant answer — no more manually scanning thousands of rows.",
-                    "tags": [
-                        "AI assistant",
-                        "Google Sheets"
-                    ]
-                }
-            ],
-            "improvements": [
-                {
-                    "title": "Automated notifications",
-                    "text": "A bar that tracks dates and flags overdue tasks without requiring input, possibly through email, WhatsApp or Telegram."
-                },
-                {
-                    "title": "Suggested questions",
-                    "text": "Show suggested questions in the sidebar so users can discover what the agent can do."
-                },
-                {
-                    "title": "Sync progress bar",
-                    "text": "Show how far the data sync has progressed on its way to the cloud database."
-                },
-                {
-                    "title": "A friendlier interface",
-                    "text": "Make the AI feel nicer to use, so people are excited to open it every day."
-                },
-                {
-                    "title": "Mobile availability",
-                    "text": "Bring the agent to phones, where updates can happen immediately and on the move."
-                },
-                {
-                    "title": "Seamless cloud sync",
-                    "text": "Keep data up to date in real time across every device."
-                }
-            ],
-            "gallery": []
-        },
-        {
-            "id": "planning-center-duplication-checker",
-            "title": "Planning Center Duplication Checker",
-            "year": 2026,
-            "category": "web",
-            "featured": false,
-            "summary": "A web tool for finding duplicates in Planning Center.",
-            "role": "Design & development",
-            "context": "Planning Center",
-            "timelineNote": "A web tool for finding duplicates in Planning Center.",
-            "tags": [
-                "Web app",
-                "Duplicates",
-                "Planning Center"
-            ],
-            "cover": {
-                "type": "icon",
-                "icon": "copy",
-                "url": "",
-                "alt": ""
-            },
-            "links": [
-                {
-                    "label": "Visit website",
-                    "url": "https://pco-duplicates.onrender.com/"
-                }
-            ],
-            "metrics": [],
-            "problem": {
-                "paragraphs": [],
-                "bullets": []
-            },
-            "process": {
-                "paragraphs": [],
-                "cards": []
-            },
-            "impact": {
-                "paragraphs": [],
-                "features": []
-            },
-            "journey": [],
-            "improvements": [],
-            "gallery": []
+          "label": "View repository",
+          "url": "https://github.com/Chumbaka-Asia/kayam-qr-reader"
         }
-    ],
-    "timeline": {
-        "kicker": "03 — Build log",
-        "heading": "The journey so far.",
-        "intro": "A chronological look at the projects, from a sensor-powered bed alarm in 2018 to AI tools and web apps in 2026."
-    },
-    "contact": {
-        "kicker": "04 — Contact",
-        "heading": "Let's build something useful.",
-        "text": "I'm always excited to work on projects that make a positive impact. If there is anything that you would like me to build, feel free to contact me!",
-        "email": "andrewungweien@gmail.com",
-        "details": [
-            {
-                "label": "Location",
-                "value": "Kuala Lumpur, Malaysia"
-            },
-            {
-                "label": "Focus",
-                "value": "Automation, AI"
-            },
-            {
-                "label": "Currently",
-                "value": "Studying A-Levels"
-            }
+      ],
+      "metrics": [],
+      "problem": {
+        "paragraphs": [
+          "Many students who are already ten years older can’t speak or read.",
+          "Government is sending hundreds of tablets across Sarawak. The tablet contains the Kayam app, which helps trailing students.",
+          "Hard to track and verify that the tablets have been delivered."
         ],
-        "socials": [
-            {
-                "label": "GitHub",
-                "icon": "github",
-                "url": "https://github.com/andrewung2009"
-            },
-            {
-                "label": "Instagram",
-                "icon": "instagram",
-                "url": "https://www.instagram.com/andrewung2009"
-            },
-            {
-                "label": "YouTube",
-                "icon": "youtube",
-                "url": "https://www.youtube.com/@andrewung997"
-            }
-        ]
+        "bullets": []
+      },
+      "process": {
+        "paragraphs": [
+          "I developed a Python-based registration tool integrated with Google Sheets API so that I could get real-time data for when the tablets are received. The system automatically logs, verifies, and monitors the tablets that are distributed."
+        ],
+        "cards": []
+      },
+      "impact": {
+        "paragraphs": [
+          "This made sure that every part of the process was automated, with no mistakes or missing data, making it much easier and faster to track all the tablets sent to schools."
+        ],
+        "features": []
+      },
+      "journey": [],
+      "improvements": [],
+      "gallery": []
     },
-    "footer": {
-        "note": "Designed and built by Andrew Ung Wei En.",
-        "year": "2026"
+    {
+      "id": "map-mileage-calculator",
+      "title": "Map Mileage Calculator",
+      "year": 2025,
+      "category": "web",
+      "featured": false,
+      "summary": "This helps provide proof of the actual distance driven and ensures that each driver gets paid the correct amount based on accurate data.",
+      "timelineNote": "A map-based tool for calculating driver mileage and earnings.",
+      "tags": [
+        "Web development",
+        "Mapping API",
+        "Data analysis"
+      ],
+      "cover": {
+        "type": "icon",
+        "icon": "map",
+        "url": "",
+        "alt": ""
+      },
+      "links": [
+        {
+          "label": "View repository",
+          "url": "https://github.com/andrewung2009/mapmileagecalculator"
+        }
+      ],
+      "metrics": [],
+      "problem": {
+        "paragraphs": [
+          "The drivers who delivered the tablets didn’t know how much they would earn for each trip."
+        ],
+        "bullets": []
+      },
+      "process": {
+        "paragraphs": [
+          "I built a web-based tool that uses mapping data to automatically calculate the distance and total mileage between locations. It then calculates the driver’s earnings based on the number of kilometers covered."
+        ],
+        "cards": []
+      },
+      "impact": {
+        "paragraphs": [
+          "This helps provide proof of the actual distance driven and ensures that each driver gets paid the correct amount based on accurate data."
+        ],
+        "features": []
+      },
+      "journey": [],
+      "improvements": [],
+      "gallery": [],
+      "context": "Sarawak tablet rollout"
+    },
+    {
+      "id": "chumbaka-student-report-tool",
+      "title": "Chumbaka Student Project Report Tool",
+      "year": 2023,
+      "category": "app",
+      "featured": false,
+      "summary": "At the end of each term, a PDF report is automatically generated to show each student’s progress and achievements, making it easier for teachers to highlight outstanding projects.",
+      "role": "Design & development",
+      "context": "Chumbaka",
+      "timelineNote": "An AppSheet report system for Chumbaka student projects.",
+      "tags": [
+        "AppSheet",
+        "Google Sheets",
+        "Report generation"
+      ],
+      "cover": {
+        "type": "icon",
+        "icon": "clipboard",
+        "url": "",
+        "alt": ""
+      },
+      "links": [
+        {
+          "label": "Open AppSheet app",
+          "url": "https://www.appsheet.com/start/3b6c2cf6-c803-4e2b-9f69-48ede096ac52"
+        }
+      ],
+      "metrics": [],
+      "problem": {
+        "paragraphs": [
+          "Chumbaka don’t have a proper system to analyze and showcase the good projects that students have completed. Everything had to be done manually, which took a lot of time and effort."
+        ],
+        "bullets": []
+      },
+      "process": {
+        "paragraphs": [
+          "I created an AppSheet-based system integrated with Google Sheets. Teachers can submit student projects through a digital form that includes photos and descriptions. The tool then automatically compiles and generates personalized reports for each student."
+        ],
+        "cards": []
+      },
+      "impact": {
+        "paragraphs": [
+          "At the end of each term, a PDF report is automatically generated to show each student’s progress and achievements, making it easier for teachers to highlight outstanding projects."
+        ],
+        "features": []
+      },
+      "journey": [],
+      "improvements": [],
+      "gallery": []
+    },
+    {
+      "id": "wake-up-ah-kong",
+      "title": "Wake Up Ah Kong Project",
+      "year": 2018,
+      "category": "hardware",
+      "featured": false,
+      "summary": "Improved safety and independence for the elderly, providing peace of mind to family members through proactive alert systems.",
+      "timelineNote": "An Arduino assistive device for safer bed exits.",
+      "tags": [
+        "Arduino",
+        "mBlock",
+        "Ultrasonic sensors",
+        "Assistive tech"
+      ],
+      "cover": {
+        "type": "icon",
+        "icon": "bed",
+        "url": "",
+        "alt": ""
+      },
+      "links": [
+        {
+          "label": "View slides",
+          "url": "https://docs.google.com/presentation/d/1GummWrIZdlK9ZmudbdjIwwd7XC5RjHuM/edit?slide=id.p1#slide=id.p1"
+        }
+      ],
+      "metrics": [],
+      "problem": {
+        "paragraphs": [
+          "My grandfather faced difficulty waking up safely due to mobility and balance issues."
+        ],
+        "bullets": []
+      },
+      "process": {
+        "paragraphs": [
+          "Designed an Arduino-based assistive device using ultrasonic sensors, sound effects, and visual indicators to detect when he approaches the bed edge."
+        ],
+        "cards": []
+      },
+      "impact": {
+        "paragraphs": [
+          "Improved safety and independence for the elderly, providing peace of mind to family members through proactive alert systems."
+        ],
+        "features": []
+      },
+      "journey": [],
+      "improvements": [],
+      "gallery": [],
+      "context": "Personal project"
+    },
+    {
+      "id": "being-present-together",
+      "title": "Being Present Together as a Family",
+      "year": 2021,
+      "category": "app",
+      "featured": false,
+      "summary": "Encouraged families to reconnect, improving communication and emotional bonds through structured, intentional activities.",
+      "timelineNote": "An MIT App Inventor app that helps families reconnect.",
+      "tags": [
+        "MIT App Inventor",
+        "Design thinking",
+        "User experience"
+      ],
+      "cover": {
+        "type": "icon",
+        "icon": "users",
+        "url": "",
+        "alt": ""
+      },
+      "links": [
+        {
+          "label": "View slides",
+          "url": "https://docs.google.com/presentation/d/1wAksWRJR6gKQAPXR0SF2hoEQiaTeHoBj/edit?slide=id.p1#slide=id.p1"
+        }
+      ],
+      "metrics": [],
+      "problem": {
+        "paragraphs": [
+          "Families struggled to have meaningful conversations and spend quality time together in the digital age."
+        ],
+        "bullets": []
+      },
+      "process": {
+        "paragraphs": [
+          "Developed an app using MIT App Inventor and design thinking principles, featuring conversation prompts, activity scheduling, and interactive engagement features."
+        ],
+        "cards": []
+      },
+      "impact": {
+        "paragraphs": [
+          "Encouraged families to reconnect, improving communication and emotional bonds through structured, intentional activities."
+        ],
+        "features": []
+      },
+      "journey": [],
+      "improvements": [],
+      "gallery": [],
+      "context": "Personal project"
+    },
+    {
+      "id": "vaccine-temperature-monitor",
+      "title": "COVID-19 Vaccine Temperature Monitor",
+      "year": 2021,
+      "category": "hardware",
+      "featured": false,
+      "summary": "Prevented potential vaccine spoilage and ensured safe distribution during the pandemic, contributing to reliable healthcare logistics.",
+      "timelineNote": "An Arduino monitor that protects vaccines from temperature changes.",
+      "tags": [
+        "Arduino",
+        "Temperature sensors",
+        "LED alerts",
+        "Healthcare"
+      ],
+      "cover": {
+        "type": "icon",
+        "icon": "thermometer",
+        "url": "",
+        "alt": ""
+      },
+      "links": [
+        {
+          "label": "View slides",
+          "url": "https://docs.google.com/presentation/d/1b2iVsuCIlhoDyN6e8OKYUnk99XxaaTqo/edit?slide=id.p5#slide=id.p1"
+        }
+      ],
+      "metrics": [],
+      "problem": {
+        "paragraphs": [
+          "Vaccines were at risk of spoilage due to undetected temperature fluctuations during storage."
+        ],
+        "bullets": []
+      },
+      "process": {
+        "paragraphs": [
+          "Created an Arduino-based temperature monitoring system with real-time LED and sound alerts to detect deviations from the safe temperature range."
+        ],
+        "cards": []
+      },
+      "impact": {
+        "paragraphs": [
+          "Prevented potential vaccine spoilage and ensured safe distribution during the pandemic, contributing to reliable healthcare logistics."
+        ],
+        "features": []
+      },
+      "journey": [],
+      "improvements": [],
+      "gallery": [],
+      "context": "Healthcare logistics"
+    },
+    {
+      "id": "spinning-star-alarm-clock",
+      "title": "Spinning Star Alarm Clock",
+      "year": 2018,
+      "category": "hardware",
+      "featured": false,
+      "summary": "Transformed waking up into a fun and engaging experience, combining creativity, music, and technology in everyday life.",
+      "timelineNote": "A playful alarm clock with music, lights and a spinning star.",
+      "tags": [
+        "Hardware design",
+        "Music programming",
+        "LED control",
+        "Creative tech"
+      ],
+      "cover": {
+        "type": "icon",
+        "icon": "star",
+        "url": "",
+        "alt": ""
+      },
+      "links": [
+        {
+          "label": "View slides",
+          "url": "https://docs.google.com/presentation/d/1L23DWKUhsW-UevZYCOpntHAYI1ROBTRCApCiRMeoZTM/edit?slide=id.p5#slide=id.p5"
+        }
+      ],
+      "metrics": [],
+      "problem": {
+        "paragraphs": [
+          "Conventional alarm clocks fail to make waking up enjoyable or motivating, especially for children."
+        ],
+        "bullets": []
+      },
+      "process": {
+        "paragraphs": [
+          "Designed a creative alarm clock that plays “Mary Had a Little Lamb,” lights up with blinking LEDs, and spins a star when the alarm triggers."
+        ],
+        "cards": []
+      },
+      "impact": {
+        "paragraphs": [
+          "Transformed waking up into a fun and engaging experience, combining creativity, music, and technology in everyday life."
+        ],
+        "features": []
+      },
+      "journey": [],
+      "improvements": [],
+      "gallery": [],
+      "context": "Personal project"
+    },
+    {
+      "id": "alpha-course-analysis",
+      "title": "Alpha Course Data Analysis Tool (HTBB)",
+      "year": 2025,
+      "category": "web",
+      "featured": false,
+      "summary": "This helped the HTBB team quickly gain clear insights into their participants, allowing them to improve outreach strategies and plan future Alpha sessions more effectively.",
+      "role": "Design & development",
+      "context": "HTBB · Alpha Course",
+      "timelineNote": "A one-click analysis tool for 11 years of Alpha Course data.",
+      "tags": [
+        "Google Sheets",
+        "Data analysis",
+        "Automation"
+      ],
+      "cover": {
+        "type": "icon",
+        "icon": "chart",
+        "url": "",
+        "alt": ""
+      },
+      "links": [],
+      "metrics": [],
+      "problem": {
+        "paragraphs": [
+          "After 11 years of running the Alpha Course, the organizers still didn’t have clear information about the participants, such as their age, church attendance, or reasons for joining. All the data was there, but it wasn’t analyzed in a useful way."
+        ],
+        "bullets": []
+      },
+      "process": {
+        "paragraphs": [
+          "I developed an automated analysis tool in Google Sheets that processes all the participant data with just one click. It organizes information such as age, church attendance, and reasons for attending, making it easy to understand the overall trends."
+        ],
+        "cards": []
+      },
+      "impact": {
+        "paragraphs": [
+          "This helped the HTBB team quickly gain clear insights into their participants, allowing them to improve outreach strategies and plan future Alpha sessions more effectively."
+        ],
+        "features": []
+      },
+      "journey": [],
+      "improvements": [],
+      "gallery": []
+    },
+    {
+      "id": "young-innovators-judging",
+      "title": "Young Innovators Challenge Judging System",
+      "year": 2025,
+      "category": "app",
+      "featured": false,
+      "summary": "This digital judging system will be used for the national finals of the Young Innovators Challenge in 2025, making the entire judging process faster, more accurate, and more efficient.",
+      "role": "Design & development",
+      "context": "Young Innovators Challenge",
+      "timelineNote": "A real-time judging system for the Young Innovators Challenge.",
+      "tags": [
+        "AppSheet",
+        "Form design",
+        "Real-time data"
+      ],
+      "cover": {
+        "type": "icon",
+        "icon": "trophy",
+        "url": "",
+        "alt": ""
+      },
+      "links": [
+        {
+          "label": "Open AppSheet app",
+          "url": "https://www.appsheet.com/start/150862dc-6863-4f82-b898-025564948636"
+        }
+      ],
+      "metrics": [],
+      "problem": {
+        "paragraphs": [
+          "Judges in the Young Innovators Challenge had to evaluate projects using paper form, which made it difficult to update or change scores based on students’ performance. The process was slow and not very flexible."
+        ],
+        "bullets": []
+      },
+      "process": {
+        "paragraphs": [
+          "I developed an AppSheet-based form that allows judges to submit, edit, and manage scores easily in real time. The interface is simple, seamless, and helps judges focus more on the evaluation rather than paperwork."
+        ],
+        "cards": []
+      },
+      "impact": {
+        "paragraphs": [
+          "This digital judging system will be used for the national finals of the Young Innovators Challenge in 2025, making the entire judging process faster, more accurate, and more efficient."
+        ],
+        "features": []
+      },
+      "journey": [],
+      "improvements": [],
+      "gallery": []
+    },
+    {
+      "id": "alpha-film-series",
+      "title": "Alpha Film Series Website",
+      "year": "2025-2026",
+      "category": "web",
+      "featured": false,
+      "summary": "No centralised place for useful Alpha Course Resources.",
+      "role": "Design & development",
+      "context": "HTBB · Alpha Course",
+      "timelineNote": "A central home for Alpha Course resources.",
+      "tags": [
+        "Web development",
+        "Alpha Course",
+        "Resources"
+      ],
+      "cover": {
+        "type": "icon",
+        "icon": "play",
+        "url": "",
+        "alt": ""
+      },
+      "links": [
+        {
+          "label": "Visit website",
+          "url": "https://andrewung2009.github.io/alphafilmseries/"
+        }
+      ],
+      "metrics": [],
+      "problem": {
+        "paragraphs": [
+          "No centralised place for useful Alpha Course Resources."
+        ],
+        "bullets": []
+      },
+      "process": {
+        "paragraphs": [],
+        "cards": []
+      },
+      "impact": {
+        "paragraphs": [],
+        "features": []
+      },
+      "journey": [],
+      "improvements": [],
+      "gallery": []
+    },
+    {
+      "id": "ai-panel-google-sheets",
+      "title": "AI Panel in Google Sheets",
+      "year": 2026,
+      "category": "ai",
+      "featured": false,
+      "summary": "An AI assistant inside Google Sheets that answers questions about a 204-school tablet rollout — deadlines, overdue tasks and contacts — without scanning thousands of rows.",
+      "role": "Design & development",
+      "context": "Chumbaka · 204-school rollout",
+      "timelineNote": "An AI assistant embedded in Google Sheets for a 204-school tablet rollout.",
+      "tags": [
+        "Google Sheets",
+        "Apps Script",
+        "ChatGPT",
+        "Vector DB",
+        "AI"
+      ],
+      "cover": {
+        "type": "icon",
+        "icon": "robot",
+        "url": "",
+        "alt": ""
+      },
+      "links": [],
+      "metrics": [
+        {
+          "value": "204",
+          "label": "Schools in rollout"
+        },
+        {
+          "value": "1,000+",
+          "label": "Rows of data"
+        },
+        {
+          "value": "Instant",
+          "label": "Answers, not searches"
+        }
+      ],
+      "problem": {
+        "paragraphs": [
+          "All over Sarawak, many schools don't have opportunities for students to catch up in their studies. Some students can't even read or write. There are many people involved in helping them: teachers, delivery drivers and volunteers.",
+          "The problems start before the tablets are even delivered. The devices are loaded with educational material from the Kayam App, but managing a 204-school logistics rollout is complex — and the people involved have no easy way to see what is overdue or what is coming next.",
+          "How can we make it easy for everyone involved to know what is overdue and what the upcoming deadlines are?"
+        ],
+        "bullets": [
+          {
+            "title": "Students left behind",
+            "text": "Many schools in Sarawak lack opportunities for students to catch up; some can't even read or write."
+          },
+          {
+            "title": "Logistics complexity",
+            "text": "Teachers, delivery drivers and volunteers all need to coordinate across 204 schools."
+          },
+          {
+            "title": "Deadline visibility",
+            "text": "There was no easy way to know which tasks were overdue or which deadlines were approaching."
+          },
+          {
+            "title": "Data overload",
+            "text": "Over 1,000 rows of tracking data made manual lookups slow and error-prone."
+          }
+        ]
+      },
+      "process": {
+        "paragraphs": [
+          "Mr Chong, my teacher at Chumbaka, suggested developing an AI agent inside Google Sheets that could answer questions based on what users ask. The agent works like a human assistant — except it has everything stored in the database.",
+          "I connected ChatGPT to Google Sheets with Google Apps Script, then solved the scaling problem by adding a vector database. Instead of re-reading a thousand-page book every time, the agent flips straight to the paragraph it needs."
+        ],
+        "cards": [
+          {
+            "title": "The tool: Google Sheets",
+            "text": "Used Google Sheets because of prior experience, leveraging Google Apps Script and Python to build the solution."
+          },
+          {
+            "title": "The initial challenge",
+            "text": "At the start, I wasn't even sure it would work. Eventually I connected ChatGPT to Google Sheets and coded it to respond to simple questions before reading sheet data."
+          },
+          {
+            "title": "Scaling to 1,000+ rows",
+            "text": "Getting the AI to read all the data was like giving someone a 1,000-page book and asking one question. It was too slow and too costly to repeat every time."
+          },
+          {
+            "title": "The vector database",
+            "text": "The AI now uses a smart index to find the exact passage instantly. Data syncs to the cloud manually or every one to two hours."
+          }
+        ]
+      },
+      "impact": {
+        "paragraphs": [
+          "The final product lets anyone using the sheet get their question answered immediately, without slowly searching across rows of content. It turns a data-heavy spreadsheet into a conversation."
+        ],
+        "features": [
+          {
+            "title": "Deadline tracking",
+            "text": "Ask about upcoming deadlines and get an instant answer without scanning the entire sheet.",
+            "bullets": [
+              "\"What is the next deadline I should watch out for?\"",
+              "\"What are some unfinished tasks even though the deadline has passed?\""
+            ]
+          },
+          {
+            "title": "Contact lookup",
+            "text": "Find who to contact for a specific region or task without searching through rows.",
+            "bullets": [
+              "\"Who should I contact in PPD Kuching?\"",
+              "Quick access to stakeholder information"
+            ]
+          },
+          {
+            "title": "Deliverable status",
+            "text": "Check whether all tasks have been met for every deliverable with a single question.",
+            "bullets": [
+              "\"Have all the tasks been met for every deliverable?\"",
+              "Identify overdue tasks instantly"
+            ]
+          }
+        ]
+      },
+      "journey": [
+        {
+          "label": "Step 1",
+          "title": "Problem identified",
+          "description": "Schools in Sarawak lack catch-up opportunities. Managing a 204-school tablet rollout with many stakeholders is complex and deadlines are hard to track.",
+          "tags": [
+            "Sarawak",
+            "204 schools"
+          ]
+        },
+        {
+          "label": "Step 2",
+          "title": "The idea",
+          "description": "Mr Chong from Chumbaka suggested an AI agent inside Google Sheets — a human-like assistant with everything stored in the database.",
+          "tags": [
+            "Chumbaka",
+            "AI agent"
+          ]
+        },
+        {
+          "label": "Step 3",
+          "title": "Connecting ChatGPT",
+          "description": "Connected ChatGPT to Google Sheets using Apps Script, then taught the agent to answer simple questions before reading sheet information.",
+          "tags": [
+            "ChatGPT",
+            "Apps Script"
+          ]
+        },
+        {
+          "label": "Step 4",
+          "title": "The scaling challenge",
+          "description": "Tried getting the AI to read all 1,000+ rows. Like giving someone a 1,000-page book — too slow and too much energy to re-read every time.",
+          "tags": [
+            "1,000+ rows",
+            "Performance"
+          ]
+        },
+        {
+          "label": "Step 5",
+          "title": "The vector database",
+          "description": "Implemented a vector database that searches by meaning rather than exact words. The agent flips to the exact paragraph it needs.",
+          "tags": [
+            "Vector DB",
+            "Cloud sync"
+          ]
+        },
+        {
+          "label": "Step 6",
+          "title": "The final product",
+          "description": "Users can now ask any question related to the data and get an instant answer — no more manually scanning thousands of rows.",
+          "tags": [
+            "AI assistant",
+            "Google Sheets"
+          ]
+        }
+      ],
+      "improvements": [
+        {
+          "title": "Automated notifications",
+          "text": "A bar that tracks dates and flags overdue tasks without requiring input, possibly through email, WhatsApp or Telegram."
+        },
+        {
+          "title": "Suggested questions",
+          "text": "Show suggested questions in the sidebar so users can discover what the agent can do."
+        },
+        {
+          "title": "Sync progress bar",
+          "text": "Show how far the data sync has progressed on its way to the cloud database."
+        },
+        {
+          "title": "A friendlier interface",
+          "text": "Make the AI feel nicer to use, so people are excited to open it every day."
+        },
+        {
+          "title": "Mobile availability",
+          "text": "Bring the agent to phones, where updates can happen immediately and on the move."
+        },
+        {
+          "title": "Seamless cloud sync",
+          "text": "Keep data up to date in real time across every device."
+        }
+      ],
+      "gallery": []
+    },
+    {
+      "id": "planning-center-duplication-checker",
+      "title": "Planning Center Duplication Checker",
+      "year": 2026,
+      "category": "web",
+      "featured": false,
+      "summary": "A web tool for finding duplicates in Planning Center.",
+      "role": "Design & development",
+      "context": "Planning Center",
+      "timelineNote": "A web tool for finding duplicates in Planning Center.",
+      "tags": [
+        "Web app",
+        "Duplicates",
+        "Planning Center"
+      ],
+      "cover": {
+        "type": "icon",
+        "icon": "copy",
+        "url": "",
+        "alt": ""
+      },
+      "links": [
+        {
+          "label": "Visit website",
+          "url": "https://pco-duplicates.onrender.com/"
+        }
+      ],
+      "metrics": [],
+      "problem": {
+        "paragraphs": [],
+        "bullets": []
+      },
+      "process": {
+        "paragraphs": [],
+        "cards": []
+      },
+      "impact": {
+        "paragraphs": [],
+        "features": []
+      },
+      "journey": [],
+      "improvements": [],
+      "gallery": []
     }
+  ],
+  "timeline": {
+    "kicker": "03 — Build log",
+    "heading": "The journey so far.",
+    "intro": "A chronological look at the projects, from a sensor-powered bed alarm in 2018 to AI tools and web apps in 2026."
+  },
+  "contact": {
+    "kicker": "04 — Contact",
+    "heading": "Let's build something useful.",
+    "text": "I'm always excited to work on projects that make a positive impact. If there is anything that you would like me to build, feel free to contact me!",
+    "email": "andrewungweien@gmail.com",
+    "details": [
+      {
+        "label": "Location",
+        "value": "Kuala Lumpur, Malaysia"
+      },
+      {
+        "label": "Focus",
+        "value": "Automation, AI"
+      },
+      {
+        "label": "Currently",
+        "value": "Studying A-Levels"
+      }
+    ],
+    "socials": [
+      {
+        "label": "GitHub",
+        "icon": "github",
+        "url": "https://github.com/andrewung2009"
+      },
+      {
+        "label": "Instagram",
+        "icon": "instagram",
+        "url": "https://www.instagram.com/andrewung2009"
+      },
+      {
+        "label": "YouTube",
+        "icon": "youtube",
+        "url": "https://www.youtube.com/@andrewung997"
+      }
+    ]
+  },
+  "footer": {
+    "note": "Designed and built by Andrew Ung Wei En.",
+    "year": "2026"
+  }
 }

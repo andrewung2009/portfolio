@@ -1112,7 +1112,7 @@
 
     var media =
       '<div class="panel">' +
-      '<div class="panel-head"><div><h2>Cover</h2><p>Use a designed icon, or upload a screenshot.</p></div></div>' +
+      '<div class="panel-head"><div><h2>Cover</h2><p>Use a designed icon, or add an image. Adding an image switches the cover type automatically.</p></div></div>' +
       '<div class="grid-2">' +
       selectField("Cover type", base + ".cover.type", [
         { value: "icon", label: "Designed icon" },
@@ -1341,6 +1341,30 @@
     return String(value).split(/\r?\n/).map(function (item) { return item.trim(); }).filter(Boolean);
   }
 
+  function coverTypePathFor(path) {
+    var match = /^(projects\.\d+\.cover)\.(url|type|icon|alt)$/.exec(path);
+    return match ? match[1] + ".type" : null;
+  }
+
+  function setCoverType(path, type) {
+    var typePath = coverTypePathFor(path);
+    if (!typePath) return;
+    setPath(data, typePath, type);
+    var select = document.querySelector('[data-path="' + typePath + '"]');
+    if (select) select.value = type;
+  }
+
+  var coverPreviewTimer = null;
+
+  function scheduleCoverPreview() {
+    window.clearTimeout(coverPreviewTimer);
+    coverPreviewTimer = window.setTimeout(function () {
+      var preview = document.querySelector(".admin-cover-preview");
+      var project = data && data.projects && data.projects[activeProject];
+      if (preview && project) preview.innerHTML = coverMarkup(project, activeProject + 1);
+    }, 400);
+  }
+
   function handleEditorInput(event) {
     var target = event.target;
     if (target.matches('[data-role="project-search"]')) {
@@ -1358,6 +1382,11 @@
 
     setPath(data, path, value);
     markDirty();
+
+    if (/\.cover\.url$/.test(path)) {
+      setCoverType(path, String(value).trim() ? "image" : "icon");
+      scheduleCoverPreview();
+    }
 
     if (/\.(title|year|category|featured|id)$/.test(path)) updateProjectListLabels();
     if (/\.(category|featured|cover\.type|cover\.icon)$/.test(path)) renderViewPreserve();
@@ -1598,6 +1627,7 @@
       var reader = new FileReader();
       reader.onload = function () {
         setPath(data, path, String(reader.result));
+        setCoverType(path, "image");
         markDirty();
         renderViewPreserve();
         toast("Image embedded in the local draft", "success");
@@ -1631,6 +1661,7 @@
       })
       .then(function () {
         setPath(data, path, repoPath);
+        setCoverType(path, "image");
         markDirty();
         renderViewPreserve();
         toast("Image uploaded — " + repoPath, "success");
