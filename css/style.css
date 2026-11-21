@@ -1317,6 +1317,22 @@ body.menu-open {
   background: color-mix(in srgb, var(--cat, var(--app)) 9%, transparent);
 }
 
+.cover-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cover-art.has-image .cover-fallback {
+  display: none;
+}
+
+.cover-art.has-image::before,
+.cover-art.has-image::after {
+  display: none;
+}
+
 .cover-icon {
   position: absolute;
   top: 50%;

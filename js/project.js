@@ -387,7 +387,11 @@
 
   function setupImageFallbacks() {
     document.querySelectorAll(".cover-img").forEach(function (img) {
-      function fail() { img.classList.add("is-broken"); }
+      function fail() {
+        img.classList.add("is-broken");
+        var art = img.closest(".cover-art");
+        if (art) art.classList.remove("has-image");
+      }
       img.addEventListener("error", fail);
       if (img.complete && img.naturalWidth === 0) fail();
     });

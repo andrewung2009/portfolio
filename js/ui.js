@@ -107,18 +107,24 @@
     var cover = project.cover || {};
     var iconName = cover.icon || cat.icon;
     var badge = '<span class="cover-category">' + esc(cat.label) + "</span>";
-    var fallback = '<div class="cover-icon">' + icon(iconName) + "</div>" + '<span class="cover-index">' + pad(index) + "</span>";
+    var fallback =
+      '<div class="cover-fallback">' +
+      '<div class="cover-icon">' + icon(iconName) + "</div>" +
+      '<span class="cover-index">' + pad(index) + "</span>" +
+      "</div>";
     var style = ' style="--cat: var(--' + (CATEGORY[project.category] ? project.category : "app") + ')"';
+    var imageUrl = cover.url ? String(cover.url).trim() : "";
+    var hasImage = Boolean(imageUrl);
     var img = "";
-    if (cover.type === "image" && cover.url) {
+    if (hasImage) {
       img =
         '<img class="cover-img" src="' +
-        esc(cover.url) +
+        esc(imageUrl) +
         '" alt="' +
         esc(cover.alt || project.title + " cover") +
         '" loading="lazy" decoding="async">';
     }
-    return '<div class="cover-art"' + style + ">" + badge + fallback + img + "</div>";
+    return '<div class="cover-art' + (hasImage ? " has-image" : "") + '"' + style + ">" + badge + fallback + img + "</div>";
   }
 
   function initials(name) {

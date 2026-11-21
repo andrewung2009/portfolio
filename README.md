@@ -30,9 +30,9 @@ Every publish creates a GitHub commit, so older versions can always be restored.
 
 ### Uploading images
 
-Use the **Upload** button next to any image field. When signed in with a token, the image is committed to `assets/uploads/`. In local mode the image is embedded in the draft as a data URL so you can preview it, but it is not a good long-term replacement for a real file — use GitHub mode for final images.
+Use the **Upload file** button next to any image field. When signed in with a token, the image is committed to `assets/uploads/`. In local mode the image is embedded in the draft as a data URL so you can preview it, but it is not a good long-term replacement for a real file - use GitHub mode for final images. Uploading an image also switches that project's cover type to **Image** automatically.
 
-Images must be under 4 MB. JPG, PNG, WebP and GIF all work.
+Images must be under 8 MB. PNG, JPG, WebP, GIF and SVG all work. Uploading a file is more reliable than pasting an external image URL, because some sites block their images from being shown on other domains.
 
 ### Admin security
 

@@ -1472,6 +1472,21 @@ select.input {
   transform: translateY(-50%);
 }
 
+.admin-cover-preview .cover-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.admin-cover-preview .cover-art.has-image .cover-fallback {
+  display: none;
+}
+
+.admin-cover-preview .cover-art.has-image::after {
+  display: none;
+}
+
 .admin-cover-preview .cover-icon {
   position: absolute;
   top: 50%;

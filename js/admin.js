@@ -683,6 +683,10 @@
   }
 
   function switchView(view) {
+    if (!data) {
+      toast("Content is still loading — try again in a moment.");
+      return;
+    }
     activeView = view;
     if (view === "projects") {
       var projects = data.projects || [];
@@ -773,10 +777,13 @@
       '<div class="field field--wide">' +
       "<span>" + esc(label) + "</span>" +
       '<div class="media-row">' +
-      '<input class="input" data-path="' + path + '" value="' + esc(value) + '" placeholder="assets/images/… or https://…">' +
-      '<label class="btn btn--small btn--ghost upload-btn">' + iconSpan("upload") + "Upload" +
-      '<input type="file" accept="image/*" data-upload-path="' + path + '"></label>' +
+      '<input class="input" data-path="' + path + '" value="' + esc(value) + '" placeholder="Paste an image URL, or upload a file…">' +
+      '<label class="btn btn--small btn--ghost upload-btn" title="PNG, JPG, WebP, GIF or SVG up to 8 MB">' +
+      iconSpan("upload") + "Upload file" +
+      '<input type="file" accept=".png,.jpg,.jpeg,.webp,.gif,.svg,image/png,image/jpeg,image/webp,image/gif,image/svg+xml" data-upload-path="' + path + '">' +
+      "</label>" +
       "</div>" +
+      '<span class="field-help">PNG, JPG, WebP, GIF or SVG · up to 8 MB. You can also paste an image URL above.</span>' +
       '<div class="media-preview">' +
       (value
         ? '<img src="' + esc(value) + '" alt="">'
@@ -1612,13 +1619,19 @@
     var path = input.dataset.uploadPath;
     if (!path) return;
 
-    if (!/^image\//.test(file.type)) {
-      toast("Please choose an image file.", "error");
+    var fileName = file.name || "image";
+    var dot = fileName.lastIndexOf(".");
+    var extension = dot >= 0 ? fileName.slice(dot + 1).toLowerCase().replace(/[^a-z0-9]/g, "") : "";
+    var mime = String(file.type || "").toLowerCase();
+    var allowedMime = ["image/png", "image/jpeg", "image/webp", "image/gif", "image/svg+xml"];
+    var allowedExt = ["png", "jpg", "jpeg", "webp", "gif", "svg"];
+    if (allowedMime.indexOf(mime) === -1 && allowedExt.indexOf(extension) === -1) {
+      toast("Choose a PNG, JPG, WebP, GIF or SVG file.", "error");
       input.value = "";
       return;
     }
-    if (file.size > 4 * 1024 * 1024) {
-      toast("Images must be under 4 MB. Compress it and try again.", "error");
+    if (file.size > 8 * 1024 * 1024) {
+      toast("Images must be under 8 MB. Compress it and try again.", "error");
       input.value = "";
       return;
     }
@@ -1630,7 +1643,7 @@
         setCoverType(path, "image");
         markDirty();
         renderViewPreserve();
-        toast("Image embedded in the local draft", "success");
+        toast("Image added to the local draft", "success");
       };
       reader.onerror = function () { toast("Could not read that image.", "error"); };
       reader.readAsDataURL(file);
@@ -1643,8 +1656,10 @@
     }
 
     toast("Uploading image to GitHub…");
-    var extension = (file.name.split(".").pop() || "png").toLowerCase().replace(/[^a-z0-9]/g, "");
-    var base = slugify(file.name.replace(/\.[^.]+$/, "")) || "image";
+    if (!extension) {
+      extension = mime.indexOf("svg") !== -1 ? "svg" : (mime.split("/")[1] || "png");
+    }
+    var base = slugify(fileName.replace(/\.[^.]+$/, "")) || "image";
     var repoPath = CONFIG.uploadPath + "/" + base + "-" + Date.now() + "." + extension;
 
     fileToBase64(file)
@@ -1653,7 +1668,7 @@
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            message: "Upload " + file.name + " via portfolio admin",
+            message: "Upload " + fileName + " via portfolio admin",
             content: content,
             branch: CONFIG.branch
           })
@@ -1664,7 +1679,7 @@
         setCoverType(path, "image");
         markDirty();
         renderViewPreserve();
-        toast("Image uploaded — " + repoPath, "success");
+        toast("Image uploaded — press Publish to update the site.", "success");
       })
       .catch(function (error) {
         toast("Upload failed: " + error.message, "error");
@@ -2055,6 +2070,14 @@
       if (event.target.matches('input[type="file"][data-upload-path]')) handleFileUpload(event.target);
     });
     editorBody.addEventListener("click", handleEditorClick);
+    editorBody.addEventListener("error", function (event) {
+      var img = event.target;
+      if (img && img.matches && img.matches(".cover-img")) {
+        img.classList.add("is-broken");
+        var art = img.closest(".cover-art");
+        if (art) art.classList.remove("has-image");
+      }
+    }, true);
     importFile.addEventListener("change", handleImportFile);
     previewFrame.addEventListener("load", function () {
       window.setTimeout(sendPreview, 300);
