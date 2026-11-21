@@ -546,9 +546,9 @@
                 "Real-time data"
             ],
             "cover": {
-                "type": "icon",
+                "type": "image",
                 "icon": "trophy",
-                "url": "",
+                "url": "assets/uploads/yic-logo-1795245188447.png",
                 "alt": ""
             },
             "links": [
