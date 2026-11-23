@@ -123,12 +123,12 @@
         esc(imageUrl) +
         '" alt="' +
         esc(cover.alt || project.title + " cover") +
-        '" loading="lazy" decoding="async">';
+        '" width="1200" height="750" loading="lazy" decoding="async">';
       if (fit === "contain") {
         img =
           '<img class="cover-img cover-img--blur" src="' +
           esc(imageUrl) +
-          '" alt="" aria-hidden="true" loading="lazy" decoding="async">' +
+          '" alt="" aria-hidden="true" width="1200" height="750" loading="lazy" decoding="async">' +
           mainImage;
       } else {
         img = mainImage;

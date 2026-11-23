@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=14">
+  <link rel="stylesheet" href="css/style.css?v=19">
   <script>
     (function () {
       document.documentElement.classList.add('js');
@@ -32,7 +32,12 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <header id="siteHeader"></header>
-  <main id="main"></main>
+  <main id="main">
+    <div class="initial-loader" role="status" aria-live="polite">
+      <span class="status-dot"></span>
+      Loading portfolio…
+    </div>
+  </main>
   <div id="siteFooter"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <noscript>
@@ -43,7 +48,7 @@
       </div>
     </div>
   </noscript>
-  <script src="js/ui.js?v=14"></script>
-  <script src="js/app.js?v=14"></script>
+  <script src="js/ui.js?v=19"></script>
+  <script src="js/app.js?v=19"></script>
 </body>
 </html>

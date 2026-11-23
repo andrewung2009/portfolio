@@ -344,7 +344,7 @@
     var figures = (project.gallery || []).map(function (item, i) {
       return (
         "<figure>" +
-        '<img src="' + esc(item.url) + '" alt="' + esc(item.alt || project.title + " image " + (i + 1)) + '" loading="lazy" decoding="async">' +
+        '<img src="' + esc(item.url) + '" alt="' + esc(item.alt || project.title + " image " + (i + 1)) + '" width="1200" height="800" loading="lazy" decoding="async">' +
         (item.caption ? "<figcaption>" + esc(item.caption) + "</figcaption>" : "") +
         "</figure>"
       );

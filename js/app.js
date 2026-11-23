@@ -208,7 +208,7 @@
       '<button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">' +
       icon("menu") + "</button>" +
       "</div></div></nav>" +
-      '<div class="mobile-menu" id="mobileMenu" aria-hidden="true">' +
+      '<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true">' +
       '<ul class="mobile-links">' + mobileLinks + "</ul>" +
       '<div class="mobile-footer">' +
       "<p>" + esc(meta.location) + "</p>" +
@@ -233,6 +233,9 @@
       toggle.setAttribute("aria-label", "Open menu");
       toggle.innerHTML = icon("menu");
       document.body.classList.remove("menu-open");
+      if (mainHost) mainHost.inert = false;
+      if (footerHost) footerHost.inert = false;
+      if (menu.contains(document.activeElement)) toggle.focus();
     }
 
     function open() {
@@ -243,11 +246,31 @@
       toggle.setAttribute("aria-label", "Close menu");
       toggle.innerHTML = icon("close");
       document.body.classList.add("menu-open");
+      if (mainHost) mainHost.inert = true;
+      if (footerHost) footerHost.inert = true;
+      var firstLink = menu.querySelector("a[href], button");
+      if (firstLink) window.setTimeout(function () { firstLink.focus(); }, 30);
     }
 
     toggle.addEventListener("click", function () {
       if (menu.classList.contains("is-open")) close();
       else open();
+    });
+
+    menu.addEventListener("keydown", function (event) {
+      if (event.key !== "Tab") return;
+      var focusables = Array.prototype.slice.call(menu.querySelectorAll("a[href], button"))
+        .filter(function (el) { return el.offsetParent !== null && !el.disabled; });
+      if (!focusables.length) return;
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     });
 
     menu.querySelectorAll("a").forEach(function (link) {
@@ -262,7 +285,7 @@
     var hero = siteData.hero || {};
     var name = meta.name || "";
     var portrait = hero.portrait
-      ? '<img class="portrait-img" src="' + esc(hero.portrait) + '" alt="Portrait of ' + esc(name) + '" loading="eager" decoding="async">'
+      ? '<img class="portrait-img" src="' + esc(hero.portrait) + '" alt="Portrait of ' + esc(name) + '" width="900" height="1200" loading="eager" decoding="async">'
       : '<span class="portrait-monogram">' + esc(initials(name)) + "</span>";
 
     var socials = [];

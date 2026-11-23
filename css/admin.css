@@ -1804,7 +1804,8 @@ select.input {
 .login-mark,
 .sidebar-mark {
   border: 0;
-  background: linear-gradient(135deg, var(--accent), var(--ai));
+  background-color: var(--accent);
+  background-image: linear-gradient(135deg, var(--accent), var(--ai));
   color: var(--on-accent);
   font-family: var(--font-sans);
   font-weight: 800;

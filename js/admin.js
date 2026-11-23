@@ -50,6 +50,7 @@
   var history = [];
   var historyIndex = -1;
   var publishing = false;
+  var lastFocusedElement = null;
 
   var VIEW_META = {
     site: { title: "Site & hero", eyebrow: "SECTION 01" },
@@ -786,7 +787,7 @@
       '<span class="field-help">PNG, JPG, WebP, GIF or SVG · up to 8 MB. You can also paste an image URL above.</span>' +
       '<div class="media-preview">' +
       (value
-        ? '<img src="' + esc(value) + '" alt="">'
+        ? '<img src="' + esc(value) + '" alt="" width="1200" height="800">'
         : '<span class="preview-empty">No image yet</span>') +
       "</div>" +
       (opts.help ? '<span class="field-help">' + esc(opts.help) + "</span>" : "") +
@@ -1972,7 +1973,10 @@
   /* ---------- modal ---------- */
 
   function openModal(options) {
-    closeModal();
+    var previous = modalRoot.children.length ? lastFocusedElement : document.activeElement;
+    modalRoot.innerHTML = "";
+    lastFocusedElement = previous;
+
     var backdrop = document.createElement("div");
     backdrop.className = "modal-backdrop";
     backdrop.innerHTML =
@@ -1996,13 +2000,34 @@
       if (event.target === backdrop) closeModal();
     });
 
+    backdrop.addEventListener("keydown", function (event) {
+      if (event.key !== "Tab") return;
+      var focusables = $$('button, input, select, textarea, a[href], [tabindex]:not([tabindex="-1"])', backdrop)
+        .filter(function (el) { return !el.disabled && el.offsetParent !== null; });
+      if (!focusables.length) return;
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
     modalRoot.appendChild(backdrop);
     var first = backdrop.querySelector("input, .modal-actions .btn");
     if (first) first.focus();
   }
 
   function closeModal() {
+    var target = lastFocusedElement;
+    lastFocusedElement = null;
     modalRoot.innerHTML = "";
+    if (target && document.contains(target) && typeof target.focus === "function") {
+      target.focus();
+    }
   }
 
   function confirmModal(title, body, confirmLabel, onConfirm, danger) {
