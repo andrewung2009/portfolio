@@ -385,6 +385,11 @@ body.menu-open {
   align-items: center;
 }
 
+.btn-lead svg {
+  width: 18px;
+  height: 18px;
+}
+
 .btn:hover .btn-lead svg {
   transform: none;
 }

@@ -56,7 +56,7 @@
     moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>',
     play: '<path d="m7 4 13 8-13 8V4Z"/>',
     pause: '<path d="M8 5v14M16 5v14"/>',
-    presentation: '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v5M8 21h8"/><path d="m10 8 4 2-4 2V8Z"/>',
+    presentation: '<rect x="3" y="3.5" width="18" height="13" rx="2"/><path d="M12 16.5v4M8 20.5h8"/><path fill="currentColor" stroke="none" d="m10.2 7.4 5.1 2.6-5.1 2.6V7.4Z"/>',
     table: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16M15 4v16"/>',
     download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>'
   };
