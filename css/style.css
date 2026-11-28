@@ -1486,9 +1486,7 @@ body.menu-open {
 }
 
 .cover-art--plate::after {
-  width: 62%;
-  background: transparent;
-  border-color: color-mix(in srgb, var(--cat, var(--app)) 30%, transparent);
+  display: none;
 }
 
 .cover-mount {
