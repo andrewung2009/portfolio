@@ -31,15 +31,15 @@
     var label = String(link.label || "").toLowerCase();
     var url = String(link.url || "").toLowerCase();
 
-    if (/slide|presentation|deck/.test(label)) return "presentation";
-    if (/appsheet/.test(label)) return "table";
+    if (/slide|presentation|deck/.test(label)) return "slides-doc";
+    if (/appsheet/.test(label)) return "appsheet-brand";
     if (/\bcode\b|source/.test(label)) return "code";
     if (/website|\bsite\b|demo/.test(label)) return "globe";
     if (/repository|repo|github/.test(label)) return "github";
 
-    if (/appsheet/.test(url)) return "table";
-    if (/docs\.google\.com\/presentation|slides/.test(url)) return "presentation";
-    if (/docs\.google\.com\/spreadsheets/.test(url)) return "table";
+    if (/appsheet/.test(url)) return "appsheet-brand";
+    if (/docs\.google\.com\/presentation|slides/.test(url)) return "slides-doc";
+    if (/docs\.google\.com\/spreadsheets/.test(url)) return "appsheet-brand";
     if (/github\.com\/[^/]+\/[^/]+/.test(url) || /\.git$/.test(url)) return "github";
     return "link";
   }

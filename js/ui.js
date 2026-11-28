@@ -8,7 +8,7 @@
     arrowLeft: '<path d="M19 12H5"/><path d="m11 6-6 6 6 6"/>',
     arrowDown: '<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>',
     arrowUp: '<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>',
-    github: '<path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/>',
+    github: '<path fill="currentColor" stroke="none" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.304 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.51-1.523.115-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.295-1.552 3.295-1.23 3.295-1.23.653 1.517.25 2.873.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>',
     linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-13h4v1.5A5.4 5.4 0 0 1 16 8Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
     instagram: '<rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/>',
     youtube: '<path d="M2.5 17a24 24 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49 49 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24 24 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49 49 0 0 1-16.2 0A2 2 0 0 1 2.5 17Z"/><path d="m10 15 5-3-5-3v6Z"/>',
@@ -56,6 +56,14 @@
     moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>',
     play: '<path d="m7 4 13 8-13 8V4Z"/>',
     pause: '<path d="M8 5v14M16 5v14"/>',
+    "slides-doc": {
+      viewBox: "0 0 192 192",
+      body: '<path stroke-width="12" d="M96 94H68v38h56V94H96Z"/><path fill="currentColor" stroke="none" fill-rule="evenodd" d="M52 28a2 2 0 0 0-2 2v132a2 2 0 0 0 2 2h88a2 2 0 0 0 2-2V62h-28a6 6 0 0 1-6-6V28H52Zm68 8.485L133.515 50H120V36.485ZM38 30c0-7.732 6.268-14 14-14h62c1.591 0 3.117.632 4.243 1.757l34 34A6 6 0 0 1 154 56v106c0 7.732-6.268 14-14 14H52c-7.732 0-14-6.268-14-14V30Z" clip-rule="evenodd"/>'
+    },
+    "appsheet-brand": {
+      viewBox: "0 0 192 192",
+      body: '<path fill="#1967D2" stroke="none" d="M164.03 29h-42.41l-17.11 24.31L94.33 77.4l27.29 3.08 28.34-2.97 21.04-36.43C174.11 35.71 170.23 29 164.03 29z"/><path fill="#4285F4" stroke="none" d="M21.01 41.11l17.63 30.22c2.16 3.7 6.12 5.98 10.41 5.99l45.29.09L121.63 29H27.97c-6.22 0-10.09 6.74-8.96 12.11z"/><path fill="#4285F4" stroke="none" d="M103.32 158.96c-3.07 5.34-10.75 5.4-13.9.11l-17.55-29.46c-2.22-3.72-2.27-8.34-.14-12.11L94.33 77.4l55.63.11-33.64 81.45z"/>'
+    },
     presentation: '<rect x="3" y="3.5" width="18" height="13" rx="2"/><path d="M12 16.5v4M8 20.5h8"/><path fill="currentColor" stroke="none" d="m10.2 7.4 5.1 2.6-5.1 2.6V7.4Z"/>',
     table: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16M15 4v16"/>',
     download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>'
@@ -79,10 +87,12 @@
   };
 
   function icon(name, size) {
-    var body = ICONS[name] || ICONS.sparkles;
+    var glyph = ICONS[name] || ICONS.sparkles;
+    var body = typeof glyph === "string" ? glyph : glyph.body;
+    var viewBox = typeof glyph === "string" ? "0 0 24 24" : glyph.viewBox || "0 0 24 24";
     var s = size ? ' width="' + size + '" height="' + size + '"' : "";
     return (
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" ' +
+      '<svg viewBox="' + viewBox + '" fill="none" stroke="currentColor" stroke-width="1.5" ' +
       'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"' +
       s +
       ">" +
