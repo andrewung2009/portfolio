@@ -223,10 +223,6 @@ button {
   scroll-margin-top: calc(var(--nav-h) + 16px);
 }
 
-.section--hairline {
-  border-top: 1px solid var(--line);
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -412,20 +408,6 @@ body.menu-open {
   border-color: var(--accent);
   color: var(--accent-text);
   background: var(--accent-soft);
-}
-
-.btn--text {
-  padding: 0 0 4px;
-  min-height: 0;
-  border: 0;
-  border-bottom: 1px solid var(--line-strong);
-  border-radius: 0;
-  background: none;
-  color: var(--text);
-}
-.btn--text:hover {
-  color: var(--accent-text);
-  border-color: var(--accent);
 }
 
 /* ---------- theme toggle ---------- */
@@ -1282,42 +1264,38 @@ body.menu-open {
   grid-column: 1 / -1;
 }
 
-.projects-grid.is-filtered .project-card.is-featured {
-  grid-column: auto;
-}
-
 .project-link {
   display: grid;
   grid-template-rows: auto 1fr;
   height: 100%;
 }
 
-.projects-grid:not(.is-filtered) .project-card.is-featured .project-link {
+.projects-grid .project-card.is-featured .project-link {
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
 }
 
-.projects-grid:not(.is-filtered) .project-card.is-featured .project-cover {
+.projects-grid .project-card.is-featured .project-cover {
   border-bottom: 0;
   border-right: 1px solid var(--line);
   min-height: 400px;
 }
 
-.projects-grid:not(.is-filtered) .project-card.is-featured .cover-art {
+.projects-grid .project-card.is-featured .cover-art {
   position: absolute;
   inset: 0;
   aspect-ratio: auto;
 }
 
-.projects-grid:not(.is-filtered) .project-card.is-featured .project-title {
+.projects-grid .project-card.is-featured .project-title {
   font-size: clamp(30px, 3vw, 38px);
   max-width: 20ch;
 }
 
-.projects-grid:not(.is-filtered) .project-card.is-featured .project-summary {
+.projects-grid .project-card.is-featured .project-summary {
   font-size: 16.5px;
 }
 
-.projects-grid:not(.is-filtered) .project-card.is-featured .project-body {
+.projects-grid .project-card.is-featured .project-body {
   padding: clamp(28px, 3.6vw, 44px);
   justify-content: center;
 }
@@ -1545,11 +1523,11 @@ body.menu-open {
   height: 34px;
 }
 
-.projects-grid:not(.is-filtered) .project-card.is-featured .cover-mount {
+.projects-grid .project-card.is-featured .cover-mount {
   width: min(52%, 300px);
 }
 
-.projects-grid:not(.is-filtered) .project-card.is-featured .project-foot {
+.projects-grid .project-card.is-featured .project-foot {
   margin-top: 28px;
 }
 
@@ -1638,42 +1616,6 @@ body.menu-open {
   border-color: var(--accent);
   color: var(--on-accent);
   transform: translate(2px, -2px);
-}
-
-.project-card.is-hidden {
-  display: none;
-}
-
-.work-foot {
-  margin-top: clamp(26px, 3.4vw, 38px);
-}
-
-.work-foot-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--line-strong);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text);
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.work-foot-link:hover {
-  color: var(--accent-text);
-  border-color: var(--accent);
-}
-
-.work-foot-link svg {
-  width: 15px;
-  height: 15px;
-  transition: transform 0.2s var(--ease);
-}
-
-.work-foot-link:hover svg {
-  transform: translateY(3px);
 }
 
 /* ---------- build log ---------- */
@@ -2817,34 +2759,24 @@ body.menu-open {
   .project-card.is-featured {
     grid-column: auto;
   }
-  .projects-grid:not(.is-filtered) .project-card.is-featured .project-link {
+  .projects-grid .project-card.is-featured .project-link {
     grid-template-columns: 1fr;
   }
-  .projects-grid:not(.is-filtered) .project-card.is-featured .project-cover {
+  .projects-grid .project-card.is-featured .project-cover {
     border-right: 0;
     border-bottom: 1px solid var(--line);
     min-height: 0;
   }
-  .projects-grid:not(.is-filtered) .project-card.is-featured .cover-art {
+  .projects-grid .project-card.is-featured .cover-art {
     position: relative;
     inset: auto;
     aspect-ratio: 16 / 10;
   }
-  .projects-grid:not(.is-filtered) .project-card.is-featured .project-body {
+  .projects-grid .project-card.is-featured .project-body {
     padding: 24px;
   }
-  .projects-grid:not(.is-filtered) .project-card.is-featured .project-title {
+  .projects-grid .project-card.is-featured .project-title {
     font-size: clamp(24px, 4vw, 32px);
-  }
-  .buildlog-group {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .buildlog-year {
-    position: static;
-  }
-  .buildlog-year strong {
-    font-size: 36px;
   }
   .contact-panel {
     grid-template-columns: 1fr;
@@ -3010,10 +2942,6 @@ body.menu-open {
   .project-arrow {
     width: 34px;
     height: 34px;
-  }
-  .buildlog-item {
-    padding: 15px 16px;
-    align-items: flex-start;
   }
   .contact-panel {
     padding: 24px 20px;

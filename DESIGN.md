@@ -67,9 +67,67 @@ typography:
     fontWeight: 500
     lineHeight: 1.4
     letterSpacing: "0.06em"
+  card-meta:
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "12px"
+    fontWeight: 500
+    lineHeight: 1.65
+    letterSpacing: "0em"
+  summary:
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "15px"
+    fontWeight: 400
+    lineHeight: 1.65
+    letterSpacing: "0em"
+  entry-title:
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "16px"
+    fontWeight: 650
+    lineHeight: 1.25
+    letterSpacing: "-0.01em"
+  featured-title:
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "clamp(30px, 3vw, 38px)"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "-0.025em"
+  year:
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "clamp(36px, 4.4vw, 52px)"
+    fontWeight: 750
+    lineHeight: 0.95
+    letterSpacing: "-0.04em"
+  case-title:
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "clamp(44px, 7.5vw, 82px)"
+    fontWeight: 800
+    lineHeight: 1.02
+    letterSpacing: "-0.05em"
+  next-title:
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "clamp(28px, 4.5vw, 52px)"
+    fontWeight: 750
+    lineHeight: 1.1
+    letterSpacing: "-0.035em"
+  metric-value:
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "clamp(30px, 3.4vw, 42px)"
+    fontWeight: 750
+    lineHeight: 1
+    letterSpacing: "-0.04em"
+  footer-giant:
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "clamp(64px, 15vw, 200px)"
+    fontWeight: 800
+    lineHeight: 0.78
+    letterSpacing: "-0.06em"
 rounded:
+  dash: "2px"
   xs: "8px"
+  nav-chip: "9px"
   sm: "10px"
+  mark: "11px"
+  console-panel: "14px"
   md: "16px"
   lg: "24px"
   pill: "999px"
@@ -109,19 +167,16 @@ components:
   nav-cta:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
-    rounded: "9px"
+    rounded: "{rounded.nav-chip}"
     padding: "0 14px"
     height: "38px"
-  filter-chip:
+  marquee-toggle:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.faded-ink}"
-    rounded: "{rounded.pill}"
-    padding: "8px 14px"
-  filter-chip-active:
-    backgroundColor: "{colors.signal-blue}"
-    textColor: "{colors.paper}"
-    rounded: "{rounded.pill}"
-    padding: "8px 14px"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
+    padding: "0"
+    height: "44px"
+    width: "44px"
   tag:
     backgroundColor: "{colors.panel-mist}"
     textColor: "{colors.faded-ink}"
@@ -133,11 +188,13 @@ components:
     rounded: "{rounded.md}"
     padding: "24px"
   input-console:
-    backgroundColor: "{colors.panel-mist}"
+    backgroundColor: "#f7f9fc"
     textColor: "{colors.ink}"
-    rounded: "2px"
+    rounded: "{rounded.xs}"
     padding: "9px 11px"
-    height: "38px"
+    height: "40px"
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "13.5px"
 ---
 
 # Design System: Andrew Ung Wei En — Portfolio
@@ -165,9 +222,9 @@ Density is generous but not luxurious. Sections breathe at 72–120px, two-colum
 A cool, high-contrast paper palette: white and misted blue-greys under navy ink, with a single saturated blue carrying every action and identity cue.
 
 ### Primary
-- **Signal Blue** (#2563eb): The one true accent. Primary buttons, active filter chips, link accents, kicker dashes, focus rings, the timeline spine node, and the "Wei En" accent word in the hero name. It marks action and authorship.
+- **Signal Blue** (#2563eb): The one true accent. Primary buttons, link accents, kicker dashes, focus rings, the timeline spine node, the marquee's bullet separators, and the "Wei En" accent word in the hero name. It marks action and authorship.
 - **Deep Signal** (#1d4ed8): The text-safe accent. Hover state for primary buttons and the colour of accent text on light paper, where Signal Blue would vibrate.
-- **Blue Wash** (#eef4ff): The accent's tint. Ghost-button hover fills, active case-study nav pills, skill-icon tiles and the cool half of gradient panels.
+- **Blue Wash** (#eef4ff): The accent's tint. Ghost-button hover fills, active case-study nav pills, contact-chip hovers, the timeline node's ring and the cool half of gradient panels.
 
 ### Secondary
 - **Lagoon Cyan** (#0891b2): Category colour for web projects. Appears only as a dot, a cover-field tint and a ghost index numeral.
@@ -181,8 +238,8 @@ A cool, high-contrast paper palette: white and misted blue-greys under navy ink,
 
 ### Neutral
 - **Paper** (#ffffff): The page and card ground in light theme.
-- **Cool Paper** (#f6f8fb): Section tint behind the marquee and footer; the scrollbar track.
-- **Panel Mist** (#f1f4f9): Resting tonal panel. Skill-tag fill, nav-link hover, case-study meta strip.
+- **Cool Paper** (#f6f8fb): The footer band and the scrollbar track.
+- **Panel Mist** (#f1f4f9): Resting tonal panel. The tools marquee band, skill-tag fill, nav-link hover and the case-study meta strip.
 - **Panel Deep** (#e8eef7): The deeper tonal step in portrait and cover gradients.
 - **Ink** (#0b1220): Headlines and primary body text in light theme.
 - **Slate Ink** (#1e293b): Secondary body text and dense metadata values.
@@ -214,7 +271,7 @@ The dark theme is the same notebook after dark, not a second identity. Paper bec
 - **Headline** (750, clamp(34px, 5vw, 58px), 1.05, -0.035em): Section headings and case-study titles. The contact headline may reach clamp(34px, 5.4vw, 62px); case titles reach clamp(44px, 7.5vw, 82px) at 800 weight.
 - **Title** (700, clamp(21px, 2.4vw, 27px), 1.2, -0.025em): Project card titles, journey steps and other in-card headings.
 - **Body** (400, 16.5px, 1.65): Default reading size. Long-form case prose steps to 1.75–1.78 with a 64–68ch measure; card summaries sit at 15px/1.65 and 54ch.
-- **Label** (600, 11–13px, 0.01em): Kickers, filter chips, buttons and metadata keys. Uppercase is reserved for the mono micro-label, not Inter labels.
+- **Label** (600, 11–13px, 0.01em): Kickers, buttons, tags and metadata keys. Uppercase is reserved for the mono micro-label, not Inter labels.
 - **Mono** (400-500, 11px, 0.06-0.08em, uppercase): Entry indices, counts, years, category names and timestamps. JetBrains Mono never appears above label scale in the public site. The public site holds the 11px floor; the admin console keeps its own 8-9px sub-dialect.
 
 ### Named Rules
@@ -228,15 +285,17 @@ The dark theme is the same notebook after dark, not a second identity. Paper bec
 
 The page is an editorial column, not a dashboard. A single `.container` caps at **1180px** with a fluid gutter of `clamp(20px, 4vw, 44px)`; sections use `clamp(72px, 9vw, 120px)` of vertical padding. The nav is fixed at **72px** (64px under 620px), and every section carries a scroll offset of nav height plus 16px.
 
-Layout is built from two-column asymmetric splits. The hero is `1.3fr / 0.7fr` ending on the baseline, with the portrait right-aligned at a 380px cap. Section headers are `1fr / 0.72fr`, headline left and supporting paragraph right. The about block is `1.18fr / 0.62fr`; the portrait plaque intentionally overhangs the frame by 24px. Work shows four curated case studies: one featured card spanning the full width and splitting internally `1.05fr / 0.95fr` into cover and body, then three secondary cards on a three-column 20px grid (one column under 860px). The build log beneath it is the complete index of every project.
+Sections run in a fixed order: hero → tools marquee → about → Work → build log → contact. The tools marquee is a hairline-bounded band of tool names separated by blue bullets, with a 44px pause/play toggle pinned at its right edge; the track pauses on hover until the button is first used, and from then on the marquee carries explicit `is-paused` / `is-playing` states.
 
-Each section opens on a **ledger line** - a full-width hairline carrying the section's name at the left and one piece of real metadata at the right (location, "4 of 12 case studies", the year span). It replaces the stacked kicker and gives the page its running-head rhythm.
+Layout is built from two-column asymmetric splits. The hero is `1.3fr / 0.7fr` ending on the baseline, with the portrait right-aligned at a 380px cap. Section headers are `1fr / 0.72fr`, headline left and supporting paragraph right. The about block is `1.18fr / 0.62fr`; the portrait plaque intentionally overhangs the frame by 24px. Work renders all twelve projects as cards on a three-column 20px grid: the featured card spans all columns and splits internally `1.05fr / 0.95fr` into cover and body, and the grid steps to two columns between 621px and 1080px and to one column at 620px and under, the featured card staying full-width at every step. There is no filter bar. The build log beneath it is the complete index of every project.
+
+Each section opens on a **ledger line** - a full-width hairline carrying the section's name at the left and one piece of real metadata at the right (location, "12 case studies", the year span). It replaces the stacked kicker and gives the page its running-head rhythm.
 
 The build log is the signature spatial device: a three-track grid of year (`clamp(110px, 12vw, 150px)`), spine (44px) and entries. Year labels stick 26px below the nav while their entries scroll past; a 1px rule runs the full height with a 13px ringed node at each year and an 8px blue terminal dot at the end. Entries stack at 10px gap inside each year.
 
-Case studies switch to a reading layout: a 21:9 cover, a four-cell metadata strip, a 54px sticky section nav, then a two-column body of a 120–210px sticky label rail and a content column. Prose is capped at 68ch; bullets and cards split into two columns, features into three.
+Case studies switch to a reading layout: a 21:9 cover, a four-cell metadata strip, a 54px sticky section nav, then a two-column body of a 120–210px sticky label rail and a content column. Prose is capped at 68ch; bullets and cards split into two columns, features into three. Case pages carry their own mobile drawer — the same `navToggle` / `mobileMenu` pair with a focus trap, Escape-to-close and an inert page behind it — and close on a next-case block whose title is a display-scale link (`case-next-link`), not a button, sitting beside a ghost "All work" `.btn`. Under 620px the back link and the email copy button both grow to 44px touch targets.
 
-Breakpoints are **1080px** (collapse nav links into the sheet, skills to 2 columns), **860px** (single-column sections, featured card un-splits, timeline drops the year track to a 32px spine, case rail becomes static), and **620px** (nav 64px, gutter 18px, 16px body, one-column everything, full-width hero buttons, all interactive targets at least 44px).
+Breakpoints are **1080px** (collapse nav links into the sheet, skills to 2 columns, work grid to 2 columns), **860px** (single-column sections, featured card un-splits, timeline drops the year track to a 32px spine, case rail becomes static), and **620px** (nav 64px, gutter 18px, 16px body, one-column everything, work grid to 1 column, full-width hero buttons, all interactive targets at least 44px).
 
 Density is comfortable-editorial: 24px card padding, 20px grid gaps, 12px small-card gaps. Nothing is tighter than a 10px gap except inline metadata.
 
@@ -260,14 +319,14 @@ In night theme the same roles darken to `rgba(0,0,0,0.25)`, `0.35` and `0.45`; t
 
 ## Shapes
 
-The form language is **soft-cornered rectangles with technical detailing**. Cards and containers use a 16px radius; large panels (portrait frame, about note, contact panel, case cover) use 24px; small entries, buttons and case cards use 10px; nav links and the skip link use 8px. Pills (999px) are reserved for filter chips, tags, status labels and the portrait label. Perfect circles are reserved for icon buttons, theme toggle, project arrows, timeline nodes and category dots.
+The form language is **soft-cornered rectangles with technical detailing**. Cards and containers use a 16px radius; large panels (portrait frame, about note, contact panel, case cover) use 24px; small entries, buttons and case cards use 10px; nav links and the skip link use 8px. Pills (999px) are reserved for labels and status: the category pill on each cover, tags, contact chips, the portrait label and the scrollbar thumb. Perfect circles are reserved for icon buttons, theme toggle, project arrows, timeline nodes and category dots.
 
 Borders are always 1px. There are no 2px outlines except focus rings, and no heavy strokes or drop-cap rules. Geometry supplies the personality: a faint square grid (80px in the hero, 44px inside cover plates and the portrait), a single concentric circle behind the cover icon, and oversized ghost numerals in the lower-right of each project plate. The kicker dash is a 22px × 2px rounded bar; the eyebrow dash is 26px. The logo mark is a 38px rounded square (11px radius) carrying a 135-degree Signal Blue → Ultraviolet gradient.
 
-The editor is a deliberate sub-dialect: same palette, but a **2px radius**, mono uppercase 8–9px labels, 40px controls and panel-first composition. That hardness is the console's identity; it should not leak into the public site.
+The editor is a deliberate sub-dialect: same palette, but a softer radius ladder — 8px on controls, 10px on inner items, 14px on panels — with 40px controls, Inter labels instead of mono annotations, and panel-first composition. That plainness is the console's identity; it should not leak into the public site.
 
 ### Named Rules
-**The Pills-Are-Labels Rule.** Full-round shapes only mark a label or a filter. Primary buttons, cards and inputs are never pills.
+**The Pills-Are-Labels Rule.** Full-round shapes only mark a label or a status. Primary buttons, cards and inputs are never pills.
 
 **The Two-Radius Rule.** A surface uses one radius, not nested radii. If a card is 16px, its cover and inner blocks clip to the card, they do not add their own.
 
@@ -277,8 +336,8 @@ The editor is a deliberate sub-dialect: same palette, but a **2px radius**, mono
 Tactile but restrained: a 48px minimum height, 10px corners, Inter 600 at 14px, and a short 0.2s state transition.
 - **Primary:** Signal Blue fill, white text, 1px matching border, 0–22px horizontal padding, accent glow. Hover deepens to Deep Signal and lifts 1px. Active scales to 0.98.
 - **Ghost:** Paper fill, Hairline Strong border, Ink text. Hover swaps the border to Signal Blue, the text to Deep Signal and the fill to Blue Wash.
-- **Text:** No box; 4px bottom border in Hairline Strong, 0 radius. Hover moves the border and text to accent. Used for tertiary actions such as "View all work".
 - **Icon behaviour:** Trailing 16px SVG arrows nudge `translate(2px, -2px)` on hover; never spin or bounce.
+- **Leading icon (`btn-lead`):** outbound case-study links wrap their leading icon in a `.btn-lead` span that holds still on hover — only the trailing arrow moves. The leading icon marks the destination type (repository, deck, table, demo), so it never animates.
 
 ### Navigation
 A fixed, translucent bar: `color-mix(bg 82%, transparent)` with a 16px backdrop blur, gaining a Hairline bottom border and resting shadow once scrolled. Height 72px (64px mobile). Brand is a 38px gradient mark plus a two-line lockup (13.5px/650 name, 11px muted role). Links are 36px tall, 8px radius, 13.5px/500 muted, with a Panel Mist fill on hover/active. The availability status uses a 7px Ledger Green dot with a 3px 16% ring. The nav CTA is a 38px, 9px-radius ghost chip. Under 1080px, links collapse into a full-screen sheet with 28–38px headline links, ending in a full-width primary "Start a conversation" action, the location line and the email; under 620px the role and status text hide.
@@ -291,7 +350,7 @@ The category filter is retired: twelve projects do not repay a classify-before-b
 - **Tag:** 999px pill, Panel Mist fill, Hairline border, 5px 9px padding, 11.5px/500 muted. Tags are read-only metadata; they do not hover.
 
 ### Cards / Containers
-Project cards are the canonical container: Paper fill, Hairline border, 16px radius, cover clipped to the top. Hover lifts 4px, adds the contact shadow and strengthens the border; focus-within adds a 2px accent ring. The cover is a 16:10 category-tinted field - 38% category radial at top-right, a 13% linear tint below, a masked 44px grid, and a 62% concentric ring in category colour. Every artefact is **mounted as a print** at a fixed scale (46% of the plate, capped at 210px; 52% capped at 300px on the featured card): a 4:3 white sheet with a 10px radius, Hairline Strong border and contact shadow, holding the image `contain` for marks and logos or `cover` for photographs. A project with no upload shows a category glyph on the same sheet. No asset is ever full-bleed on a card, and no logo is enlarged to fill a frame.
+Project cards are the canonical container: Paper fill, Hairline border, 16px radius, cover clipped to the top. Hover lifts 4px, adds the contact shadow and strengthens the border; focus-within adds a 2px accent ring. Every card cover is the **`cover-art--plate`** plate variant: a 16:10 category-tinted field - 38% category radial at top-right, a 13% linear tint below, a masked 44px grid, and a 62% concentric ring in category colour - and every artefact is **mounted as a print** on it at a fixed scale (46% of the plate, capped at 210px; 52% capped at 300px on the featured card): a 4:3 white sheet with a 10px radius, Hairline Strong border and contact shadow. Each mount carries a state class: `is-mark` holds the image `contain` with an 8% inset for marks and logos, `is-photo` crops it `cover` for photographs, and `is-glyph` sets a category glyph on the same sheet when a project has no upload. No asset is ever full-bleed on a card, and no logo is enlarged to fill a frame. The oversized ghost index numeral belongs to the banner covers on case pages and the editor preview only - a plate never carries one.
 - **Body padding:** 24px (featured: clamp(28–44px)).
 - **Meta:** 12px/500 with 3px dot dividers; the second item is the project's context ("Sarawak tablet rollout"), not its medium.
 - **Title:** 21–27px, no reserved arrow gutter.
@@ -313,7 +372,7 @@ A 24px-radius panel on a diagonal Blue Wash → Panel Mist gradient with a viole
 A Cool Paper band with a single hairline top border and a 12.5px muted utility row. Its signature is the giant ghost wordmark: clamp(64px, 15vw, 200px), 800 weight, -0.06em tracking, set in `color-mix(text 7%, transparent)` and cropped at the baseline.
 
 ### Editor Console (admin.html)
-Operate-mode counterpart: same palette, fixed 72px topbar and 264px sidebar, but controls are 40px tall with 2px corners, mono uppercase 9px labels and a 0.1em tracking. Inputs are 38px with 2px corners on Panel Mist. Primary buttons share Signal Blue; destructive actions use Alert Red with a soft tint.
+Operate-mode counterpart: same palette, fixed 72px topbar and 264px sidebar, but a softer radius ladder of its own — 14px panels, 10px inner items, 8px controls — with everything 40px tall. Labels are Inter 11–11.5px/600 in sentence case, buttons Inter 12.5px/600, and inputs 40px with 8px corners on the console's own mist surface. Primary buttons share Signal Blue; destructive actions use Alert Red with a soft tint, and the source badge is the console's one pill.
 
 ## Do's and Don'ts
 
