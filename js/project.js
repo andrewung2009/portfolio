@@ -22,11 +22,37 @@
   var headerHost = document.getElementById("siteHeader");
   var mainHost = document.getElementById("main");
   var footerHost = document.getElementById("siteFooter");
-  var progressBar = document.getElementById("scrollProgress");
 
   var siteData = null;
   var project = null;
   var projectIndex = -1;
+
+  function linkIcon(link) {
+    var label = String(link.label || "").toLowerCase();
+    var url = String(link.url || "").toLowerCase();
+
+    if (/slide|presentation|deck/.test(label)) return "presentation";
+    if (/appsheet/.test(label)) return "table";
+    if (/\bcode\b|source/.test(label)) return "code";
+    if (/website|\bsite\b|demo/.test(label)) return "globe";
+    if (/repository|repo|github/.test(label)) return "github";
+
+    if (/appsheet/.test(url)) return "table";
+    if (/docs\.google\.com\/presentation|slides/.test(url)) return "presentation";
+    if (/docs\.google\.com\/spreadsheets/.test(url)) return "table";
+    if (/github\.com\/[^/]+\/[^/]+/.test(url) || /\.git$/.test(url)) return "github";
+    return "link";
+  }
+
+  function linkMarkup(link) {
+    return (
+      '<a class="btn btn--ghost" href="' + esc(link.url) + '" target="_blank" rel="noopener">' +
+      '<span class="btn-lead">' + icon(linkIcon(link)) + "</span>" +
+      "<span>" + esc(link.label || "Visit project") + "</span>" +
+      icon("arrowUpRight") +
+      "</a>"
+    );
+  }
 
   function readDraft() {
     try {
@@ -40,7 +66,7 @@
   }
 
   function fetchData() {
-    return fetch(DATA_URL, { cache: "no-store" }).then(function (res) {
+    return fetch(DATA_URL, { cache: "no-cache" }).then(function (res) {
       if (!res.ok) throw new Error("HTTP " + res.status);
       return res.json();
     });
@@ -94,6 +120,8 @@
         "<p>We couldn&rsquo;t find a project with that address. Head back to the work index to browse everything.</p>" +
         '<a class="btn btn--primary" href="index.html#work">View all work</a>' +
         "</div></section>";
+      setupMenu();
+      syncThemeToggles();
       return;
     }
 
@@ -102,6 +130,7 @@
     mainHost.innerHTML = caseMarkup();
     footerHost.innerHTML = footerMarkup();
 
+    setupMenu();
     setupReveals();
     setupImageFallbacks();
     setupCaseNav();
@@ -168,6 +197,15 @@
 
   function navMarkup(withLinks) {
     var meta = siteData.meta || {};
+    var caseNavItems = [
+      { href: "index.html#about", label: "About" },
+      { href: "index.html#work", label: "Work" },
+      { href: "index.html#buildlog", label: "Build log" },
+      { href: "index.html#contact", label: "Contact" }
+    ];
+    var mobileLinks = caseNavItems.map(function (item, i) {
+      return '<li><a href="' + item.href + '">' + esc(item.label) + "<span>" + UI.pad(i + 1) + "</span></a></li>";
+    }).join("");
     return (
       '<nav class="site-nav is-scrolled" id="siteNav" aria-label="Main navigation">' +
       '<div class="container nav-inner">' +
@@ -179,16 +217,85 @@
       "</span></a>" +
       (withLinks
         ? '<ul class="nav-links">' +
-          '<li><a class="nav-link" href="index.html#work">All work</a></li>' +
           '<li><a class="nav-link" href="index.html#about">About</a></li>' +
-          '<li><a class="nav-link" href="index.html#journey">Journey</a></li>' +
+          '<li><a class="nav-link" href="index.html#work">Work</a></li>' +
+          '<li><a class="nav-link" href="index.html#buildlog">Build log</a></li>' +
           "</ul>"
         : "") +
       '<div class="nav-actions">' +
       themeToggleMarkup() +
       '<a class="nav-cta" href="index.html#contact">Let&rsquo;s talk ' + icon("arrowUpRight") + "</a>" +
-      "</div></div></nav>"
+      '<button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">' +
+      icon("menu") + "</button>" +
+      "</div></div></nav>" +
+      '<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true">' +
+      '<ul class="mobile-links">' + mobileLinks + "</ul>" +
+      '<div class="mobile-footer">' +
+      "<p>" + esc(meta.location || "") + "</p>" +
+      (meta.email ? '<a href="mailto:' + esc(meta.email) + '">' + esc(meta.email) + "</a>" : "") +
+      '<span class="nav-status"><span class="status-dot"></span>' + esc(meta.availability || "Open to collaborations") + "</span>" +
+      "</div></div>"
     );
+  }
+
+  function setupMenu() {
+    var toggle = document.getElementById("navToggle");
+    var menu = document.getElementById("mobileMenu");
+    if (!toggle || !menu) return;
+
+    menu.inert = true;
+
+    function close() {
+      menu.classList.remove("is-open");
+      menu.setAttribute("aria-hidden", "true");
+      menu.inert = true;
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open menu");
+      toggle.innerHTML = icon("menu");
+      document.body.classList.remove("menu-open");
+      if (mainHost) mainHost.inert = false;
+      if (footerHost) footerHost.inert = false;
+      if (menu.contains(document.activeElement)) toggle.focus();
+    }
+
+    function open() {
+      menu.classList.add("is-open");
+      menu.setAttribute("aria-hidden", "false");
+      menu.inert = false;
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", "Close menu");
+      toggle.innerHTML = icon("close");
+      document.body.classList.add("menu-open");
+      if (mainHost) mainHost.inert = true;
+      if (footerHost) footerHost.inert = true;
+      var firstLink = menu.querySelector("a[href], button");
+      if (firstLink) window.setTimeout(function () { firstLink.focus(); }, 30);
+    }
+
+    toggle.addEventListener("click", function () {
+      if (menu.classList.contains("is-open")) close();
+      else open();
+    });
+
+    menu.addEventListener("keydown", function (event) {
+      if (event.key !== "Tab") return;
+      var focusables = Array.prototype.slice.call(menu.querySelectorAll("a[href], button"))
+        .filter(function (el) { return el.offsetParent !== null && !el.disabled; });
+      if (!focusables.length) return;
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    menu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", close);
+    });
   }
 
   function caseMarkup() {
@@ -204,9 +311,7 @@
         "</div>"
       : "";
 
-    var links = (project.links || []).filter(function (link) { return link && link.url; }).map(function (link) {
-      return '<a class="btn btn--ghost" href="' + esc(link.url) + '" target="_blank" rel="noopener">' + esc(link.label || "Visit project") + icon("arrowUpRight") + "</a>";
-    }).join("");
+    var links = (project.links || []).filter(function (link) { return link && link.url; }).map(linkMarkup).join("");
 
     var sections = [];
     if (hasContent(project.problem)) sections.push(problemSection());
@@ -244,7 +349,7 @@
       sections.map(function (section) { return section.html; }).join("") +
       (next
         ? '<section class="case-next"><div class="container" style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;width:100%">' +
-          "<div><p>Next case study</p><a href=\"project.html?id=" + encodeURIComponent(next.id) + "\">" + esc(next.title) + icon("arrowUpRight") + "</a></div>" +
+          "<div><p>Next case study</p><a class=\"case-next-link\" href=\"project.html?id=" + encodeURIComponent(next.id) + "\">" + esc(next.title) + icon("arrowUpRight") + "</a></div>" +
           '<a class="btn btn--ghost" href="index.html#work">All work</a>' +
           "</div></section>"
         : "") +
@@ -424,26 +529,26 @@
         links.forEach(function (link) {
           var active = current && link.getAttribute("href") === "#" + current.id;
           link.classList.toggle("is-active", active);
+          if (active) link.setAttribute("aria-current", "true");
+          else link.removeAttribute("aria-current");
         });
-
-        if (progressBar) {
-          var height = document.documentElement.scrollHeight - window.innerHeight;
-          progressBar.style.width = Math.max(0, Math.min(100, (window.scrollY / (height || 1)) * 100)) + "%";
-        }
       });
     }, { passive: true });
   }
 
-  function updateScrollUI() {
-    if (progressBar) {
-      var height = document.documentElement.scrollHeight - window.innerHeight;
-      progressBar.style.width = Math.max(0, Math.min(100, (window.scrollY / (height || 1)) * 100)) + "%";
-    }
-  }
+  function updateScrollUI() {}
 
   function bindGlobal() {
     document.addEventListener("click", function (event) {
       if (event.target.closest("[data-theme-toggle]")) toggleTheme();
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      var menu = document.getElementById("mobileMenu");
+      if (menu && menu.classList.contains("is-open")) {
+        var toggle = document.getElementById("navToggle");
+        if (toggle) toggle.click();
+      }
     });
     window.addEventListener("message", function (event) {
       if (event.origin !== window.location.origin) return;

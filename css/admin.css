@@ -178,33 +178,6 @@ ol {
   border: 2px solid var(--ink-950);
 }
 
-.mono-label {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted-2);
-}
-
-.kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.kicker::before {
-  content: "";
-  width: 28px;
-  height: 1px;
-  background: var(--accent);
-}
-
 .status-dot {
   width: 6px;
   height: 6px;
@@ -326,7 +299,7 @@ ol {
 
 .login-points li span {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   color: var(--accent);
 }
 
@@ -336,7 +309,7 @@ ol {
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
@@ -397,8 +370,8 @@ ol {
 
 .login-note {
   margin-top: 14px;
-  color: var(--muted-2);
-  font-size: 11px;
+  color: var(--muted);
+  font-size: 12.5px;
   line-height: 1.5;
 }
 
@@ -465,8 +438,8 @@ ol {
 
 .help-box p {
   padding: 0 14px 12px;
-  color: var(--muted-2);
-  font-size: 11px;
+  color: var(--muted);
+  font-size: 12.5px;
 }
 
 .help-box a {
@@ -491,7 +464,6 @@ ol {
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  border-radius: 2px;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s var(--ease);
   white-space: nowrap;
 }
@@ -566,7 +538,6 @@ ol {
   color: var(--muted);
   display: grid;
   place-items: center;
-  border-radius: 2px;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
@@ -588,7 +559,7 @@ ol {
   background: none;
   color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   border-bottom: 1px solid var(--line);
@@ -1009,19 +980,10 @@ ol {
   grid-column: 1 / -1;
 }
 
-.field > span {
-  font-family: var(--font-mono);
-  font-size: 8px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
 .field-help {
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.5;
-  color: var(--muted-2);
+  color: var(--muted);
 }
 
 .input {
@@ -1030,7 +992,6 @@ ol {
   padding: 9px 11px;
   background: var(--ink-850);
   border: 1px solid var(--line);
-  border-radius: 2px;
   color: var(--cream);
   font-family: var(--font-sans);
   font-size: 13px;
@@ -1040,7 +1001,6 @@ ol {
 
 .input::placeholder {
   color: var(--muted-2);
-  opacity: 0.7;
 }
 
 .input:hover {
@@ -1531,7 +1491,7 @@ select.input {
   background: color-mix(in srgb, var(--surface) 90%, transparent);
   border: 1px solid var(--line);
   font-family: var(--font-mono);
-  font-size: 7px;
+  font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--cream-dim);
@@ -1556,25 +1516,16 @@ select.input {
 
 .admin-cover-preview .cover-art.fit-contain {
   background:
-    radial-gradient(circle at 50% 36%, color-mix(in srgb, var(--cat, var(--app)) 10%, transparent), transparent 64%),
-    var(--surface-2);
-}
-
-.admin-cover-preview .cover-art.fit-contain .cover-img--blur {
-  inset: -8%;
-  width: 116%;
-  height: 116%;
-  filter: blur(22px) saturate(1.15);
-  opacity: 0.42;
-  z-index: 1;
+    radial-gradient(circle at 76% 18%, color-mix(in srgb, var(--cat, var(--app)) 34%, transparent), transparent 62%),
+    linear-gradient(150deg, color-mix(in srgb, var(--cat, var(--app)) 12%, var(--surface-2)), var(--surface));
 }
 
 .admin-cover-preview .cover-art.fit-contain .cover-img--main {
   inset: 0;
   width: auto;
   height: auto;
-  max-width: 82%;
-  max-height: 82%;
+  max-width: 42%;
+  max-height: 42%;
   margin: auto;
   object-fit: contain;
   z-index: 2;
@@ -1887,6 +1838,7 @@ select.input {
   font-weight: 600;
   letter-spacing: 0.01em;
   text-transform: none;
+  color: var(--muted);
 }
 
 .field > span {
@@ -1930,13 +1882,13 @@ select.input {
 
 .draft-status,
 .source-badge {
-  font-size: 10.5px;
+  font-size: 11px;
 }
 
 .project-toolbar p,
 .health-stat span,
 .project-list-meta {
-  font-size: 10.5px;
+  font-size: 11px;
 }
 
 .detail-tab {
@@ -1944,6 +1896,11 @@ select.input {
   font-size: 12px;
   letter-spacing: 0;
   text-transform: none;
+}
+
+.login-card-foot {
+  font-size: 12px;
+  color: var(--muted);
 }
 
 .login-card h2,

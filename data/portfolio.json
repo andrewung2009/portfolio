@@ -24,7 +24,10 @@
             "label": "More about me",
             "href": "#about"
         },
-        "portrait": "https://github.com/andrewung2009/portfolio/blob/main/009A9632.jpg?raw=true",
+        "portrait": "assets/images/andrew-portrait-1200.webp",
+        "portraitSrcset": "assets/images/andrew-portrait-760.webp 760w, assets/images/andrew-portrait-1200.webp 1200w",
+        "portraitWidth": 1200,
+        "portraitHeight": 1800,
         "statusNote": "",
         "scrollNote": "Scroll to explore"
     },
@@ -108,7 +111,7 @@
         ]
     },
     "work": {
-        "kicker": "03 — Selected work",
+        "kicker": "02 — Selected work",
         "heading": "Tools built for real people.",
         "intro": "Twelve projects across apps, web, hardware and AI. Each one started with a specific problem — and was built to make someone’s day a little lighter.",
         "categories": [
@@ -358,7 +361,7 @@
                 "icon": "users",
                 "url": "assets/images/being-present-together-cover.png",
                 "alt": "Family Image",
-                "fit": "contain"
+                "fit": "cover"
             },
             "links": [
                 {
@@ -409,7 +412,7 @@
                 "icon": "thermometer",
                 "url": "assets/images/vaccine-temperature-monitor-cover.jpg",
                 "alt": "Covid-19 Vaccine",
-                "fit": "contain"
+                "fit": "cover"
             },
             "links": [
                 {
@@ -605,10 +608,10 @@
                 "Resources"
             ],
             "cover": {
-                "type": "image",
+                "type": "icon",
                 "icon": "play",
-                "url": "assets/images/alpha-course-cover.jpg",
-                "alt": "Alpha Logo",
+                "url": "",
+                "alt": "",
                 "fit": "contain"
             },
             "links": [
@@ -898,7 +901,7 @@
         }
     ],
     "timeline": {
-        "kicker": "02 — Build log",
+        "kicker": "03 — Build log",
         "heading": "The journey so far.",
         "intro": "A chronological look at the projects, from a sensor-powered bed alarm in 2018 to AI tools and web apps in 2026."
     },

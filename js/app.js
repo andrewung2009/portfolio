@@ -21,7 +21,6 @@
   var headerHost = document.getElementById("siteHeader");
   var mainHost = document.getElementById("main");
   var footerHost = document.getElementById("siteFooter");
-  var progressBar = document.getElementById("scrollProgress");
   var toastEl = document.getElementById("toast");
 
   var siteData = null;
@@ -30,8 +29,8 @@
 
   var NAV_ITEMS = [
     { id: "about", label: "About" },
-    { id: "journey", label: "Journey" },
     { id: "work", label: "Work" },
+    { id: "buildlog", label: "Build log" },
     { id: "contact", label: "Contact" }
   ];
 
@@ -49,7 +48,7 @@
   }
 
   function fetchData() {
-    return fetch(DATA_URL, { cache: "no-store" }).then(function (res) {
+    return fetch(DATA_URL, { cache: "no-cache" }).then(function (res) {
       if (!res.ok) throw new Error("HTTP " + res.status);
       return res.json();
     });
@@ -102,17 +101,28 @@
       heroMarkup() +
       marqueeMarkup() +
       aboutMarkup() +
-      buildlogMarkup() +
       workMarkup() +
+      buildlogMarkup() +
       contactMarkup();
     footerHost.innerHTML = footerMarkup();
 
     setupMenu();
+    setupMarquee();
     setupReveals();
-    setupFilters();
     setupImageFallbacks();
     syncThemeToggles();
     updateScrollUI();
+  }
+
+  /* A ruled ledger line opens each section: the section's name on the left,
+     one piece of real metadata on the right. It replaces the stacked kicker. */
+  function ledger(label, meta) {
+    return (
+      '<div class="ledger reveal">' +
+      '<span class="ledger-label">' + esc(label) + "</span>" +
+      (meta ? '<span class="ledger-meta">' + esc(meta) + "</span>" : "") +
+      "</div>"
+    );
   }
 
   function applyMeta() {
@@ -211,6 +221,7 @@
       '<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true">' +
       '<ul class="mobile-links">' + mobileLinks + "</ul>" +
       '<div class="mobile-footer">' +
+      '<a class="btn btn--primary mobile-cta" href="#contact">Start a conversation ' + icon("arrowUpRight") + "</a>" +
       "<p>" + esc(meta.location) + "</p>" +
       (meta.email ? '<a href="mailto:' + esc(meta.email) + '">' + esc(meta.email) + "</a>" : "") +
       '<span class="nav-status"><span class="status-dot"></span>' + esc(meta.availability || "Open to collaborations") + "</span>" +
@@ -285,7 +296,9 @@
     var hero = siteData.hero || {};
     var name = meta.name || "";
     var portrait = hero.portrait
-      ? '<img class="portrait-img" src="' + esc(hero.portrait) + '" alt="Portrait of ' + esc(name) + '" width="900" height="1200" loading="eager" decoding="async">'
+      ? '<img class="portrait-img" src="' + esc(hero.portrait) + '"' +
+        (hero.portraitSrcset ? ' srcset="' + esc(hero.portraitSrcset) + '" sizes="(max-width: 620px) 92vw, 380px"' : "") +
+        ' alt="Portrait of ' + esc(name) + '" width="' + (hero.portraitWidth || 900) + '" height="' + (hero.portraitHeight || 1200) + '" loading="eager" fetchpriority="high" decoding="async">'
       : '<span class="portrait-monogram">' + esc(initials(name)) + "</span>";
 
     var socials = [];
@@ -335,11 +348,30 @@
       return '<span class="marquee-item">' + esc(item) + "</span>";
     }).join("");
     return (
-      '<div class="marquee" role="presentation">' +
+      '<div class="marquee" role="group" aria-label="Tools and skills">' +
       '<p class="sr-only">Tools and skills: ' + esc(items.join(", ")) + "</p>" +
       '<div class="marquee-track" aria-hidden="true">' + row + row + "</div>" +
+      '<button class="marquee-toggle" type="button" aria-pressed="false" aria-label="Pause scrolling tools">' + icon("pause") + "</button>" +
       "</div>"
     );
+  }
+
+  function setupMarquee() {
+    var marquee = document.querySelector(".marquee");
+    var toggle = document.querySelector(".marquee-toggle");
+    if (!marquee || !toggle) return;
+
+    function setPaused(paused) {
+      marquee.classList.toggle("is-paused", paused);
+      marquee.classList.toggle("is-playing", !paused);
+      toggle.setAttribute("aria-pressed", String(paused));
+      toggle.setAttribute("aria-label", paused ? "Play scrolling tools" : "Pause scrolling tools");
+      toggle.innerHTML = icon(paused ? "play" : "pause");
+    }
+
+    toggle.addEventListener("click", function () {
+      setPaused(!marquee.classList.contains("is-paused"));
+    });
   }
 
   /* ---------- about ---------- */
@@ -381,26 +413,22 @@
       );
     }).join("");
 
-    var skills = (about.skills || []).map(function (skill, i) {
-      var tags = (skill.tags || []).map(function (tag) {
-        return '<span class="tag">' + esc(tag) + "</span>";
-      }).join("");
+    var capabilities = (about.skills || []).map(function (skill) {
       return (
-        '<div class="skill reveal" style="--delay:' + i * 60 + 'ms">' +
-        '<div class="skill-icon">' + icon(skill.icon) + "</div>" +
+        '<div class="capability">' +
+        '<span class="capability-icon" aria-hidden="true">' + icon(skill.icon) + "</span>" +
         "<h3>" + esc(skill.title) + "</h3>" +
         "<p>" + esc(skill.description) + "</p>" +
-        '<div class="skill-tags">' + tags + "</div>" +
         "</div>"
       );
     }).join("");
 
     return (
-      '<section class="section section--hairline" id="about">' +
+      '<section class="section" id="about">' +
       '<div class="container">' +
+      ledger(about.kicker || "01 — About", (meta.location || "") + " · GMT+8") +
       '<header class="section-head reveal">' +
       "<div>" +
-      '<p class="kicker">' + esc(about.kicker || "01 — About") + "</p>" +
       "<h2>" + esc(about.heading) + "</h2>" +
       "</div>" +
       "<p>" + esc(about.intro || "A short introduction to how I work and what I care about.") + "</p>" +
@@ -409,103 +437,68 @@
       '<div class="about-copy reveal">' + paragraphs + "</div>" +
       aboutNote +
       "</div>" +
+      '<h3 class="list-label">Selected achievements</h3>' +
       '<div class="achievements reveal">' + achievements + "</div>" +
-      '<div class="skills-grid">' + skills + "</div>" +
+      '<h3 class="list-label">What I work with</h3>' +
+      '<div class="capabilities reveal">' + capabilities + "</div>" +
       "</div></section>"
     );
   }
 
   /* ---------- work ---------- */
 
+  function orderedProjects() {
+    var projects = (siteData.projects || []).slice();
+    var priority = ["ai-panel-google-sheets", "alpha-course-analysis", "young-innovators-judging"];
+    projects.sort(function (a, b) {
+      if (Boolean(a.featured) !== Boolean(b.featured)) return a.featured ? -1 : 1;
+      var aIndex = priority.indexOf(a.id);
+      var bIndex = priority.indexOf(b.id);
+      if (aIndex !== -1 || bIndex !== -1) {
+        if (aIndex === -1) return 1;
+        if (bIndex === -1) return -1;
+        return aIndex - bIndex;
+      }
+      return (parseInt(b.year, 10) || 0) - (parseInt(a.year, 10) || 0);
+    });
+    return projects;
+  }
+
   function workMarkup() {
     var work = siteData.work || {};
-    var projects = siteData.projects || [];
-
-    var counts = {};
-    projects.forEach(function (project) {
-      counts[project.category] = (counts[project.category] || 0) + 1;
-    });
-
-    var filters = (work.categories || [{ id: "all", label: "All work" }]).map(function (cat) {
-      var count = cat.id === "all" ? projects.length : counts[cat.id] || 0;
-      return (
-        '<button class="filter-btn' + (cat.id === "all" ? " is-active" : "") + '" type="button" data-filter="' + esc(cat.id) + '" aria-pressed="' + (cat.id === "all") + '">' +
-        esc(cat.label) + '<span class="count">' + count + "</span></button>"
-      );
-    }).join("");
+    var all = siteData.projects || [];
+    var projects = orderedProjects();
 
     var cards = projects.map(function (project, index) {
-      var cat = category(project.category);
-      var tags = (project.tags || []).slice(0, 4).map(function (tag) {
-        return '<span class="tag">' + esc(tag) + "</span>";
-      }).join("");
       return (
-        '<article class="project-card reveal' + (project.featured ? " is-featured" : "") + '" data-category="' + esc(project.category) + '" style="--delay:' + Math.min(index * 40, 240) + 'ms">' +
+        '<article class="project-card reveal' + (project.featured ? " is-featured" : "") + '" style="--delay:' + Math.min(index * 60, 240) + 'ms">' +
         '<a class="project-link" href="project.html?id=' + encodeURIComponent(project.id) + '">' +
-        '<div class="project-cover">' + coverMarkup(project, index + 1) + "</div>" +
+        '<div class="project-cover">' + coverMarkup(project, index + 1, "plate") + "</div>" +
         '<div class="project-body">' +
-        '<div class="project-meta"><span>' + esc(project.year) + '</span><span class="divider"></span><span>' + esc(cat.label) + "</span>" +
-        (project.featured ? '<span class="divider"></span><span>Featured</span>' : "") +
-        "</div>" +
+        '<div class="project-meta"><span>' + esc(project.year) + '</span><span class="divider"></span><span>' + esc(project.context || category(project.category).label) + "</span></div>" +
         '<h3 class="project-title">' + esc(project.title) + "</h3>" +
         '<p class="project-summary">' + esc(project.summary) + "</p>" +
-        '<div class="project-tags">' + tags + "</div>" +
+        '<span class="project-foot">' +
+        '<span class="project-cta">Read the case study</span>' +
         '<span class="project-arrow" aria-hidden="true">' + icon("arrowUpRight") + "</span>" +
+        "</span>" +
         "</div></a></article>"
       );
     }).join("");
 
     return (
-      '<section class="section section--hairline projects-section" id="work">' +
+      '<section class="section" id="work">' +
       '<div class="container">' +
+      ledger(work.kicker || "02 — Selected work", all.length + " case studies") +
       '<div class="work-head reveal">' +
       "<div>" +
-      '<p class="kicker">' + esc(work.kicker || "02 — Selected work") + "</p>" +
       "<h2>" + esc(work.heading) + "</h2>" +
       "</div>" +
       "<p>" + esc(work.intro) + "</p>" +
       "</div>" +
-      '<div class="filter-bar" role="group" aria-label="Filter projects">' + filters + "</div>" +
-      '<p class="sr-only" id="filterStatus" aria-live="polite"></p>' +
-      '<div class="projects-grid" id="projectsGrid">' + cards + "</div>" +
+      '<div class="projects-grid">' + cards + "</div>" +
       "</div></section>"
     );
-  }
-
-  function setupFilters() {
-    var buttons = Array.prototype.slice.call(document.querySelectorAll(".filter-btn"));
-    var grid = document.getElementById("projectsGrid");
-    var status = document.getElementById("filterStatus");
-    if (!buttons.length || !grid) return;
-
-    function apply(filter) {
-      var shown = 0;
-      var cards = Array.prototype.slice.call(grid.querySelectorAll(".project-card"));
-      cards.forEach(function (card) {
-        var match = filter === "all" || card.getAttribute("data-category") === filter;
-        card.classList.toggle("is-hidden", !match);
-        if (match) {
-          shown += 1;
-          card.classList.add("is-visible");
-        }
-      });
-      grid.classList.toggle("is-filtered", filter !== "all");
-      buttons.forEach(function (button) {
-        var active = button.getAttribute("data-filter") === filter;
-        button.classList.toggle("is-active", active);
-        button.setAttribute("aria-pressed", String(active));
-      });
-      if (status) {
-        var label = filter === "all" ? "all projects" : filter;
-        status.textContent = "Showing " + shown + " " + label + ".";
-      }
-    }
-
-    buttons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        apply(button.getAttribute("data-filter"));
-      });
-    });
   }
 
   /* ---------- build log ---------- */
@@ -515,49 +508,60 @@
     var projects = siteData.projects || [];
     var groups = {};
 
-    projects.forEach(function (project, index) {
+    projects.forEach(function (project) {
       var year = String(project.year || "Undated");
       if (!groups[year]) groups[year] = [];
-      groups[year].push({ project: project, index: index + 1 });
+      groups[year].push(project);
     });
 
     var years = Object.keys(groups).sort(function (a, b) {
       return parseInt(a, 10) - parseInt(b, 10);
     });
 
-    var blocks = years.map(function (year) {
-      var entries = groups[year].map(function (entry) {
-        var project = entry.project;
+    var sequence = 0;
+    var items = years.map(function (year) {
+      var entries = groups[year].map(function (project) {
+        sequence += 1;
+        var cat = category(project.category);
+        var catKey = /^(app|web|hardware|ai)$/.test(project.category) ? project.category : "app";
         return (
-          '<a class="buildlog-item" href="project.html?id=' + encodeURIComponent(project.id) + '">' +
-          "<div>" +
-          "<h3>" + esc(project.title) + "</h3>" +
-          "<p>" + esc(project.timelineNote || project.summary) + "</p>" +
+          '<a class="tl-entry" href="project.html?id=' + encodeURIComponent(project.id) + '">' +
+          '<span class="tl-index">' + UI.pad(sequence) + "</span>" +
+          '<div class="tl-entry-body">' +
+          '<div class="tl-entry-meta"><span class="tl-cat" style="--cat: var(--' + catKey + ')">' + esc(cat.label) + "</span>" +
+          (project.context ? '<span class="tl-context">' + esc(project.context) + "</span>" : "") +
           "</div>" +
-          icon("arrowUpRight") +
+          "<h4>" + esc(project.title) + "</h4>" +
+          "<p>" + esc(project.timelineNote || project.summary || "") + "</p>" +
+          "</div>" +
+          '<span class="tl-arrow" aria-hidden="true">' + icon("arrowUpRight") + "</span>" +
           "</a>"
         );
       }).join("");
 
       return (
-        '<div class="buildlog-group reveal">' +
-        '<div class="buildlog-year"><strong>' + esc(year) + "</strong><span>" + groups[year].length + " project" + (groups[year].length === 1 ? "" : "s") + "</span></div>" +
-        '<div class="buildlog-items">' + entries + "</div>" +
-        "</div>"
+        '<li class="tl-year" id="year-' + esc(String(year).replace(/[^\w-]/g, "-")) + '">' +
+        '<div class="tl-year-sticky">' +
+        '<h3 class="tl-year-label">' + esc(year) + "</h3>" +
+        '<span class="tl-count">' + groups[year].length + " project" + (groups[year].length === 1 ? "" : "s") + "</span>" +
+        '<span class="tl-node" aria-hidden="true"></span>' +
+        "</div>" +
+        '<div class="tl-entries">' + entries + "</div>" +
+        "</li>"
       );
     }).join("");
 
     return (
-      '<section class="section section--hairline" id="journey">' +
+      '<section class="section" id="buildlog">' +
       '<div class="container">' +
-      '<header class="section-head reveal">' +
+      ledger(timeline.kicker || "03 — Build log", projects.length + " projects · " + years[0] + "—" + years[years.length - 1]) +
+      '<header class="section-head">' +
       "<div>" +
-      '<p class="kicker">' + esc(timeline.kicker || "03 — Build log") + "</p>" +
       "<h2>" + esc(timeline.heading) + "</h2>" +
       "</div>" +
       "<p>" + esc(timeline.intro) + "</p>" +
       "</header>" +
-      '<div class="buildlog">' + blocks + "</div>" +
+      '<ol class="tl-timeline" aria-label="Project timeline">' + items + "</ol>" +
       "</div></section>"
     );
   }
@@ -575,6 +579,8 @@
       return '<div class="contact-detail"><dt>' + esc(item.label) + "</dt><dd>" + esc(item.value) + "</dd></div>";
     }).join("");
 
+    var email = contact.email || meta.email || "";
+
     var socials = (contact.socials || []).filter(function (item) {
       return item && item.url;
     }).map(function (item) {
@@ -584,22 +590,19 @@
       );
     }).join("");
 
-    if (contact.email || meta.email) {
-      socials +=
-        '<button class="contact-social" type="button" data-copy-email="' + esc(contact.email || meta.email) + '">' +
-        icon("copy") + "Copy email</button>";
-    }
-
     return (
       '<section class="section contact-section" id="contact">' +
       '<div class="container">' +
       '<div class="contact-panel reveal">' +
       "<div>" +
-      '<p class="kicker">' + esc(contact.kicker || "04 — Contact") + "</p>" +
+      '<p class="contact-label">' + esc(contact.kicker || "04 — Contact") + "</p>" +
       "<h2>" + esc(words.join(" ")) + " <em>" + esc(last) + "</em></h2>" +
       '<p class="contact-text">' + esc(contact.text) + "</p>" +
-      (contact.email || meta.email
-        ? '<a class="contact-email" href="mailto:' + esc(contact.email || meta.email) + '">' + esc(contact.email || meta.email) + icon("arrowUpRight") + "</a>"
+      (email
+        ? '<div class="contact-address">' +
+          '<a class="contact-email" href="mailto:' + esc(email) + '">' + esc(email) + icon("arrowUpRight") + "</a>" +
+          '<button class="contact-copy" type="button" data-copy-email="' + esc(email) + '" aria-label="Copy email address">' + icon("copy") + "<span>Copy</span></button>" +
+          "</div>"
         : "") +
       '<div class="contact-socials">' + socials + "</div>" +
       "</div>" +
@@ -674,12 +677,6 @@
     var nav = document.getElementById("siteNav");
     var y = window.scrollY || window.pageYOffset;
     if (nav) nav.classList.toggle("is-scrolled", y > 24);
-
-    if (progressBar) {
-      var height = document.documentElement.scrollHeight - window.innerHeight;
-      var percent = height > 0 ? (y / height) * 100 : 0;
-      progressBar.style.width = Math.max(0, Math.min(100, percent)) + "%";
-    }
 
     var sections = Array.prototype.slice.call(document.querySelectorAll("main section[id]"));
     var current = "";

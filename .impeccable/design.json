@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-28T00:00:00.000Z",
+  "title": "Design System: Andrew Ung Wei En — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "signal-blue": { "role": "primary", "displayName": "Signal Blue", "canonical": "#2563eb", "tonalRamp": ["#121d35", "#1a336a", "#1b47a6", "#1558ea", "#5984e4", "#95aee5", "#cad5ed", "#edf0f7"] },
+      "signal-blue-deep": { "role": "primary", "displayName": "Deep Signal", "canonical": "#1d4ed8", "tonalRamp": ["#141c34", "#1e3167", "#2143a1", "#1e51e1", "#5e80de", "#98abe1", "#cbd4eb", "#eef0f7"] },
+      "signal-blue-wash": { "role": "primary", "displayName": "Blue Wash", "canonical": "#eef4ff", "tonalRamp": ["#0f1e39", "#123472", "#0d48b4", "#005aff", "#4b86f2", "#8dafed", "#c6d5f0", "#ecf0f8"] },
+      "lagoon-cyan": { "role": "secondary", "displayName": "Lagoon Cyan", "canonical": "#0891b2", "tonalRamp": ["#112f37", "#165d6e", "#1590ad", "#0bc7f4", "#52cdea", "#91d8e9", "#c8e7ee", "#edf6f8"] },
+      "ochre-amber": { "role": "secondary", "displayName": "Ochre Amber", "canonical": "#c2760a", "tonalRamp": ["#372711", "#6e4a17", "#ac6e16", "#f2930d", "#e9ab53", "#e8c491", "#eedfc8", "#f8f3ed"] },
+      "ultraviolet": { "role": "secondary", "displayName": "Ultraviolet", "canonical": "#7c3aed", "tonalRamp": ["#1f1235", "#381a6a", "#4f1ba6", "#6415ea", "#8c59e4", "#b295e5", "#d7caed", "#f1edf7"] },
+      "ledger-green": { "role": "tertiary", "displayName": "Ledger Green", "canonical": "#047857", "tonalRamp": ["#10372c", "#156f56", "#13af83", "#08f7b3", "#50ecc0", "#90ead0", "#c8efe4", "#ecf8f5"] },
+      "caution-amber": { "role": "tertiary", "displayName": "Caution Amber", "canonical": "#b45309", "tonalRamp": ["#372111", "#6e3c17", "#ac5715", "#f3700c", "#ea9453", "#e8b791", "#eed9c8", "#f8f2ed"] },
+      "alert-red": { "role": "tertiary", "displayName": "Alert Red", "canonical": "#b91c1c", "tonalRamp": ["#331414", "#661f1f", "#9e2323", "#dd2222", "#dc6161", "#e09999", "#ebcccc", "#f7eeee"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#ffffff", "tonalRamp": ["#242323", "#444141", "#635f5f", "#827d7d", "#a09c9c", "#bebbbb", "#dcdbdb", "#f3f2f2"] },
+      "cool-paper": { "role": "neutral", "displayName": "Cool Paper", "canonical": "#f6f8fb", "tonalRamp": ["#1c222c", "#303f55", "#415a81", "#4e76b1", "#7e98be", "#aab9cf", "#d3dae3", "#f0f2f5"] },
+      "panel-mist": { "role": "neutral", "displayName": "Panel Mist", "canonical": "#f1f4f9", "tonalRamp": ["#1b222c", "#2f3d56", "#3f5982", "#4c73b3", "#7d96c0", "#a9b8d0", "#d3d9e4", "#f0f2f5"] },
+      "panel-deep": { "role": "neutral", "displayName": "Panel Deep", "canonical": "#e8eef7", "tonalRamp": ["#1a222e", "#2b3e5a", "#385989", "#4273bd", "#7696c7", "#a5b8d4", "#d1d9e5", "#eff2f5"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#0b1220", "tonalRamp": ["#19202e", "#2b3a5a", "#38538a", "#416bbe", "#7591c7", "#a5b5d4", "#d1d8e6", "#eff1f5"] },
+      "slate-ink": { "role": "neutral", "displayName": "Slate Ink", "canonical": "#1e293b", "tonalRamp": ["#1d222b", "#333f52", "#465a7c", "#5675a9", "#8398b9", "#adb9cc", "#d4dae2", "#f0f2f4"] },
+      "faded-ink": { "role": "neutral", "displayName": "Faded Ink", "canonical": "#526071", "tonalRamp": ["#202327", "#3b424a", "#54606e", "#6b7e94", "#919dab", "#b5bcc4", "#d8dbdf", "#f1f2f3"] },
+      "ghost-ink": { "role": "neutral", "displayName": "Ghost Ink", "canonical": "#7b8798", "tonalRamp": ["#212326", "#3c4148", "#575f6b", "#707d8f", "#949ca8", "#b7bcc3", "#d9dbde", "#f1f2f3"] },
+      "hairline": { "role": "neutral", "displayName": "Hairline", "canonical": "#e2e8f0", "tonalRamp": ["#1d232a", "#334052", "#465d7b", "#577aa8", "#849ab9", "#adbbcc", "#d5dae2", "#f0f2f4"] },
+      "hairline-strong": { "role": "neutral", "displayName": "Hairline Strong", "canonical": "#cbd5e1", "tonalRamp": ["#1e2329", "#35414f", "#4a5f77", "#5d7ca2", "#889cb5", "#b0bcca", "#d6dbe1", "#f1f2f4"] },
+      "night-paper": { "role": "neutral", "displayName": "Night Paper", "canonical": "#0b1120", "tonalRamp": ["#191f2e", "#2b385a", "#384f8a", "#4165be", "#758dc7", "#a5b3d4", "#d1d7e6", "#eff1f5"] },
+      "night-panel": { "role": "neutral", "displayName": "Night Panel", "canonical": "#111c33", "tonalRamp": ["#19202e", "#2a3a5a", "#37528b", "#4069bf", "#748fc8", "#a5b4d5", "#d1d8e6", "#eff1f5"] },
+      "night-panel-raised": { "role": "neutral", "displayName": "Night Panel Raised", "canonical": "#16223b", "tonalRamp": ["#1a202d", "#2c3b58", "#3b5387", "#456bba", "#7891c4", "#a7b5d3", "#d2d8e5", "#eff1f5"] },
+      "night-ink": { "role": "neutral", "displayName": "Night Ink", "canonical": "#f8fafc", "tonalRamp": ["#1b242c", "#2f4256", "#3f6182", "#4c7fb3", "#7d9ec0", "#a9bdd0", "#d3dbe4", "#f0f2f5"] },
+      "night-ink-muted": { "role": "neutral", "displayName": "Night Ink Muted", "canonical": "#a9b4c7", "tonalRamp": ["#1f2328", "#38404c", "#4f5c73", "#65789a", "#8c99b0", "#b3bac7", "#d7dae0", "#f1f2f4"] },
+      "night-hairline": { "role": "neutral", "displayName": "Night Hairline", "canonical": "#24324d", "tonalRamp": ["#1c212b", "#313d54", "#43577f", "#5171ae", "#8094bc", "#abb7ce", "#d4d9e3", "#f0f2f4"] },
+      "night-signal-blue": { "role": "primary", "displayName": "Night Signal Blue", "canonical": "#60a5fa", "tonalRamp": ["#102237", "#153e6f", "#1259af", "#0873f7", "#5096ed", "#90b8ea", "#c8d9ef", "#ecf2f8"] },
+      "night-signal-blue-deep": { "role": "primary", "displayName": "Night Signal Blue Deep", "canonical": "#93c5fd", "tonalRamp": ["#102338", "#144071", "#105cb1", "#0579fa", "#4e9aef", "#8ebaeb", "#c7daef", "#ecf2f8"] },
+      "night-on-signal": { "role": "neutral", "displayName": "Night On Signal", "canonical": "#08111f", "tonalRamp": ["#172130", "#263c5f", "#305692", "#346fcb", "#6d93cf", "#a0b7d9", "#cfd9e8", "#eff1f6"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The hero name only, at poster scale with heavy negative tracking." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings and contact headline; case titles step up to 82px." },
+      "title": { "displayName": "Title", "purpose": "Card titles, journey steps and in-card headings." },
+      "body": { "displayName": "Body", "purpose": "Default reading size; long prose opens to 1.75–1.78 line height." },
+      "label": { "displayName": "Label", "purpose": "Kickers, buttons, chips and metadata keys." },
+      "mono": { "displayName": "Mono annotation", "purpose": "Indices, counts, dates, categories and timestamps; 11px is the forward floor for functional labels." }
+    },
+    "shadows": [
+      { "name": "resting-hairline", "value": "0 1px 2px rgba(15, 23, 42, 0.05)", "purpose": "Timeline entries at rest and the scrolled nav; keeps white cards from dissolving into paper." },
+      { "name": "contact-lift", "value": "0 12px 32px rgba(15, 23, 42, 0.08)", "purpose": "Hover state for project cards, skill tiles and timeline entries; portrait frame and plaque at rest." },
+      { "name": "overlay-depth", "value": "0 24px 60px rgba(15, 23, 42, 0.12)", "purpose": "Editor dialogs and menus; not used on the public page at rest." },
+      { "name": "accent-glow", "value": "0 6px 16px color-mix(in srgb, var(--accent) 22%, transparent)", "purpose": "Primary buttons only, so the action colour appears to emit light." },
+      { "name": "category-glow", "value": "0 10px 24px color-mix(in srgb, var(--cat) 18%, transparent)", "purpose": "The centred icon tile on a project cover plate." },
+      { "name": "night-resting", "value": "0 1px 2px rgba(0, 0, 0, 0.25)", "purpose": "Night-theme equivalent of the resting hairline." },
+      { "name": "night-lift", "value": "0 14px 34px rgba(0, 0, 0, 0.35)", "purpose": "Night-theme equivalent of contact lift." },
+      { "name": "night-overlay", "value": "0 26px 70px rgba(0, 0, 0, 0.45)", "purpose": "Night-theme equivalent of overlay depth." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Default easing for lifts, arrow nudges and reveals." },
+      { "name": "state-ease", "value": "ease", "purpose": "Colour, border and shadow transitions at 0.2s." },
+      { "name": "reveal", "value": "translateY(18px) over 0.7s cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Scroll reveal for section content; removed under reduced motion." },
+      { "name": "marquee", "value": "44s linear infinite", "purpose": "The discipline strip; pauses on hover and stops under reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "620px" },
+      { "name": "md", "value": "860px" },
+      { "name": "lg", "value": "1080px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single action colour: 48px tall, 10px corners, Signal Blue with a soft accent glow and a 1px lift on hover.",
+      "html": "<button class=\"ds-btn-primary\">View case study <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M8 7h9v9\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 48px; padding: 0 22px; border: 1px solid var(--accent, #2563eb); border-radius: var(--radius-sm, 10px); background: var(--accent, #2563eb); color: var(--on-accent, #fff); font-family: var(--font-sans, Inter, sans-serif); font-size: 14px; font-weight: 600; letter-spacing: 0; cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s ease; box-shadow: 0 6px 16px color-mix(in srgb, var(--accent, #2563eb) 22%, transparent); } .ds-btn-primary:hover { background: var(--accent-hover, #1d4ed8); border-color: var(--accent-hover, #1d4ed8); transform: translateY(-1px); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #2563eb); outline-offset: 3px; } .ds-btn-primary svg { width: 16px; height: 16px; transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-primary:hover svg { transform: translate(2px, -2px); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action on paper: hairline-strong border that takes the accent on hover.",
+      "html": "<button class=\"ds-btn-ghost\">Read the build log</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 48px; padding: 0 22px; border: 1px solid var(--line-strong, #cbd5e1); border-radius: var(--radius-sm, 10px); background: var(--surface, #fff); color: var(--text, #0b1220); font-family: var(--font-sans, Inter, sans-serif); font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-ghost:hover { border-color: var(--accent, #2563eb); color: var(--accent-text, #1d4ed8); background: var(--accent-soft, #eef4ff); } .ds-btn-ghost:active { transform: scale(0.98); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--accent, #2563eb); outline-offset: 3px; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "Pill-shaped category filter with a mono count; the active chip is the only filled-blue control outside buttons.",
+      "html": "<div class=\"ds-filter-row\"><button class=\"ds-filter is-active\">All <span class=\"ds-count\">11</span></button><button class=\"ds-filter\">App <span class=\"ds-count\">3</span></button><button class=\"ds-filter\">Hardware <span class=\"ds-count\">4</span></button></div>",
+      "css": ".ds-filter-row { display: flex; flex-wrap: wrap; gap: 8px; } .ds-filter { padding: 8px 14px; border: 1px solid var(--line, #e2e8f0); border-radius: 999px; background: var(--surface, #fff); color: var(--muted, #526071); font-family: var(--font-sans, Inter, sans-serif); font-size: 12.5px; font-weight: 600; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; } .ds-filter:hover { border-color: var(--line-strong, #cbd5e1); color: var(--text, #0b1220); } .ds-filter:focus-visible { outline: 2px solid var(--accent, #2563eb); outline-offset: 3px; } .ds-filter.is-active { background: var(--accent, #2563eb); border-color: var(--accent, #2563eb); color: var(--on-accent, #fff); } .ds-count { margin-left: 6px; font-family: var(--font-mono, monospace); font-size: 10.5px; opacity: 0.72; }"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Read-only technology and category metadata in a misted pill.",
+      "html": "<div class=\"ds-tag-row\"><span class=\"ds-tag\">Google Apps Script</span><span class=\"ds-tag\">Gemini</span><span class=\"ds-tag\">AI</span></div>",
+      "css": ".ds-tag-row { display: flex; flex-wrap: wrap; gap: 6px; } .ds-tag { display: inline-flex; align-items: center; padding: 5px 9px; border: 1px solid var(--line, #e2e8f0); border-radius: 999px; background: var(--surface-2, #f1f4f9); font-family: var(--font-sans, Inter, sans-serif); font-size: 11.5px; font-weight: 500; color: var(--muted, #526071); white-space: nowrap; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "project-card",
+      "description": "The canonical container: 16:10 category-tinted cover plate over a 24px body, lifting on contact.",
+      "html": "<article class=\"ds-project-card\"><div class=\"ds-project-cover\" style=\"--cat: var(--ai, #7c3aed)\"><span class=\"ds-cover-category\">AI</span><div class=\"ds-cover-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M3 9h18M8 14h8\"/></svg></div><span class=\"ds-cover-index\">11</span></div><div class=\"ds-project-body\"><p class=\"ds-project-meta\">2026 <span class=\"ds-dot\"></span> Apps Script</p><h3 class=\"ds-project-title\">AI Panel in Google Sheets</h3><p class=\"ds-project-summary\">A side panel that answers questions over a school's data without leaving the spreadsheet.</p><div class=\"ds-project-tags\"><span class=\"ds-tag\">Gemini</span><span class=\"ds-tag\">Sheets</span></div><span class=\"ds-project-arrow\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M8 7h9v9\"/></svg></span></div></article>",
+      "css": ".ds-project-card { position: relative; display: grid; grid-template-rows: auto 1fr; background: var(--surface, #fff); border: 1px solid var(--line, #e2e8f0); border-radius: var(--radius, 16px); overflow: hidden; transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.25s ease; } .ds-project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08); border-color: var(--line-strong, #cbd5e1); } .ds-project-card:focus-within { border-color: var(--accent, #2563eb); box-shadow: 0 0 0 2px var(--accent, #2563eb), 0 12px 32px rgba(15, 23, 42, 0.08); } .ds-project-cover { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--line, #e2e8f0); background: radial-gradient(circle at 76% 18%, color-mix(in srgb, var(--cat, #2563eb) 38%, transparent), transparent 60%), linear-gradient(150deg, color-mix(in srgb, var(--cat, #2563eb) 13%, var(--surface-2, #f1f4f9)), var(--surface, #fff)); } .ds-project-cover::before { content: \"\"; position: absolute; inset: 0; background-image: linear-gradient(to right, color-mix(in srgb, var(--text, #0b1220) 7%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in srgb, var(--text, #0b1220) 7%, transparent) 1px, transparent 1px); background-size: 44px 44px; opacity: 0.5; } .ds-project-cover::after { content: \"\"; position: absolute; width: 44%; aspect-ratio: 1; border: 1px solid color-mix(in srgb, var(--cat, #2563eb) 42%, transparent); border-radius: 50%; left: 28%; top: 50%; transform: translateY(-50%); background: color-mix(in srgb, var(--cat, #2563eb) 9%, transparent); } .ds-cover-category { position: absolute; top: 14px; left: 14px; z-index: 3; display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; border: 1px solid var(--line, #e2e8f0); border-radius: 999px; background: color-mix(in srgb, var(--surface, #fff) 90%, transparent); font-size: 10.5px; font-weight: 600; color: var(--text-2, #1e293b); } .ds-cover-category::before { content: \"\"; width: 6px; height: 6px; border-radius: 50%; background: var(--cat, #2563eb); } .ds-cover-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; width: 74px; height: 74px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--cat, #2563eb) 48%, var(--line, #e2e8f0)); border-radius: 18px; background: var(--surface, #fff); color: var(--cat, #2563eb); box-shadow: 0 10px 24px color-mix(in srgb, var(--cat, #2563eb) 18%, transparent); } .ds-cover-icon svg { width: 36%; height: 36%; } .ds-cover-index { position: absolute; right: 20px; bottom: 2px; z-index: 1; font-family: var(--font-sans, Inter, sans-serif); font-size: 96px; font-weight: 800; line-height: 0.8; letter-spacing: -0.06em; color: color-mix(in srgb, var(--cat, #2563eb) 24%, transparent); user-select: none; } .ds-project-body { position: relative; padding: 24px; display: flex; flex-direction: column; } .ds-project-meta { display: flex; align-items: center; gap: 9px; font-size: 12px; font-weight: 500; color: var(--muted, #526071); } .ds-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted-2, #7b8798); } .ds-project-title { margin: 10px 0 8px; padding-right: 46px; font-size: 25px; font-weight: 700; line-height: 1.2; letter-spacing: -0.025em; color: var(--text, #0b1220); } .ds-project-summary { color: var(--muted, #526071); font-size: 15px; line-height: 1.65; max-width: 54ch; } .ds-project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; } .ds-project-arrow { position: absolute; right: 24px; bottom: 24px; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--line, #e2e8f0); border-radius: 50%; background: var(--surface, #fff); color: var(--muted, #526071); transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); } .ds-project-arrow svg { width: 16px; height: 16px; } .ds-project-card:hover .ds-project-arrow { background: var(--accent, #2563eb); border-color: var(--accent, #2563eb); color: var(--on-accent, #fff); transform: translate(2px, -2px); }"
+    },
+    {
+      "name": "Build Log Entry",
+      "kind": "custom",
+      "description": "Signature timeline row: mono index, uppercase category meta, title and arrow, sitting beside the sticky year spine.",
+      "html": "<article class=\"ds-tl-entry\"><span class=\"ds-tl-index\">04</span><div class=\"ds-tl-body\"><div class=\"ds-tl-meta\"><span class=\"ds-tl-cat\">Hardware</span><span>Jul 2021</span></div><h4 class=\"ds-tl-title\">Wake Up Ah Kong Project</h4><p class=\"ds-tl-desc\">A bed-exit alarm for a grandfather at risk of falling, built from an Arduino and a pressure pad.</p></div><span class=\"ds-tl-arrow\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M8 7h9v9\"/></svg></span></article>",
+      "css": ".ds-tl-entry { display: grid; grid-template-columns: 28px minmax(0, 1fr) 18px; gap: 14px; align-items: start; padding: 16px 18px; background: var(--surface, #fff); border: 1px solid var(--line, #e2e8f0); border-radius: var(--radius-sm, 10px); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05); transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); } .ds-tl-entry:hover { border-color: var(--line-strong, #cbd5e1); box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08); transform: translateY(-2px); } .ds-tl-entry:focus-visible { outline: 2px solid var(--accent, #2563eb); outline-offset: 3px; } .ds-tl-index { padding-top: 2px; font-family: var(--font-mono, monospace); font-size: 9.5px; color: var(--muted, #526071); } .ds-tl-meta { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; font-family: var(--font-mono, monospace); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted, #526071); } .ds-tl-cat { display: inline-flex; align-items: center; gap: 6px; } .ds-tl-cat::before { content: \"\"; width: 6px; height: 6px; border-radius: 50%; background: var(--hardware, #c2760a); } .ds-tl-title { margin: 0; font-family: var(--font-sans, Inter, sans-serif); font-size: 16px; font-weight: 650; line-height: 1.25; letter-spacing: -0.01em; color: var(--text, #0b1220); } .ds-tl-desc { margin: 3px 0 0; max-width: 58ch; color: var(--muted, #526071); font-size: 13.5px; line-height: 1.55; } .ds-tl-arrow { padding-top: 2px; color: var(--muted-2, #7b8798); transition: color 0.2s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); } .ds-tl-arrow svg { display: block; width: 16px; height: 16px; } .ds-tl-entry:hover .ds-tl-arrow { color: var(--accent-text, #1d4ed8); transform: translate(2px, -2px); }"
+    },
+    {
+      "name": "Metric Tile",
+      "kind": "card",
+      "description": "One verified figure: oversized Deep Signal value over a quiet label. Never filled with invented data.",
+      "html": "<div class=\"ds-metric-row\"><div class=\"ds-metric\"><span class=\"ds-metric-value\">204</span><span class=\"ds-metric-label\">schools reached</span></div><div class=\"ds-metric\"><span class=\"ds-metric-value\">11</span><span class=\"ds-metric-label\">years of data</span></div></div>",
+      "css": ".ds-metric-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .ds-metric { display: grid; gap: 6px; padding: 20px; background: var(--surface, #fff); border: 1px solid var(--line, #e2e8f0); border-radius: var(--radius-sm, 10px); } .ds-metric-value { font-family: var(--font-sans, Inter, sans-serif); font-size: 40px; font-weight: 750; line-height: 1; letter-spacing: -0.04em; color: var(--accent-text, #1d4ed8); } .ds-metric-label { font-size: 12px; font-weight: 500; color: var(--muted, #526071); }"
+    },
+    {
+      "name": "Site Navigation",
+      "kind": "nav",
+      "description": "Fixed translucent bar with a gradient monogram, muted links and an availability status.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-brand\"><span class=\"ds-brand-mark\">AU</span><span class=\"ds-brand-text\"><span class=\"ds-brand-name\">Andrew Ung Wei En</span><span class=\"ds-brand-role\">Student developer</span></span></span><span class=\"ds-nav-links\"><a class=\"ds-nav-link is-active\" href=\"#\">About</a><a class=\"ds-nav-link\" href=\"#\">Work</a><a class=\"ds-nav-link\" href=\"#\">Build log</a></span><span class=\"ds-nav-actions\"><span class=\"ds-nav-status\"><span class=\"ds-status-dot\"></span>Open to collaborations</span><a class=\"ds-nav-cta\" href=\"#\">Contact</a></span></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 72px; padding: 0 clamp(20px, 4vw, 44px); background: color-mix(in srgb, var(--bg, #fff) 82%, transparent); border-bottom: 1px solid var(--line, #e2e8f0); backdrop-filter: blur(16px); font-family: var(--font-sans, Inter, sans-serif); } .ds-brand { display: inline-flex; align-items: center; gap: 11px; } .ds-brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 11px; background-image: linear-gradient(135deg, var(--accent, #2563eb), var(--ai, #7c3aed)); color: var(--on-accent, #fff); font-size: 13px; font-weight: 750; letter-spacing: -0.02em; box-shadow: 0 4px 12px color-mix(in srgb, var(--accent, #2563eb) 24%, transparent); } .ds-brand-text { display: grid; } .ds-brand-name { font-size: 13.5px; font-weight: 650; letter-spacing: -0.01em; color: var(--text, #0b1220); } .ds-brand-role { font-size: 11px; color: var(--muted, #526071); } .ds-nav-links { display: flex; align-items: center; gap: 4px; } .ds-nav-link { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border-radius: 8px; font-size: 13.5px; font-weight: 500; color: var(--muted, #526071); text-decoration: none; transition: color 0.2s ease, background 0.2s ease; } .ds-nav-link:hover, .ds-nav-link.is-active { color: var(--text, #0b1220); background: var(--surface-2, #f1f4f9); } .ds-nav-actions { display: flex; align-items: center; gap: 10px; } .ds-nav-status { display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px; font-weight: 500; color: var(--muted, #526071); } .ds-status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--success, #047857); box-shadow: 0 0 0 3px color-mix(in srgb, var(--success, #047857) 16%, transparent); } .ds-nav-cta { display: inline-flex; align-items: center; min-height: 38px; padding: 0 14px; border: 1px solid var(--line-strong, #cbd5e1); border-radius: 9px; background: var(--surface, #fff); font-size: 12.5px; font-weight: 600; color: var(--text, #0b1220); text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; } .ds-nav-cta:hover { border-color: var(--accent, #2563eb); color: var(--accent-text, #1d4ed8); background: var(--accent-soft, #eef4ff); }"
+    },
+    {
+      "name": "Contact Panel",
+      "kind": "custom",
+      "description": "The closing invitation: a 24px gradient panel with a poster headline, underlined email and translucent detail cells.",
+      "html": "<section class=\"ds-contact\"><div><p class=\"ds-contact-kicker\">Contact</p><h2 class=\"ds-contact-heading\">Let's build something <em>useful</em>.</h2><p class=\"ds-contact-text\">If your team is stuck with a manual process, tell me what it looks like.</p><a class=\"ds-contact-email\" href=\"mailto:andrewungweien@gmail.com\">andrewungweien@gmail.com <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m22 2-7 20-4-9-9-4Z\"/><path d=\"M22 2 11 13\"/></svg></a></div><dl class=\"ds-contact-details\"><div class=\"ds-contact-detail\"><dt>Availability</dt><dd>Open to collaborations</dd></div><div class=\"ds-contact-detail\"><dt>Based in</dt><dd>Sarawak, Malaysia</dd></div></dl></section>",
+      "css": ".ds-contact { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.6fr); gap: 48px; align-items: end; padding: clamp(32px, 5vw, 60px); border: 1px solid var(--line, #e2e8f0); border-radius: var(--radius-lg, 24px); background: radial-gradient(circle at 88% 10%, color-mix(in srgb, var(--ai, #7c3aed) 10%, transparent), transparent 48%), linear-gradient(135deg, var(--accent-soft, #eef4ff), var(--surface-2, #f1f4f9)); overflow: hidden; font-family: var(--font-sans, Inter, sans-serif); } .ds-contact-kicker { font-size: 13px; font-weight: 600; color: var(--accent-text, #1d4ed8); } .ds-contact-heading { margin: 14px 0 20px; max-width: 16ch; font-size: clamp(34px, 5.4vw, 62px); font-weight: 750; line-height: 1.04; letter-spacing: -0.04em; color: var(--text, #0b1220); } .ds-contact-heading em { font-style: normal; color: var(--accent, #2563eb); } .ds-contact-text { max-width: 56ch; color: var(--muted, #526071); font-size: 16px; line-height: 1.7; } .ds-contact-email { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 22px; padding-bottom: 4px; border-bottom: 1px solid var(--line-strong, #cbd5e1); font-size: clamp(19px, 2.4vw, 27px); font-weight: 650; letter-spacing: -0.02em; color: var(--text, #0b1220); text-decoration: none; transition: color 0.2s ease, border-color 0.2s ease; } .ds-contact-email:hover { color: var(--accent-text, #1d4ed8); border-color: var(--accent, #2563eb); } .ds-contact-email svg { width: 18px; height: 18px; transform: rotate(-45deg); transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); } .ds-contact-email:hover svg { transform: rotate(0deg); } .ds-contact-details { display: grid; gap: 10px; margin: 0; } .ds-contact-detail { display: grid; gap: 3px; padding: 14px 16px; border: 1px solid var(--line, #e2e8f0); border-radius: var(--radius-sm, 10px); background: color-mix(in srgb, var(--surface, #fff) 72%, transparent); } .ds-contact-detail dt { font-size: 11px; font-weight: 600; color: var(--muted, #526071); } .ds-contact-detail dd { margin: 0; font-size: 14.5px; font-weight: 500; color: var(--text-2, #1e293b); }"
+    },
+    {
+      "name": "Editor Input",
+      "kind": "input",
+      "refersTo": "input-console",
+      "description": "Operate-mode field: 38px tall, 2px corners, mono uppercase label, tonal background.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Project title</span><input class=\"ds-input\" type=\"text\" value=\"Kayam Tracking App\"></label>",
+      "css": ".ds-field { display: grid; gap: 6px; } .ds-field-label { font-family: var(--font-mono, monospace); font-size: 8px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted, #526071); } .ds-input { width: 100%; min-height: 38px; padding: 9px 11px; border: 1px solid var(--line, #e2e8f0); border-radius: 2px; background: var(--surface-2, #f1f4f9); color: var(--text, #0b1220); font-family: var(--font-sans, Inter, sans-serif); font-size: 13px; line-height: 1.5; transition: border-color 0.2s ease, background 0.2s ease; } .ds-input:hover { border-color: var(--line-strong, #cbd5e1); } .ds-input:focus { outline: none; border-color: var(--accent, #2563eb); background: var(--surface, #fff); } .ds-input:focus-visible { outline: 2px solid var(--accent, #2563eb); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Field Notebook",
+    "overview": "The site reads like a well-kept engineering notebook left open on a desk: cool paper, navy ink, one blue pen, and annotations in the margin. Every page is a dated record of work rather than a pitch. The hero lays the name out at poster scale over a faint blueprint grid; the build log runs down a ruled spine with sticky years; project cards are numbered plates with category-tinted fields. Nothing is illustrated for its own sake. The grid, the rule and the index number do the decorating. The voice of the interface matches the voice of the writing: plain, specific, quietly confident. Inter carries every headline and paragraph at editorial sizes, with negative tracking that makes large type feel drawn rather than set. JetBrains Mono appears only where a record-keeping device would put it: entry indices, counts, dates, category labels, small metadata. The result should feel precise and slightly technical without ever becoming a dashboard. Density is generous but not luxurious. Sections breathe at 72–120px, two-column splits are deliberately asymmetric, and prose is held to 46–68 characters per line. Depth comes from tonal panels and one-pixel hairlines; shadows are reserved for contact (hover), overlays and the sticky nav. Motion is a short lift, an arrow nudge, a marquee that pauses when read. The work is the evidence; the interface stays out of its way.",
+    "keyCharacteristics": [
+      "Cool paper and navy ink, with a single Signal Blue accent at roughly 10% of any screen.",
+      "Asymmetric editorial grids: 1.3/0.7 hero, 1.18/0.62 about, ruled three-track build log.",
+      "One-pixel hairlines and pale tonal panels instead of borders, cards-on-cards or heavy chrome.",
+      "Inter for reading, JetBrains Mono for annotation; no second display face.",
+      "Category colour (cyan, amber, violet) reserved for discipline coding, never for mood.",
+      "Flat at rest, lifted on contact; no decorative shadows."
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Signal Blue is the only colour allowed to mean \"do this\". Keep it under roughly 10% of any screen; its rarity is what makes it read as authorship.", "section": "colors" },
+      { "name": "The Discipline, Not Decoration Rule", "body": "Cyan, amber and violet encode project category. Never use them for generic emphasis, hover states, or section variety. The App category reuses Signal Blue.", "section": "colors" },
+      { "name": "The Paper-First Rule", "body": "Every colour decision must survive both themes with the same hierarchy. Never introduce a colour that only works on white or only on navy.", "section": "colors" },
+      { "name": "The One Family Rule", "body": "Inter sets every sentence and every headline. Do not introduce a serif, a geometric display face, or a second sans to create contrast; create it with weight, size and tracking.", "section": "typography" },
+      { "name": "The Tight Headline Rule", "body": "Anything at 34px or larger takes negative tracking between -0.025em and -0.06em. Body copy never takes negative tracking.", "section": "typography" },
+      { "name": "The Annotation Rule", "body": "Mono is a record-keeping device, not a style. If a string is not an index, count, date, category or technical tag, set it in Inter.", "section": "typography" },
+      { "name": "The Lift-On-Contact Rule", "body": "A surface may move only when the pointer or keyboard is on it. No card floats at rest, and no shadow is used to fill empty space.", "section": "elevation" },
+      { "name": "The Hairline First Rule", "body": "When two surfaces need separating, try a 1px line and a tonal step before a shadow. If a shadow is doing structural work, the layout is wrong.", "section": "elevation" },
+      { "name": "The Pills-Are-Labels Rule", "body": "Full-round shapes only mark a label or a filter. Primary buttons, cards and inputs are never pills.", "section": "shapes" },
+      { "name": "The Two-Radius Rule", "body": "A surface uses one radius, not nested radii. If a card is 16px, its cover and inner blocks clip to the card, they do not add their own.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do keep Signal Blue for action and authorship only, and hold it to roughly 10% of the viewport.",
+      "Do separate surfaces with a 1px Hairline and a tonal step before reaching for a shadow.",
+      "Do set indices, counts, dates and category labels in JetBrains Mono at 11px uppercase; 9–10px belongs only to inherited micro-meta.",
+      "Do give anything above 34px negative tracking (-0.025em to -0.06em) and leave body copy at 0.",
+      "Do use 16px for cards, 24px for large panels, 10px for small entries, and 999px only for labels.",
+      "Do keep the 2px accent focus ring with 3px offset visible in both themes.",
+      "Do let category colour live in dots, cover tints and ghost numerals, at low opacity.",
+      "Do preserve the reduced-motion fallback: no marquee, no reveal transform, no scroll animation."
+    ],
+    "donts": [
+      "Don't use cyan, amber or violet as generic accents; they are category codes.",
+      "Don't add resting shadows to cards, sections or panels.",
+      "Don't introduce a second typeface for display, quotes or \"personality\".",
+      "Don't set long labels or sentences in mono, or uppercase Inter paragraphs.",
+      "Don't make primary buttons or cards into pills.",
+      "Don't nest radii: a card clips its cover and inner blocks to its own 16px corner.",
+      "Don't stack cards inside cards or add decorative gradients outside cover plates and the ambient washes.",
+      "Don't invent metrics, logos or screenshots to fill a layout; an empty slot stays empty."
+    ]
+  }
+}

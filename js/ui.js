@@ -55,6 +55,9 @@
     sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
     moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>',
     play: '<path d="m7 4 13 8-13 8V4Z"/>',
+    pause: '<path d="M8 5v14M16 5v14"/>',
+    presentation: '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v5M8 21h8"/><path d="m10 8 4 2-4 2V8Z"/>',
+    table: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16M15 4v16"/>',
     download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>'
   };
 
@@ -102,40 +105,47 @@
     return String(number).padStart(2, "0");
   }
 
-  function coverMarkup(project, index) {
+  function coverImage(cover, project, className) {
+    return (
+      '<img class="' + className + '" src="' +
+      esc(String(cover.url).trim()) +
+      '" alt="' +
+      esc(cover.alt || project.title + " cover") +
+      '" width="1200" height="750" loading="lazy" decoding="async">'
+    );
+  }
+
+  /* Two cover treatments share one renderer.
+     "plate" mounts the uploaded artefact as a print on the notebook page, at a
+     fixed scale, so twelve mismatched files read as one person's record.
+     "banner" is the full-bleed case-study header and editor preview. */
+  function coverMarkup(project, index, variant) {
     var cat = category(project.category);
     var cover = project.cover || {};
     var iconName = cover.icon || cat.icon;
     var badge = '<span class="cover-category">' + esc(cat.label) + "</span>";
-    var fallback =
-      '<div class="cover-fallback">' +
-      '<div class="cover-icon">' + icon(iconName) + "</div>" +
-      '<span class="cover-index">' + pad(index) + "</span>" +
-      "</div>";
-    var style = ' style="--cat: var(--' + (CATEGORY[project.category] ? project.category : "app") + ')"';
     var imageUrl = cover.url ? String(cover.url).trim() : "";
     var hasImage = Boolean(imageUrl);
     var fit = cover.fit === "cover" ? "cover" : "contain";
-    var img = "";
-    if (hasImage) {
-      var mainImage =
-        '<img class="cover-img cover-img--main" src="' +
-        esc(imageUrl) +
-        '" alt="' +
-        esc(cover.alt || project.title + " cover") +
-        '" width="1200" height="750" loading="lazy" decoding="async">';
-      if (fit === "contain") {
-        img =
-          '<img class="cover-img cover-img--blur" src="' +
-          esc(imageUrl) +
-          '" alt="" aria-hidden="true" width="1200" height="750" loading="lazy" decoding="async">' +
-          mainImage;
-      } else {
-        img = mainImage;
-      }
+    var style = ' style="--cat: var(--' + (CATEGORY[project.category] ? project.category : "app") + ')"';
+
+    if (variant === "plate") {
+      var mount = hasImage
+        ? '<span class="cover-mount ' + (fit === "cover" ? "is-photo" : "is-mark") + '">' +
+          coverImage(cover, project, "cover-img cover-img--main") +
+          "</span>"
+        : '<span class="cover-mount is-glyph" aria-hidden="true">' + icon(iconName) + "</span>";
+      return '<div class="cover-art cover-art--plate"' + style + ">" + badge + mount + "</div>";
     }
+
+    var fallback =
+      '<div class="cover-fallback">' +
+      '<div class="cover-icon">' + icon(iconName) + "</div>" +
+      "</div>";
+    var indexMarkup = '<span class="cover-index" aria-hidden="true">' + pad(index) + "</span>";
     var classes = "cover-art" + (hasImage ? " has-image fit-" + fit : "");
-    return '<div class="' + classes + '"' + style + ">" + badge + fallback + img + "</div>";
+    var img = hasImage ? coverImage(cover, project, "cover-img cover-img--main") : "";
+    return '<div class="' + classes + '"' + style + ">" + badge + fallback + indexMarkup + img + "</div>";
   }
 
   function initials(name) {
