@@ -15,6 +15,7 @@
   --text-2: #1e293b;
   --muted: #526071;
   --muted-2: #7b8798;
+  --paper: #ffffff;
   --line: #e2e8f0;
   --line-strong: #cbd5e1;
   --accent: #2563eb;
@@ -60,6 +61,7 @@
   --text-2: #e2e8f0;
   --muted: #a9b4c7;
   --muted-2: #8090a8;
+  --paper: #ffffff;
   --line: #24324d;
   --line-strong: #384a6e;
   --accent: #60a5fa;
@@ -483,7 +485,6 @@ body.menu-open {
   letter-spacing: -0.02em;
   color: var(--on-accent);
   background-color: var(--accent);
-  background-image: linear-gradient(135deg, var(--accent), var(--ai));
   box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 24%, transparent);
   flex: none;
 }
@@ -948,7 +949,7 @@ body.menu-open {
   animation-play-state: paused;
 }
 
-.marquee:not(.is-paused):not(.is-playing):hover .marquee-track {
+.marquee:not(.is-paused):hover:not(:has(.marquee-toggle:hover)) .marquee-track {
   animation-play-state: paused;
 }
 
@@ -1500,7 +1501,7 @@ body.menu-open {
   overflow: hidden;
   border: 1px solid var(--line-strong);
   border-radius: 10px;
-  background: #ffffff;
+  background: var(--paper);
   box-shadow: var(--shadow-md);
 }
 
@@ -1514,7 +1515,7 @@ body.menu-open {
 }
 
 .cover-mount.is-glyph {
-  background: #ffffff;
+  background: var(--paper);
   color: var(--cat, var(--app));
 }
 
@@ -2070,16 +2071,18 @@ body.menu-open {
 
 .contact-details {
   display: grid;
-  gap: 10px;
 }
 
 .contact-detail {
   display: grid;
   gap: 3px;
-  padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  padding: 13px 0 12px;
+  border-top: 1px solid var(--line);
+}
+
+.contact-detail:first-child {
+  padding-top: 0;
+  border-top: 0;
 }
 
 .contact-detail dt {
@@ -3091,14 +3094,27 @@ body.menu-open {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
   .js .reveal {
     opacity: 1;
     transform: none;
+    transition: none;
   }
-  .scroll-cue svg {
-    animation: none;
+  .mobile-menu {
+    transition: none;
+  }
+  .project-card,
+  .project-card *,
+  .btn,
+  .btn *,
+  .tl-entry,
+  .tl-entry *,
+  .case-next-link,
+  .case-next-link *,
+  .contact-social,
+  .theme-toggle,
+  .marquee-toggle {
+    transform: none !important;
   }
 }

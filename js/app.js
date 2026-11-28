@@ -363,7 +363,6 @@
 
     function setPaused(paused) {
       marquee.classList.toggle("is-paused", paused);
-      marquee.classList.toggle("is-playing", !paused);
       toggle.setAttribute("aria-pressed", String(paused));
       toggle.setAttribute("aria-label", paused ? "Play scrolling tools" : "Pause scrolling tools");
       toggle.innerHTML = icon(paused ? "play" : "pause");

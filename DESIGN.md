@@ -238,6 +238,7 @@ A cool, high-contrast paper palette: white and misted blue-greys under navy ink,
 
 ### Neutral
 - **Paper** (#ffffff): The page and card ground in light theme.
+- **Print Paper** (`--paper`, #ffffff): The white sheet under mounted cover artefacts. Stays white in dark mode by design - a mounted print on the night desk - and is the only surface token that does not invert.
 - **Cool Paper** (#f6f8fb): The footer band and the scrollbar track.
 - **Panel Mist** (#f1f4f9): Resting tonal panel. The tools marquee band, skill-tag fill, nav-link hover and the case-study meta strip.
 - **Panel Deep** (#e8eef7): The deeper tonal step in portrait and cover gradients.
@@ -273,6 +274,7 @@ The dark theme is the same notebook after dark, not a second identity. Paper bec
 - **Body** (400, 16.5px, 1.65): Default reading size. Long-form case prose steps to 1.75–1.78 with a 64–68ch measure; card summaries sit at 15px/1.65 and 54ch.
 - **Label** (600, 11–13px, 0.01em): Kickers, buttons, tags and metadata keys. Uppercase is reserved for the mono micro-label, not Inter labels.
 - **Mono** (400-500, 11px, 0.06-0.08em, uppercase): Entry indices, counts, years, category names and timestamps. JetBrains Mono never appears above label scale in the public site. The public site holds the 11px floor; the admin console keeps its own 8-9px sub-dialect.
+- **Off-ramp exceptions, recorded.** A few sizes sit between steps on purpose: 14px dense values inside the contact and case metadata, 15px card summaries, 17.5px and 19px as the hero-intro clamp endpoints, and 26px as a mid-step of the contact headline clamp. Focus rings use a 4px corner radius and the inline-code chip 5px - both are interaction affordances outside the component radius scale. These are recorded here so the detector treats them as the ramp, not drift.
 
 ### Named Rules
 **The One Family Rule.** Inter sets every sentence and every headline. Do not introduce a serif, a geometric display face, or a second sans to create contrast; create it with weight, size and tracking.
@@ -285,7 +287,7 @@ The dark theme is the same notebook after dark, not a second identity. Paper bec
 
 The page is an editorial column, not a dashboard. A single `.container` caps at **1180px** with a fluid gutter of `clamp(20px, 4vw, 44px)`; sections use `clamp(72px, 9vw, 120px)` of vertical padding. The nav is fixed at **72px** (64px under 620px), and every section carries a scroll offset of nav height plus 16px.
 
-Sections run in a fixed order: hero → tools marquee → about → Work → build log → contact. The tools marquee is a hairline-bounded band of tool names separated by blue bullets, with a 44px pause/play toggle pinned at its right edge; the track pauses on hover until the button is first used, and from then on the marquee carries explicit `is-paused` / `is-playing` states.
+Sections run in a fixed order: hero → tools marquee → about → Work → build log → contact. The tools marquee is a hairline-bounded band of tool names separated by blue bullets, with a 44px pause/play toggle pinned at its right edge. The toggle is the authority: pressing pause sets `is-paused` and keeps the band still, pressing play resumes it. Hovering the band pauses it for reading — always, at any time — except while the pointer is on the toggle itself, so an explicit play is never cancelled by the cursor that clicked it.
 
 Layout is built from two-column asymmetric splits. The hero is `1.3fr / 0.7fr` ending on the baseline, with the portrait right-aligned at a 380px cap. Section headers are `1fr / 0.72fr`, headline left and supporting paragraph right. The about block is `1.18fr / 0.62fr`; the portrait plaque intentionally overhangs the frame by 24px. Work renders all twelve projects as cards on a three-column 20px grid: the featured card spans all columns and splits internally `1.05fr / 0.95fr` into cover and body, and the grid steps to two columns between 621px and 1080px and to one column at 620px and under, the featured card staying full-width at every step. There is no filter bar. The build log beneath it is the complete index of every project.
 
@@ -396,3 +398,6 @@ Operate-mode counterpart: same palette, fixed 72px topbar and 264px sidebar, but
 - **Don't** nest radii: a card clips its cover and inner blocks to its own 16px corner.
 - **Don't** stack cards inside cards or add decorative gradients outside cover plates and the ambient washes.
 - **Don't** invent metrics, logos or screenshots to fill a layout; an empty slot stays empty.
+
+### Assets
+The repository carries only files that are referenced: everything under `assets/` plus `favicon.svg`. Source photographs, unedited video and working files live outside the repo; the original portrait and project videos were removed in the November 28 cleanup once the optimised copies in `assets/images/` became the only referenced versions. New uploads arrive through the admin editor and land in `assets/uploads/`.

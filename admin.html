@@ -11,16 +11,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/admin.css?v=37">
+  <link rel="stylesheet" href="css/admin.css?v=38">
   <script>
     (function () {
       document.documentElement.classList.add('js');
+      var theme = null;
       try {
-        var theme = localStorage.getItem('theme');
-        document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
-      } catch (err) {
-        document.documentElement.setAttribute('data-theme', 'light');
+        theme = localStorage.getItem('theme');
+      } catch (err) { /* storage unavailable */ }
+      if (theme !== 'dark' && theme !== 'light') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       }
+      document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
 </head>
@@ -177,8 +179,8 @@
   <div id="modalRoot"></div>
   <input type="file" id="importFile" accept="application/json" hidden>
 
-  <script src="js/ui.js?v=37"></script>
-  <script src="js/admin-config.js?v=37"></script>
-  <script src="js/admin.js?v=37"></script>
+  <script src="js/ui.js?v=38"></script>
+  <script src="js/admin-config.js?v=38"></script>
+  <script src="js/admin.js?v=38"></script>
 </body>
 </html>
