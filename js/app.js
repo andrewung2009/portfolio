@@ -478,6 +478,9 @@
         '<div class="project-meta"><span>' + esc(project.year) + '</span><span class="divider"></span><span>' + esc(project.context || category(project.category).label) + "</span></div>" +
         '<h3 class="project-title">' + esc(project.title) + "</h3>" +
         '<p class="project-summary">' + esc(project.summary) + "</p>" +
+        (project.featured
+          ? '<p class="project-context">' + esc(project.year) + " · " + esc(project.context || category(project.category).label) + "</p>"
+          : "") +
         '<span class="project-foot">' +
         '<span class="project-cta">Read the case study</span>' +
         '<span class="project-arrow" aria-hidden="true">' + icon("arrowUpRight") + "</span>" +

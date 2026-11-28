@@ -1545,11 +1545,75 @@ body.menu-open {
   height: 34px;
 }
 
+/* Featured plate: tighten the padding and let the mounted artefact carry
+   the cover, so the page's biggest visual shows the work, not the field. */
+.projects-grid:not(.is-filtered) .project-card.is-featured .cover-art--plate {
+  padding: 20px;
+}
+
 .projects-grid:not(.is-filtered) .project-card.is-featured .cover-mount {
-  width: min(52%, 300px);
+  width: min(64%, 420px);
+}
+
+/* Compact record annotation in the featured body: the same year and context
+   the small cards show in meta, set as a margin note above the foot. Shown
+   only in the split featured layout, where the body has spare space. */
+.project-context {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 860px) {
+  .project-context {
+    display: none;
+  }
+}
+
+.projects-grid.is-filtered .project-context {
+  display: none;
 }
 
 .projects-grid:not(.is-filtered) .project-card.is-featured .project-foot {
+  margin-top: 28px;
+}
+
+/* The grid's last card fills the final row's hole as a deliberate wide
+   entry: cover mounted on the left, body on the right. Scoped to the
+   unfiltered three-column grid so filtered views never shift it. */
+.projects-grid:not(.is-filtered) .project-card:last-child {
+  grid-column: span 2;
+}
+
+.projects-grid:not(.is-filtered) .project-card:last-child .project-link {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.projects-grid:not(.is-filtered) .project-card:last-child .project-cover {
+  aspect-ratio: auto;
+  min-height: 260px;
+  border-bottom: 0;
+  border-right: 1px solid var(--line);
+}
+
+.projects-grid:not(.is-filtered) .project-card:last-child .cover-art {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+}
+
+.projects-grid:not(.is-filtered) .project-card:last-child .project-body {
+  justify-content: center;
+}
+
+.projects-grid:not(.is-filtered) .project-card:last-child .project-foot {
   margin-top: 28px;
 }
 
@@ -2879,6 +2943,25 @@ body.menu-open {
   :root {
     --nav-h: 64px;
     --gutter: 18px;
+  }
+  /* Single column: the last card returns to a normal stacked card. */
+  .projects-grid:not(.is-filtered) .project-card:last-child {
+    grid-column: auto;
+  }
+  .projects-grid:not(.is-filtered) .project-card:last-child .project-link {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  .projects-grid:not(.is-filtered) .project-card:last-child .project-cover {
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+    border-bottom: 1px solid var(--line);
+    border-right: 0;
+  }
+  .projects-grid:not(.is-filtered) .project-card:last-child .cover-art {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 16 / 10;
   }
   body {
     font-size: 16px;
